@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- EDIT HERE: Your Name - Title -->
+    <title>Lim Sean Shen - Data Science & AI Portfolio</title>
+    <!-- NEW: Link Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- NEW: Link Google Fonts (Example: Lato & Merriweather) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            /* NEW: Refined Color Palette */
+            --primary-color: #2c5d8e; /* Slightly softer blue */
+            --secondary-color: #f8f9fa; /* Lighter gray for backgrounds */
+            --accent-color: #e74c3c; /* Optional accent for buttons/highlights */
+            --text-color: #343a40;
+            --light-text: #6c757d;
+            --border-color: #dee2e6;
+            --white: #fff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 10px rgba(0,0,0,0.1);
+
+            /* NEW: Updated Fonts */
+            --heading-font: 'Lato', sans-serif;
+            --body-font: 'Merriweather', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+             /* NEW: Adjust base font size for better scaling */
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.8; /* Increased line height for readability */
+            color: var(--text-color);
+            background-color: var(--white);
+            /* NEW: Add padding top to prevent content hiding behind fixed nav */
+            padding-top: 70px; /* Adjust based on nav height */
+        }
+
+        .container {
+            max-width: 960px; /* Slightly narrower for blog feel */
+            margin: 0 auto;
+            padding: 0 15px; /* Reduced padding */
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            margin-bottom: 0.75em;
+            color: var(--primary-color);
+            line-height: 1.4;
+            font-weight: 700; /* Bolder headings */
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text-color); text-align: center; }
+        h2 {
+            font-size: 2rem;
+            text-align: center; /* Center section titles */
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            position: relative;
+            /* NEW: Underline effect */
+        }
+         h2::after {
+             content: '';
+             display: block;
+             width: 60px;
+             height: 3px;
+             background-color: var(--primary-color);
+             position: absolute;
+             bottom: 0;
+             left: 50%;
+             transform: translateX(-50%);
+         }
+        h3 { font-size: 1.5rem; color: #495057; }
+
+        p {
+            margin-bottom: 1.25rem; /* More space between paragraphs */
+            color: var(--light-text);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #1d3c5b; /* Darker shade on hover */
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+             margin-bottom: 0.5rem;
+        }
+
+        /* --- NEW: Navigation Bar --- */
+        .navbar {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+            position: fixed; /* Fixed position */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure it's above other content */
+            height: 70px; /* Match body padding-top */
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between; /* Space out logo and links */
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+         .navbar .logo:hover {
+             text-decoration: none;
+             color: #1d3c5b;
+         }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            font-family: var(--heading-font);
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { /* Style for active link (requires JS or manual addition) */
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            /* NEW: Less padding, simpler background */
+            background-color: var(--white); /* Changed from gray */
+            padding: 50px 0; /* Adjusted padding */
+            text-align: center;
+        }
+
+        /* **** CHANGED HERE **** */
+        .hero img.profile-pic {
+            display: block;
+            /* Slightly larger size for rectangular look */
+            max-width: 180px;
+            height: auto;
+            /* CHANGED: From 50% (circle) to rounded rectangle */
+            border-radius: 8px; /* Adjust 8px for more/less rounding */
+            margin: 0 auto 25px auto; /* Centered, adjusted bottom margin */
+            /* CHANGED: Removed the explicit white border */
+            border: none;
+            /* Keep a subtle shadow for definition */
+            box-shadow: var(--shadow-md); /* e.g., 0 4px 10px rgba(0,0,0,0.1) */
+            object-fit: cover; /* Ensures image covers the area well */
+        }
+        /* **** END OF CHANGE **** */
+
+
+         /* H1 already styled globally */
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            font-family: var(--heading-font);
+            font-weight: 400; /* Lighter weight */
+        }
+
+        /* Remove summary styling, integrate into 'About' */
+
+        .cta-buttons a, .button-style {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white) !important; /* Ensure override */
+            padding: 10px 20px; /* Slightly smaller */
+            border-radius: 25px; /* Pill shape */
+            margin: 5px 8px;
+            font-family: var(--heading-font);
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+             text-decoration: none !important; /* Remove underline */
+        }
+
+        .cta-buttons a:hover, .button-style:hover {
+            background-color: #1d3c5b;
+            color: var(--white) !important;
+            transform: translateY(-2px);
+             text-decoration: none !important;
+        }
+        /* NEW: Secondary button style */
+         .cta-buttons a.secondary, .button-style.secondary {
+             background-color: transparent;
+             border: 2px solid var(--primary-color);
+             color: var(--primary-color) !important;
+         }
+         .cta-buttons a.secondary:hover, .button-style.secondary:hover {
+             background-color: var(--primary-color);
+             color: var(--white) !important;
+         }
+
+
+        /* --- Section Styling --- */
+        section {
+            padding: 50px 0; /* Consistent padding */
+        }
+        section:nth-of-type(even) {
+             background-color: var(--secondary-color); /* Alternate background */
+        }
+
+
+        /* --- NEW: About Me Section --- */
+        #about {
+            text-align: center; /* Center content */
+        }
+        #about .container {
+             max-width: 750px; /* Narrower container for text */
+        }
+         #about h2 {
+             margin-bottom: 1rem; /* Less space after title */
+         }
+         #about p {
+            font-size: 1.1rem; /* Slightly larger text */
+            color: var(--text-color); /* Darker text for main bio */
+            margin-bottom: 1.5rem;
+         }
+
+
+        /* --- Skills Section --- */
+        #skills ul {
+            /* NEW: Grid layout for skills */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 2rem; /* Space after title */
+        }
+
+        #skills li {
+            /* NEW: Simpler skill item styling */
+            background: none; /* Remove background */
+            padding: 0; /* Remove padding */
+            box-shadow: none; /* Remove shadow */
+            margin-bottom: 15px; /* Keep some bottom margin */
+            text-align: left; /* Align text left */
+        }
+
+         #skills li h3 {
+             margin-bottom: 0.5rem;
+             font-size: 1.2rem; /* Slightly smaller H3 */
+             color: var(--primary-color);
+             border-bottom: none; /* Remove border */
+             padding-bottom: 0;
+             display: flex; /* Align icon and text */
+             align-items: center;
+         }
+        /* NEW: Add icons to skills */
+         #skills li h3 i {
+             margin-right: 10px;
+             font-size: 1.1em; /* Icon size relative to h3 */
+             width: 25px; /* Fixed width for alignment */
+             text-align: center;
+         }
+
+        #skills li p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--light-text);
+            padding-left: 35px; /* Indent text under icon */
+        }
+
+        /* --- Projects Section --- */
+        .project-grid {
+            /* NEW: Grid layout for projects */
+            display: grid;
+            grid-template-columns: 1fr; /* Single column by default */
+            gap: 30px;
+             margin-top: 2rem;
+        }
+         /* NEW: Two columns on wider screens */
+        @media (min-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        .project-card {
+            /* NEW: Refined card style */
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-card:hover {
+             box-shadow: var(--shadow-md);
+             transform: translateY(-5px); /* Lift effect */
+        }
+
+        .project-card h3 { margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .project-card p { font-size: 0.95rem; margin-bottom: 1rem; }
+        .project-card .technologies { font-size: 0.85rem; color: var(--light-text); margin-top: 1rem; font-style: italic; }
+        .project-card .project-links { margin-top: 1.5rem; } /* More space before links */
+        .project-card .project-links a {
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            font-family: var(--heading-font);
+        }
+         .project-card .project-links a i { margin-right: 5px; } /* Space for icons */
+
+        /* Streamlit note style unchanged, looks fine */
+        .streamlit-note {
+            display: block; font-size: 0.8em; color: var(--light-text);
+            opacity: 0.75; margin-top: 8px; font-style: italic;
+        }
+
+        /* --- Education Section --- */
+        .education-timeline {
+            position: relative;
+            max-width: 700px; /* Center the timeline */
+            margin: 2rem auto 0 auto;
+        }
+        /* NEW: Timeline vertical line */
+         .education-timeline::before {
+             content: '';
+             position: absolute;
+             left: 10px; /* Adjust based on icon size */
+             top: 0;
+             bottom: 0;
+             width: 3px;
+             background-color: var(--primary-color);
+             opacity: 0.3;
+         }
+
+        .education-item {
+            margin-bottom: 30px;
+            padding-left: 40px; /* Space for icon and line */
+            position: relative;
+            border-left: none; /* Remove old border */
+        }
+         /* NEW: Timeline icon */
+         .education-item::before {
+             content: '\f19d'; /* Font Awesome graduation cap icon */
+             font-family: 'Font Awesome 6 Free';
+             font-weight: 900;
+             position: absolute;
+             left: -2px; /* Position over the line */
+             top: 0px;
+             font-size: 1.4rem;
+             color: var(--primary-color);
+             background-color: var(--white); /* Match background */
+             padding: 0 2px; /* Cut through line */
+             border-radius: 50%; /* If needed */
+         }
+         /* If section has alternate background */
+         #education .education-item::before {
+              background-color: var(--secondary-color);
+         }
+
+
+        .education-item h3 { margin-bottom: 0.2rem; font-size: 1.25rem; }
+        .education-item .degree { font-weight: bold; font-size: 1.05rem; color: var(--text-color); }
+        .education-item .details,
+        .education-item .achievements { font-size: 0.9rem; color: var(--light-text); margin-top: 5px; }
+        .education-item .achievements { font-style: italic; }
+
+
+        /* --- Language Skills Section --- */
+        #languages ul {
+            padding-top: 1rem;
+            text-align: center; /* Center the tags */
+        }
+        #languages li {
+            /* NEW: Updated tag style */
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 8px 18px;
+            margin: 5px;
+            border-radius: 20px; /* More rounded */
+            font-size: 0.9rem;
+            font-family: var(--heading-font);
+            font-weight: 700;
+            line-height: 1.4;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+         #languages li strong { color: var(--primary-color); font-weight: 700; }
+
+        /* --- NEW: Blog/Insights Section (Placeholder) --- */
+        #blog .blog-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+             gap: 30px;
+             margin-top: 2rem;
+        }
+        .blog-post-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            overflow: hidden; /* Hide overflowing image */
+        }
+         .blog-post-card:hover {
+             box-shadow: var(--shadow-md);
+             transform: translateY(-5px);
+         }
+        .blog-post-card img.featured-image { /* Placeholder for image */
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+             background-color: #eee; /* Placeholder color */
+            display: block;
+        }
+         .blog-post-content {
+             padding: 20px;
+         }
+         .blog-post-content h3 {
+             font-size: 1.2rem; margin-bottom: 0.5rem;
+         }
+         .blog-post-content p {
+             font-size: 0.9rem; margin-bottom: 1rem;
+         }
+        .blog-post-content .read-more {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+         .blog-post-content .post-meta {
+             font-size: 0.8rem; color: var(--light-text); font-style: italic;
+             margin-bottom: 0.5rem;
+         }
+
+
+        /* --- Contact Section --- */
+        #contact {
+            text-align: center; /* Center contact info */
+        }
+        #contact ul {
+            list-style: none; padding: 0; margin-top: 1.5rem;
+            display: inline-block; /* Center list block */
+            text-align: left; /* Align text within list */
+        }
+        #contact li {
+            margin-bottom: 12px;
+            font-size: 1.05rem; /* Slightly larger */
+            color: var(--light-text);
+        }
+        #contact i {
+            margin-right: 12px; /* More space for icon */
+            color: var(--primary-color);
+            width: 20px; /* Align icons */
+            text-align: center;
+        }
+         #contact a {
+             color: var(--primary-color); /* Ensure links are colored */
+             font-weight: bold; /* Make links stand out */
+         }
+         #contact a:hover {
+             text-decoration: underline;
+         }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center; margin-top: 50px; padding: 30px 0;
+            background-color: var(--text-color); color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+        footer p { margin-bottom: 0; color: var(--secondary-color); } /* Ensure footer text color */
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            html { font-size: 15px; } /* Adjust base size */
+            body { padding-top: 60px; } /* Adjust for potentially smaller nav */
+            .navbar { height: 60px; padding: 10px 0; }
+            .navbar .container { flex-direction: column; } /* Stack logo and links */
+            .nav-links { margin-top: 10px; }
+            .nav-links li { margin: 0 10px; } /* Reduce spacing */
+
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            .hero { padding: 30px 0; }
+            .hero img.profile-pic { max-width: 120px; }
+
+            #skills ul { grid-template-columns: 1fr; } /* Stack skills */
+            #skills li p { padding-left: 0; text-align: center; } /* Center text on mobile */
+             #skills li h3 { justify-content: center; } /* Center icon+title */
+
+            .project-grid { grid-template-columns: 1fr; } /* Ensure single column */
+
+            .education-timeline { max-width: 100%; margin: 1.5rem 0 0 0;}
+            .education-item { padding-left: 35px; }
+            .education-item::before { left: -3px; }
+
+            #languages li { padding: 6px 12px; font-size: 0.85rem; }
+             #blog .blog-grid { grid-template-columns: 1fr; }
+        }
+         /* NEW: Hide desktop nav links, show hamburger (requires JS) */
+        @media (max-width: 768px) {
+             .nav-links { display: none; /* Hide links by default */ }
+             /* Add styles for a hamburger menu icon and its functionality here */
+             /* Example: .menu-toggle { display: block; } */
+             /* Example: .nav-links.active { display: flex; flex-direction: column; ... } */
+             /* Note: Full hamburger menu requires JavaScript */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NEW: Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- EDIT HERE: Your Name or Initials -->
+            <a href="#" class="logo">LIM SEAN SHEN</a>
+            <!-- Add hamburger menu toggle button here if implementing JS -->
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                 <!-- NEW: Link to Blog section -->
+                <li><a href="#blog">Insights</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Simplified) -->
+    <header class="hero" id="home"> <!-- Added id for potential nav link -->
+        <div class="container">
+            <!-- Profile Pic -->
+            <img src="profile.jpg" alt="Lim Sean Shen Profile Picture" class="profile-pic">
+            <!-- Name -->
+            <!-- EDIT HERE: Your Name -->
+            <h1>Lim Sean Shen</h1>
+            <!-- Tagline -->
+            <!-- EDIT HERE: Your Tagline -->
+            <p class="tagline">Data Scientist | Data Analyst | AI Engineer Intern</p>
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+                <!-- EDIT HERE: Make sure PDF filename is correct -->
+                <a href="Resume_LimSeanShen.pdf" target="_blank" class="button-style">View Resume</a>
+                <a href="#projects" class="button-style secondary">View Projects</a>
+                <!-- Optional: Add link to LinkedIn -->
+                <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" class="button-style secondary">LinkedIn <i class="fab fa-linkedin"></i></a>
+
+            </div>
+        </div>
+    </header>
+
+    <main> <!-- Removed container class from main, sections handle it -->
+
+        <!-- NEW: About Me Section -->
+        <section id="about">
+             <div class="container">
+                 <h2>About Me</h2>
+                 <!-- EDIT HERE: Expand on your summary, make it more narrative -->
+                 <p>
+                     Hello! I'm Sean Shen, an aspiring Data Scientist currently pursuing my Bachelor's degree at TARUMT. With a strong foundation in machine learning, data analysis, and cloud technologies (AWS), I'm passionate about uncovering insights from data and building intelligent solutions.
+                 </p>
+                 <p>
+                     My academic journey, highlighted by placements on the Dean's and President's Lists, has equipped me with skills in Python, SQL, and various AI frameworks. I'm particularly interested in the practical application of Agentic AI and NLP. I thrive in collaborative environments and am eager to apply my analytical skills to tackle real-world challenges and contribute meaningfully during an internship.
+                 </p>
+             </div>
+        </section>
+
+
+        <!-- Technical Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <ul>
+                    <!-- NEW: Added Font Awesome icons -->
+                    <li>
+                        <h3><i class="fas fa-code"></i>Programming Languages</h3>
+                        <p>Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch), SQL (Oracle)</p>
+                    </li>
+                    <li>
+                        <h3><i class="fas fa-chart-pie"></i>Data Analysis & Visualization</h3>
+                        <p>SQL Queries, Exploratory Data Analysis (EDA), Matplotlib, Seaborn, Streamlit</p>
+                    </li>
+                    <li>
+                        <h3><i class="fas fa-brain"></i>Machine Learning & AI</h3>
+                        <p>Regression, Classification, NLP, Deep Learning, Time Series Analysis, Agentic AI Concepts (Gemini)</p>
+                    </li>
+                     <li>
+                        <h3><i class="fas fa-cloud"></i>Big Data & Cloud</h3>
+                        <p>AWS (S3, EC2, Lambda), Apache Spark, Hadoop Concepts</p>
+                    </li>
+                     <li>
+                        <h3><i class="fas fa-tools"></i>Version Control & Tools</h3>
+                        <p>Git, GitHub, Jupyter Notebook, VS Code, Google Colab</p>
+                    </li>
+                     <li>
+                        <h3><i class="fas fa-file-alt"></i>Productivity Tools</h3>
+                        <p>Microsoft Office Suite (Word, Excel, PowerPoint), Canva</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <!-- NEW: Grid wrapper for projects -->
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Final Year Project – Campaign Management Optimization</h3>
+                        <p>
+                            Designed and developed an Agentic AI system using Gemini and Streamlit to optimize customer flow across marketing campaigns. Automates data analysis and provides customized strategies for industrial application.
+                        </p>
+                        <p class="technologies">
+                            <strong>Technologies:</strong> Python, ML, GenAI (Gemini), Streamlit, Pandas
+                        </p>
+                        <div class="project-links">
+                            <!-- NEW: Added Icons -->
+                            <a href="https://ai-campaign-management.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                         <small class="streamlit-note">(Note: The app sleeps when inactive. Activation may be needed.)</small>
+                    </div>
+
+                    <!-- ADD MORE PROJECT CARDS HERE following the same structure -->
+                    <!--
+                    <div class="project-card">
+                        <h3>Another Project Title</h3>
+                        <p>
+                            Brief description of another project...
+                        </p>
+                        <p class="technologies">
+                            <strong>Technologies:</strong> Tech 1, Tech 2, Tech 3
+                        </p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                     -->
+                 </div>
+            </div>
+        </section>
+
+        <!-- NEW: Blog/Insights Section (Placeholder) -->
+        <section id="blog">
+            <div class="container">
+                <h2>Insights & Articles</h2>
+                 <p style="text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">Thoughts on data science, AI trends, and project learnings. (Placeholder - add your blog posts here!)</p>
+
+                <div class="blog-grid">
+                    <!-- Example Blog Post Card 1 -->
+                    <div class="blog-post-card">
+                         <!-- Add featured image: <img src="blog-image1.jpg" alt="Blog Post 1" class="featured-image"> -->
+                         <div class="featured-image" style="background-color: #e0e0e0;"></div> <!-- Placeholder div -->
+                        <div class="blog-post-content">
+                            <p class="post-meta">Data Science | Oct 26, 2023</p>
+                            <h3>Exploring the Power of Agentic AI</h3>
+                            <p>A quick dive into how agent-based AI systems are changing problem-solving approaches...</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+
+                     <!-- Example Blog Post Card 2 -->
+                     <div class="blog-post-card">
+                         <div class="featured-image" style="background-color: #e0e0e0;"></div>
+                        <div class="blog-post-content">
+                             <p class="post-meta">Visualization | Sep 15, 2023</p>
+                            <h3>Tips for Effective Data Storytelling</h3>
+                            <p>Beyond just charts: how to communicate insights effectively using visualization techniques...</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+
+                     <!-- Example Blog Post Card 3 -->
+                     <div class="blog-post-card">
+                         <div class="featured-image" style="background-color: #e0e0e0;"></div>
+                        <div class="blog-post-content">
+                            <p class="post-meta">Cloud | Aug 01, 2023</p>
+                            <h3>Getting Started with AWS for Data Science</h3>
+                            <p>My initial experiences and key AWS services useful for data science workflows...</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <!-- NEW: Timeline Wrapper -->
+                <div class="education-timeline">
+                    <div class="education-item">
+                        <h3>Tunku Abdul Rahman University of Management and Technology (TARUMT)</h3>
+                         <p class="degree">Bachelor in Data Science (Honours)</p>
+                        <p class="details">Kuala Lumpur | Nov 2022 – Present (Expected: Jan 2026)</p>
+                        <p class="details">Current CGPA: 3.6197</p>
+                        <p class="details"><strong>Relevant Courses:</strong> Machine Learning, Database Management, Data Warehouse, Artificial Intelligence, Statistics in Data Science</p>
+                        <p class="achievements"><strong>Achievements:</strong> Dean's List (Y1S3), President's List (Y1S2)</p>
+                    </div>
+                    <!-- Add previous education items here if needed -->
+                </div>
+            </div>
+        </section>
+
+         <!-- Language Skills Section -->
+        <section id="languages">
+            <div class="container">
+                <h2>Language Skills</h2>
+                 <ul>
+                    <li><strong>English:</strong> Fluent</li>
+                    <li><strong>Chinese:</strong> Fluent</li>
+                    <li><strong>Malay:</strong> Fluent</li>
+                    <li><strong>Cantonese:</strong> Conversational</li>
+                    <li><strong>Hokkien:</strong> Conversational</li>
+                 </ul>
+             </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Interested in discussing internship opportunities, projects, or just want to connect? Feel free to reach out!</p>
+                <ul>
+                    <!-- NEW: Added Icons -->
+                    <li><i class="fas fa-envelope"></i>Email (Personal): <a href="mailto:sslim1684@gmail.com">sslim1684@gmail.com</a></li>
+                    <li><i class="fas fa-school"></i>Email (School): <a href="mailto:limss-wp21@student.tarc.edu.my">limss-wp21@student.tarc.edu.my</a></li>
+                    <li><i class="fab fa-linkedin"></i>LinkedIn: <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank">Lim Sean Shen</a></li>
+                    <li><i class="fab fa-github"></i>GitHub (Personal): <a href="https://github.com/GiDerAce6969" target="_blank">GiDerAce6969</a></li>
+                    <li><i class="fab fa-github-alt"></i>GitHub (School): <a href="https://github.com/LimSeanShen6969" target="_blank">LimSeanShen6969</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- EDIT HERE: Update year if needed -->
+            <p>© 2024 Lim Sean Shen. All rights reserved.</p>
+            <!-- Optional: Add social links -->
+            <!--
+            <p>
+                <a href="[Your LinkedIn]" target="_blank" style="color: var(--secondary-color); margin: 0 10px;"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="[Your GitHub]" target="_blank" style="color: var(--secondary-color); margin: 0 10px;"><i class="fab fa-github fa-lg"></i></a>
+            </p>
+            -->
+        </div>
+    </footer>
+
+    <!-- Optional: Add JavaScript for smooth scrolling or active nav state -->
+    <!-- <script> /* JS code here */ </script> -->
+
+</body>
+</html>
