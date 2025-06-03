@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Professional Portfolio</title>
-    <link rel="icon" href="profile.jpg" type="image/jpeg"> <!-- Assuming profile.jpg is your favicon -->
+    <title>Lim Sean Shen - Data Science & AI Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Professional Font Pairing: Lato for headings, Merriweather for body -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg-main: #ffffff;
-            --bg-alt: #f8f9fa;
-            --text-primary: #212529;
-            --text-secondary: #6c757d;
-            --border-color: #dee2e6;
-            --heading-color: #343a40;
-            --accent-color: #007bff;
-            --hover-accent-color: #0056b3;
+            --bg-alt: #f8f9fa; /* Very light gray for subtle section differentiation */
+            --text-primary: #212529; /* Dark gray, not pure black for softer feel */
+            --text-secondary: #6c757d; /* Medium gray for supporting text */
+            --border-color: #dee2e6; /* Light gray for borders */
+            --heading-color: #343a40; /* Strong dark gray for headings */
+
             --font-heading: 'Lato', sans-serif;
             --font-body: 'Merriweather', serif;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.075);
-            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         * {
@@ -42,12 +38,12 @@
             font-family: var(--font-body);
             background-color: var(--bg-main);
             color: var(--text-primary);
-            line-height: 1.8;
+            line-height: 1.8; /* Increased for readability */
             padding-top: 70px; /* For fixed navbar */
         }
 
         .container {
-            max-width: 960px;
+            max-width: 960px; /* Classic content width */
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -60,46 +56,23 @@
             line-height: 1.3;
         }
 
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.4em;
-        }
-
+        h1 { font-size: 2.8rem; margin-bottom: 0.4em; text-align: center;}
         h2 {
             font-size: 2rem;
-            margin-top: 3rem;
+            margin-top: 3rem; /* More space above section titles */
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border-color);
-            text-align: center;
+            text-align: center; /* Centered section titles */
         }
+        h3 { font-size: 1.4rem; color: var(--heading-color); margin-bottom: 0.5em; }
+        p { color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1rem; }
+        a { color: var(--text-primary); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: #000000; /* Pure black on hover for emphasis */ }
 
-        h3 {
-            font-size: 1.4rem;
-            color: var(--heading-color);
-            margin-bottom: 0.5em;
-        }
+        ul { list-style-position: outside; padding-left: 20px; /* For standard bullets if needed */ }
+        ul.no-bullets { list-style: none; padding-left: 0;}
 
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            font-size: 1rem;
-        }
-
-        a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-        
-        ul.no-bullets {
-            list-style: none;
-            padding-left: 0;
-        }
 
         /* --- Navigation --- */
         .navbar {
@@ -111,317 +84,444 @@
             padding: 15px 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             height: 70px;
         }
-
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .navbar .logo {
             font-family: var(--font-heading);
             font-size: 1.6rem;
-            font-weight: 900;
+            font-weight: 900; /* Bold logo */
             color: var(--text-primary);
             letter-spacing: 0.5px;
         }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
+        .nav-links { display: flex; list-style: none; padding-left: 0;}
+        .nav-links li { margin-left: 30px; }
         .nav-links a {
             font-family: var(--font-heading);
             font-weight: 700;
             font-size: 0.9rem;
             color: var(--text-secondary);
             padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
+            border-bottom: 2px solid transparent; /* For hover effect */
             transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
-
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover, .nav-links a.active {
             color: var(--text-primary);
             border-bottom-color: var(--text-primary);
         }
 
         /* --- Hero Section --- */
         .hero {
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
-            background-color: var(--bg-alt);
+            background-color: var(--bg-alt); /* Light gray background for hero */
         }
-
         .hero-content {
             max-width: 700px;
             margin: 0 auto;
         }
-
         .profile-pic {
-            width: 160px; /* Slightly larger */
-            height: 160px;
-            border-radius: 50%;
+            width: 150px; /* Moderate size */
+            height: 150px;
+            border-radius: 8px; /* Slightly rounded corners */
             object-fit: cover;
-            margin-bottom: 25px;
-            border: 5px solid var(--bg-main);
-            box-shadow: var(--shadow-md);
+            margin: 0 auto 25px auto;
+            border: 3px solid var(--bg-main); /* White border to lift it */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
-        .hero h1 {
-            color: var(--heading-color);
-        }
-
-        .hero p {
+        .hero .tagline {
+            font-family: var(--font-body); /* Body font for tagline for softer feel */
             font-size: 1.15rem;
-            color: var(--text-primary); /* Darker for more impact */
-            margin-bottom: 30px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .hero .summary {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
         }
 
-        /* --- Button Styles --- */
+        /* --- Buttons (Simple & Professional) --- */
         .btn {
             display: inline-block;
             font-family: var(--font-heading);
             font-weight: 700;
             font-size: 0.9rem;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
             text-transform: uppercase;
+            padding: 12px 25px;
+            margin: 8px 5px;
+            border-radius: 4px; /* Subtle rounding */
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
             letter-spacing: 0.5px;
         }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
         .btn-primary {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            border: 1px solid var(--accent-color);
+            background-color: var(--text-primary);
+            color: var(--bg-main);
+            border: 1px solid var(--text-primary);
         }
-
         .btn-primary:hover {
-            background-color: var(--hover-accent-color);
-            border-color: var(--hover-accent-color);
-            box-shadow: var(--shadow-sm);
+            background-color: #000000;
+            border-color: #000000;
         }
-
         .btn-secondary {
             background-color: transparent;
             color: var(--text-primary);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--text-primary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-main);
         }
 
-        .btn-secondary:hover {
-            background-color: var(--bg-alt);
-            color: var(--text-primary);
-            border-color: var(--text-secondary);
-        }
-        
-        /* --- Section Styling --- */
-        .section {
+
+        /* --- General Section Styling --- */
+        section {
             padding: 60px 0;
         }
-
-        .section:nth-child(even) {
-             background-color: var(--bg-alt);
+        section:nth-of-type(even) { /* Alternate bg for sections */
+            background-color: var(--bg-alt);
         }
 
-        /* --- Card Styling --- */
-        .card {
+        /* --- About Section --- */
+        #about .container {
+             max-width: 750px; /* Good width for readable text */
+        }
+        #about p {
+            font-size: 1.05rem; /* Slightly larger for bio */
+        }
+
+        /* --- Skills Section --- */
+        #skills .skills-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 1.5em;
+        }
+        .skill-group h3 {
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.4em;
+            margin-bottom: 0.8em;
+        }
+        .skill-group ul {
+            list-style: disc; /* Standard bullets */
+            padding-left: 20px;
+        }
+        .skill-group li {
+            margin-bottom: 0.6em;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+
+        /* --- Projects Section --- */
+        #projects .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 1.5em;
+        }
+        .project-card {
             background-color: var(--bg-main);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 6px;
             padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow-md);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
-
-        .card:hover {
+        .project-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
+        /* IMAGE PLACEHOLDER for Project Card */
+        .project-card .project-image-placeholder {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            background-color: #e9ecef; /* Light gray placeholder */
+            border: 1px dashed #adb5bd;
+            margin-bottom: 20px;
+            border-radius: 4px 4px 0 0;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-secondary); font-family: var(--font-heading);
+            font-size: 0.9rem; text-transform: uppercase;
+        }
+        .project-card h3 { margin-top: 0; font-size: 1.3rem; }
+        .project-card .technologies {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 10px 0 15px;
+            font-style: italic;
+        }
+        .project-card .project-links a {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-right: 15px;
+            color: var(--text-primary);
+        }
+         .project-card .project-links a:hover { color: #000; }
+        .project-card .project-links i { margin-right: 5px; }
+        .streamlit-note { font-size: 0.8em; opacity: 0.8; margin-top: 10px; color: var(--text-secondary);}
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--accent-color); /* Accent color for card titles */
+        /* --- Education Section --- */
+        .education-list {
+            margin-top: 1.5em;
         }
+        .education-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--text-primary); /* Simple accent line */
+            background-color: var(--bg-main); /* Ensure it stands out on alt bg */
+        }
+         section:nth-of-type(even) .education-item { /* If education is on an alt bg section */
+             background-color: var(--bg-main);
+         }
+         section:nth-of-type(odd) .education-item { /* If education is on main bg section */
+             background-color: var(--bg-alt); /* slight contrast */
+         }
+
+        .education-item h3 { font-size: 1.25rem; margin-top: 0; }
+        .education-item .degree { font-weight: 700; font-size: 1.05rem; color: var(--text-primary); }
+        .education-item .details, .education-item .achievements { font-size: 0.95rem; color: var(--text-secondary); }
+        .education-item .achievements { font-style: italic; margin-top: 5px; }
+
+
+        /* --- Contact Section --- */
+        #contact .container { max-width: 700px; text-align: center;}
+        #contact ul.no-bullets { display: inline-block; text-align: left; margin-top: 1.5em; }
+        #contact li { margin-bottom: 12px; font-size: 1.05rem; }
+        #contact i { margin-right: 10px; color: var(--text-primary); width: 20px; text-align: center; }
 
         /* --- Footer --- */
-        .footer {
-            background-color: var(--text-primary);
-            color: var(--bg-alt);
+        footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 30px 20px;
+            background-color: var(--text-primary); /* Dark footer */
+            color: var(--bg-alt); /* Light text on dark footer */
             margin-top: 40px;
         }
-
-        .footer p {
-            margin-bottom: 0;
+        footer p { margin-bottom: 5px; color: var(--bg-alt); font-size: 0.9rem;}
+        footer .social-links a {
             color: var(--bg-alt);
+            margin: 0 8px;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+        footer .social-links a:hover {
+            color: #ffffff; /* Brighter white on hover */
         }
 
-        .footer .social-links a {
-            color: var(--bg-alt);
-            margin: 0 10px;
-            font-size: 1.5rem;
-        }
 
-        .footer .social-links a:hover {
-            color: var(--accent-color);
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            body { padding-top: 60px; } /* Adjust for smaller navbar */
+            .navbar { height: 60px; }
+            .navbar .container { flex-direction: column; align-items: center;} /* Stack nav items */
+            .nav-links { margin-top: 10px; }
+            .nav-links li { margin: 0 10px 8px; font-size: 0.85rem;}
+
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.7rem; }
+            .profile-pic { width: 120px; height: 120px; }
+
+            #skills .skills-layout, #projects .project-grid {
+                grid-template-columns: 1fr; /* Stack on mobile */
+            }
+            .btn { padding: 10px 20px; font-size: 0.85rem;}
         }
 
     </style>
 </head>
-
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">Your Name</a>
-            <ul class="nav-links">
-                <li><a href="#hero" class="active">Home</a></li>
+            <a href="#home" class="logo">LIM SEAN SHEN</a>
+            <!-- TODO: Consider JS for hamburger menu on mobile for cleaner look -->
+            <ul class="nav-links no-bullets">
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="container hero-content">
-            <img src="profile.jpg" alt="Your Name - Professional Headshot" class="profile-pic">
-            <h1>Your Name</h1>
-            <p>Passionate Data Scientist & AI Enthusiast | Transforming Data into Insights</p>
-            <a href="#projects" class="btn btn-primary">View My Work</a>
-            <a href="LimSeanShen_Resume.pdf" class="btn btn-secondary" target="_blank" download>Download Resume</a>
-        </div>
-    </section>
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <!-- IMAGE PLACEHOLDER: Replace with your profile picture -->
+            <img src="YOUR_PROFILE_PICTURE.jpg" alt="Lim Sean Shen" class="profile-pic">
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="card">
-                 <p>Hello! I'm [Your Name], a dedicated and results-oriented professional with a strong background in [mention 1-2 key areas like Machine Learning, Data Analysis, etc.]. I thrive on solving complex problems and leveraging data to drive innovation and make informed decisions. My journey in the tech world has been fueled by a relentless curiosity and a passion for continuous learning.</p>
-                 <p>In my previous roles/projects, I have [mention a key achievement or responsibility, e.g., "developed predictive models that improved X by Y%" or "led data visualization initiatives to enhance stakeholder understanding"]. I am proficient in Python, SQL, and various data science libraries, and I'm always eager to explore new technologies and methodologies.</p>
-                 <p>When I'm not immersed in data, I enjoy [mention a hobby or two] which helps me maintain a balanced perspective and approach challenges with creativity.</p>
+            <h1>Lim Sean Shen</h1>
+            <p class="tagline">Data Scientist | Data Analyst | AI Engineer Intern</p>
+            <p class="summary">
+                An analytical and results-oriented Data Science student with a strong foundation in machine learning, data analysis, and cloud technologies. Eager to contribute to innovative projects and solve real-world problems.
+            </p>
+            <div class="cta-buttons">
+                <a href="Resume_LimSeanShen.pdf" target="_blank" class="btn btn-primary">View Resume</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>My Projects</h2>
-            <!-- Project 1 -->
-            <div class="card">
-                <h3>Project Title 1</h3>
-                <img src="AI_Campaign Pic.png" alt="Project 1 Screenshot" style="width:100%; max-width:400px; margin-bottom:15px; border-radius:4px;">
-                <p>A brief description of your project. What problem did it solve? What technologies did you use? What was the outcome?</p>
-                <a href="#" class="btn btn-secondary">View Details</a> 
-                <a href="#" class="btn btn-secondary" target="_blank">Live Demo (Optional)</a>
+    <main>
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I am Lim Sean Shen, a Bachelor of Data Science (Honours) student at Tunku Abdul Rahman University of Management and Technology (TARUMT), expecting to graduate in January 2026. With a current CGPA of 3.6197 and consistent recognition on the Dean's and President's Lists, I possess a strong academic background and a genuine passion for leveraging data to drive insights and innovation.</p>
+                <p>My technical skill set encompasses Python, SQL, machine learning algorithms (including regression, classification, NLP, and deep learning concepts), data visualization tools like Matplotlib and Seaborn, and foundational knowledge of cloud platforms such as AWS. I am adept at transforming complex data into understandable narratives and am always keen to explore new technologies and methodologies in the field. I am currently seeking an internship where I can apply my skills, learn from industry professionals, and contribute to impactful data-driven projects.</p>
             </div>
-            <!-- Project 2 -->
-            <div class="card">
-                <h3>Project Title 2</h3>
-                <!-- <img src="path/to/project2-image.jpg" alt="Project 2 Screenshot" style="width:100%; max-width:400px; margin-bottom:15px; border-radius:4px;"> -->
-                <p>Another project description. Highlight your role and key contributions.</p>
-                <a href="#" class="btn btn-secondary">View Details</a>
-            </div>
-            <!-- Add more projects as needed -->
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="card">
+        <section id="skills">
+            <div class="container">
+                <h2>Core Competencies</h2>
+                <div class="skills-layout">
+                    <div class="skill-group">
+                        <h3>Programming & Databases</h3>
+                        <ul>
+                            <li>Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)</li>
+                            <li>SQL (Oracle, general querying)</li>
+                            <li>Database Management Concepts</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Data Analysis & Visualization</h3>
+                        <ul>
+                            <li>Exploratory Data Analysis (EDA)</li>
+                            <li>Statistical Analysis</li>
+                            <li>Matplotlib, Seaborn, Streamlit</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Machine Learning & AI</h3>
+                        <ul>
+                            <li>Regression & Classification Models</li>
+                            <li>Natural Language Processing (NLP) Basics</li>
+                            <li>Deep Learning Fundamentals (ANN, CNN)</li>
+                            <li>Agentic AI Concepts (e.g., using Gemini)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Cloud & Big Data Tools</h3>
+                        <ul>
+                            <li>AWS (S3, EC2, Lambda - Foundational)</li>
+                            <li>Apache Spark & Hadoop (Conceptual Understanding)</li>
+                            <li>Version Control: Git, GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Project Portfolio</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <!-- IMAGE PLACEHOLDER: Add a screenshot or graphic for your project -->
+                        <div class="project-image-placeholder">Project Visual (16:9)</div>
+                        <h3>FYP: AI-Driven Campaign Optimization</h3>
+                        <p>Designed and implemented an Agentic AI system leveraging Gemini and Streamlit. This tool automates data analysis for marketing campaigns and provides customized optimization strategies, enhancing customer flow for industrial applications.</p>
+                        <p class="technologies">Python, Machine Learning, Generative AI (Gemini), Streamlit, Pandas</p>
+                        <div class="project-links">
+                            <a href="https://ai-campaign-management.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                        <small class="streamlit-note">(Note: Streamlit app may sleep if inactive. Activation might be needed.)</small>
+                    </div>
+
+                    <!-- ADD MORE PROJECT CARDS HERE -->
+                    <div class="project-card">
+                         <div class="project-image-placeholder">Placeholder: Project 2 Visual (16:9)</div>
+                        <h3>Data Analysis of E-commerce Trends</h3>
+                        <p>Conducted an in-depth analysis of a large e-commerce dataset to identify sales patterns, customer segmentation, and product performance. Utilized Python, Pandas, and Seaborn for data cleaning, analysis, and visualization.</p>
+                        <p class="technologies">Python, Pandas, Matplotlib, Seaborn, EDA</p>
+                        <div class="project-links">
+                            <!-- <a href="#" target="_blank"><i class="fas fa-file-alt"></i> Report</a> -->
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub (Example)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2>Academic Background</h2>
+                <div class="education-list">
+                    <div class="education-item">
+                        <h3>Tunku Abdul Rahman University of Management and Technology (TARUMT)</h3>
+                        <p class="degree">Bachelor in Data Science (Honours)</p>
+                        <p class="details">Kuala Lumpur | Nov 2022 – Present (Expected Graduation: January 2026)</p>
+                        <p class="details">Current CGPA: 3.6197 / 4.00</p>
+                        <p class="details"><strong>Relevant Courses:</strong> Machine Learning, Database Management, Data Warehousing, Artificial Intelligence, Statistics in Data Science, Big Data Technologies.</p>
+                        <p class="achievements"><strong>Achievements:</strong> Dean's List (Year 1, Semester 3), President's List (Year 1, Semester 2)</p>
+                    </div>
+                    <!-- Add other education if relevant, e.g., Diploma or Foundation -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Information</h2>
+                <p>I am actively seeking internship opportunities and am available for discussions. Please feel free to reach out via any of the channels below.</p>
                 <ul class="no-bullets">
-                    <li><strong>Programming:</strong> Python (Pandas, NumPy, Scikit-learn), SQL, R</li>
-                    <li><strong>Machine Learning:</strong> Regression, Classification, Clustering, NLP</li>
-                    <li><strong>Data Visualization:</strong> Matplotlib, Seaborn, Tableau</li>
-                    <li><strong>Tools:</strong> Jupyter Notebooks, Git, Docker, AWS</li>
-                    <li><strong>Others:</strong> Statistical Analysis, Data Mining, Big Data Technologies</li>
+                    <li><i class="fas fa-envelope"></i>Email (Personal): <a href="mailto:sslim1684@gmail.com">sslim1684@gmail.com</a></li>
+                    <li><i class="fas fa-university"></i>Email (School): <a href="mailto:limss-wp21@student.tarc.edu.my">limss-wp21@student.tarc.edu.my</a></li>
+                    <li><i class="fab fa-linkedin"></i>LinkedIn: <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank">linkedin.com/in/lim-sean-shen</a></li>
+                    <li><i class="fab fa-github"></i>GitHub (Personal): <a href="https://github.com/GiDerAce6969" target="_blank">github.com/GiDerAce6969</a></li>
                 </ul>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
+    <footer>
         <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="card">
-                <p>I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!</p>
-                <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-                <!-- Optional: Add a simple contact form here if desired -->
+            <p>© <script>document.write(new Date().getFullYear())</script> Lim Sean Shen. All Rights Reserved.</p>
+            <div class="social-links" style="margin-top: 10px;">
+                <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/GiDerAce6969" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links" style="margin-bottom: 15px;">
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Optional: JS for active nav link scrolling, mobile menu toggle -->
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-
-                // Active link highlighting
-                document.querySelectorAll('.nav-links a').forEach(navLink => navLink.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Highlight nav link on scroll
+        // Simple active nav link highlighting
+        const navLinks = document.querySelectorAll('.nav-links a');
         const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', navHighlighter);
 
-        function navHighlighter() {
-            let scrollY = window.pageYOffset;
-            sections.forEach(current => {
-                const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 100; // Adjusted offset
-                let sectionId = current.getAttribute('id');
-                
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-                    document.querySelector('.nav-links a[href*=' + sectionId + ']').classList.add('active');
-                } else {
-                    document.querySelector('.nav-links a[href*=' + sectionId + ']').classList.remove('active');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 80) { // 80 is navbar height + buffer
+                    current = section.getAttribute('id');
                 }
             });
-        }
+
+            // Add home if at top
+            if (pageYOffset < sections[0].offsetTop - 80) {
+                 current = 'home';
+            }
+
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 
 </body>
