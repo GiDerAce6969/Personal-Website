@@ -9,7 +9,7 @@
 
 I am a passionate and analytical Data Science graduate, driven to uncover the stories hidden within data. My goal is to leverage my skills in a full-time role where I can tackle meaningful problems and grow as a data professional.
 
--   🎓 **Education:** Bachelor's in Data Science (Honours) from TARUMT with a CGPA of **3.6197**, earning both Dean's and President's List awards.
+-   🎓 **Education:** Bachelor's in Data Science (Honours) from TARUMT with a CGPA of **3.7134**, earning both Dean's and President's List awards.
 -   💡 **Core Skills:** My expertise lies in Python, SQL, and AI/Machine Learning, with hands-on experience building end-to-end data products.
 -   🔍 **Problem Solver:** I am a detail-oriented individual, committed to developing practical, data-driven solutions and eager to contribute to a forward-thinking team.
 -   🌱 **Career Goal:** Actively seeking **full-time job opportunities** in data science, AI engineering, and data analysis.
