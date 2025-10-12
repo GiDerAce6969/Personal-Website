@@ -1,6 +1,6 @@
 # Lim Sean Shen
 *Data Scientist | AI Developer | Full-Stack Enthusiast*
-
+### Click on Portfolio link to surf my personal website
 [<img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white" />](https://giderace6969.github.io/Personal-Website/) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/lim-sean-shen-501b91352/) [<img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" />](mailto:sslim1684@gmail.com)
 
 ---
