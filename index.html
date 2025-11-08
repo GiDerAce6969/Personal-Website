@@ -60,21 +60,20 @@
         section:nth-of-type(odd) { background-color: var(--bg-alt); }
         .fade-in-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
-        .section-intro { max-width: 600px; margin: 0 auto 3rem auto; text-align: center; }
+        .section-intro { max-width: 700px; margin: 0 auto 3rem auto; text-align: center; }
         /* --- About Me Section --- */
         #about .container { max-width: 800px; }
         .about-list { margin-top: 2rem; list-style: none; padding-left: 0; }
         .about-list li { font-size: 1.1rem; color: var(--text-primary); padding-left: 2.5rem; position: relative; margin-bottom: 1.5rem; }
         .about-list li::before { content: '\f14a'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--heading-color); position: absolute; left: 0; top: 2px; font-size: 1.5rem; }
         /* --- Experience & Education Sections (Shared Styles) --- */
-        .info-item { background-color: var(--bg-main); border: 1px solid var(--border-color); border-left: 4px solid var(--heading-color); border-radius: 8px; padding: 30px; max-width: 800px; margin: 0 auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .info-item { background-color: var(--bg-main); border: 1px solid var(--border-color); border-left: 4px solid var(--heading-color); border-radius: 8px; padding: 30px; max-width: 800px; margin: 0 auto 1.5rem auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .info-header { margin-bottom: 1rem; }
         .info-header h3 { display: inline; margin-right: 1rem; }
         .info-meta { color: var(--text-secondary); font-family: 'Poppins'; font-weight: 500; display: block; margin-top: 0.5rem; }
         .info-body ul { list-style: none; padding-left: 0; }
         .info-body li { padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; }
         .info-body li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--heading-color); position: absolute; left: 0; top: 4px; }
-        
         /* --- Skills Section --- */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; }
         .skill-card { background-color: var(--bg-main); padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease; }
@@ -114,7 +113,6 @@
         .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--heading-color); color: var(--bg-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
         .back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
         .menu-toggle { z-index: 1001; }
-        
         @media (max-width: 768px) {
             body { padding-top: 70px; }
             .navbar { height: 70px; padding: 15px 0; }
@@ -140,10 +138,9 @@
             <ul class="nav-links no-bullets">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <!-- NEW: Education link added -->
                 <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -153,14 +150,14 @@
 
     <main>
         <section class="hero" id="home">
-            <!-- Hero section is unchanged -->
             <div class="container">
                 <div class="hero-text fade-in-element">
-                    <p class="tagline">Data Scientist || AI Developer || Business Analyst</p>
+                    <!-- UPDATED: Tagline -->
+                    <p class="tagline">Data Scientist | AI Developer | Business Analyst</p>
                     <h1>Hello, I'm Lim Sean Shen</h1>
-                    <p>I am a Bachelor Degree holder in Data Science. Currenly seek for the opportunities of Master Degree offerings/ Full-time jobs / Industry Collaborations</p>
-                    <p>I wish to seek more experience on data science related work, especially in business analytics.</p>
-                    <a href="Resume_LimSeanShen.pdf" target="_blank" class="btn btn-primary">View My Resume</a>
+                    <!-- UPDATED: Summary -->
+                    <p>A final-year Bachelor of Data Science student with practical R&D experience and a passion for business analytics. I am actively seeking Master's Degree offerings, full-time roles, and industry collaborations.</p>
+                    <a href="CV Version 3.pdf" target="_blank" class="btn btn-primary">View My Resume</a>
                 </div>
                 <div class="hero-image fade-in-element">
                     <img src="profile.jpg" alt="Lim Sean Shen">
@@ -169,120 +166,114 @@
         </section>
 
         <section id="about">
-            <!-- About section is unchanged -->
             <div class="container fade-in-element">
                 <h2>About Me</h2>
+                <!-- UPDATED: About Me Points -->
                 <ul class="about-list">
-                    <li>A passionate Data Science student with a strong academic record, driven to uncover the stories hidden within data.</li>
-                    <li>Equipped with a solid foundation in Python, SQL, and AI/Machine Learning from comprehensive coursework and hands-on projects.</li>
-                    <li>A detail-oriented and analytical individual, committed to developing practical, data-driven solutions and eager to contribute to a forward-thinking team.</li>
-                    <li>My goal is to leverage my skills in a full-time role that allows me to tackle meaningful problems and grow as a data professional.</li>
+                    <li>A high-achieving Data Science student (CGPA 3.7175) with proven R&D experience from a competitive internship at CBIEV.</li>
+                    <li>Recognized as a **Top 5 capstone project achiever** among the Faculty of Computing and Information Technology.</li>
+                    <li>Experienced in academia and public speaking, having **published an article on IEEE 2025** and presented at two international events.</li>
+                    <li>My goal is to apply my analytical skills and academic achievements to solve complex challenges in business analytics and data science.</li>
                 </ul>
             </div>
         </section>
-
-        <section id="skills">
-            <!-- Skills section is unchanged -->
-            <div class="container fade-in-element">
-                <div class="section-intro">
-                    <h2>Core Competencies</h2>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-card fade-in-element">
-                        <i class="fas fa-brain skill-icon"></i>
-                        <h3>Machine Learning & AI</h3>
-                        <p>Developing predictive models and AI solutions using Python, Scikit-learn, TensorFlow, and Generative AI APIs.</p>
-                    </div>
-                    <div class="skill-card fade-in-element">
-                        <i class="fas fa-chart-pie skill-icon"></i>
-                        <h3>Data Analysis & Visualization</h3>
-                        <p>Proficient in EDA, statistical analysis, and creating compelling dashboards with tools like Seaborn and Google Looker Studio.</p>
-                    </div>
-                    <div class="skill-card fade-in-element">
-                        <i class="fas fa-cogs skill-icon"></i>
-                        <h3>Tools & Technologies</h3>
-                        <p>Experienced with essential tools including Git for version control, Jupyter Notebook, and automation platforms like n8n.</p>
-                    </div>
-                    <div class="skill-card fade-in-element">
-                        <i class="fas fa-cloud skill-icon"></i>
-                        <h3>Big Data & Cloud</h3>
-                        <p>Knowledgeable in SQL, database principles, and foundational concepts of cloud data services on AWS.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        
         <section id="experience">
-            <!-- Experience section is unchanged -->
             <div class="container fade-in-element">
                 <div class="section-intro">
                     <h2>Work Experience</h2>
                 </div>
-                <div class="info-item"> <!-- UPDATED CLASS NAME -->
-                    <div class="info-header"> <!-- UPDATED CLASS NAME -->
-                        <h3>Data Analyst Intern</h3>
-                        <span class="info-meta">Center For Business Incubation & Entrepreneurial Ventures (CBIEV), TARUMT | Kuala Lumpur</span>
-                        <span class="info-meta">Duration: 6 Months</span>
+                <div class="info-item">
+                    <div class="info-header">
+                        <h3>Internship</h3>
+                        <span class="info-meta">CBIEV (Center For Business Incubation & Entrepreneurial Ventures), TARUMT | Kuala Lumpur</span>
+                        <!-- UPDATED: Dates -->
+                        <span class="info-meta">June 2025 – Dec 2025</span>
                     </div>
-                    <div class="info-body"> <!-- UPDATED CLASS NAME -->
+                    <div class="info-body">
+                        <!-- UPDATED: Responsibilities -->
                         <ul class="no-bullets">
-                            <li>Conducted sentiment analysis on trending topics in Malaysia, collecting and processing relevant datasets.</li>
-                            <li>Developed and automated reports and dashboards to visualize key project metrics for management and tracking.</li>
+                            <li>Managed an internal project to develop an automation system for project tracking and management.</li>
+                            <li>Managed a governmental project to develop an automation system for analysing trending topics and performing sentiment analysis.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ====================================================== -->
-        <!-- ================= NEW: EDUCATION SECTION ================= -->
-        <!-- ====================================================== -->
         <section id="education">
             <div class="container fade-in-element">
                 <div class="section-intro">
                     <h2>Education</h2>
                 </div>
+                <!-- UPDATED: Bachelor's Degree Info -->
                 <div class="info-item">
                     <div class="info-header">
-                        <h3>Bachelor of Data Science (Honours)</h3>
+                        <h3>Bachelor Degree in Data Science (Honours)</h3>
                         <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
-                        <span class="info-meta">Nov 2022 – Jan 2026 (Expected)</span>
+                        <span class="info-meta">Nov 2022 – Dec 2025</span>
                     </div>
                     <div class="info-body">
                         <ul class="no-bullets">
-                            <li>Current CGPA: 3.7134 / 4.00</li>
-                            <li>Key coursework included Machine Learning, AI, Database Management, and Big Data Technologies.</li>
-                            <li>Academic Achievement: Awarded Dean's List and President's List for outstanding performance.</li>
+                            <li>CGPA: 3.7175 / 4.0</li>
+                            <li>Top 5 capstone project among Faculty of Computing and Information Technology.</li>
+                            <li>Published an article based on the capstone project on IEEE 2025.</li>
+                            <li>Presented at two international events (2025 Nanning Competition & Research Symposium).</li>
+                            <li>Consistent President's List and Dean's List achiever.</li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="info-item">
+                <!-- UPDATED: Foundation Info -->
+                 <div class="info-item">
                     <div class="info-header">
-                        <h3>Science Stream In Secondary School</h3>
-                        <span class="info-meta">SMJK Chung Ling Butterworth, Penang</span>
-                        <span class="info-meta">2016 - 2020</span>
+                        <h3>Foundation in Computing</h3>
+                        <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
+                        <span class="info-meta">Sep 2021 – Sep 2022</span>
                     </div>
                     <div class="info-body">
                         <ul class="no-bullets">
-                            <li>SPM Result: 8A 1B 1C</li>
+                            <li>CGPA: 3.7333 / 4.0</li>
                         </ul>
                     </div>
+                </div>
             </div>
         </section>
 
+        <section id="skills">
+            <div class="container fade-in-element">
+                <div class="section-intro">
+                    <h2>Core Competencies</h2>
+                </div>
+                <!-- UPDATED: Skills Grid -->
+                <div class="skills-grid">
+                    <div class="skill-card fade-in-element">
+                        <i class="fas fa-brain skill-icon"></i>
+                        <h3>Machine Learning & AI</h3>
+                        <p>Developing predictive models and AI solutions using Python, SQL, and Java in various machine learning projects.</p>
+                    </div>
+                    <div class="skill-card fade-in-element">
+                        <i class="fas fa-chart-pie skill-icon"></i>
+                        <h3>Data Analysis & Visualization</h3>
+                        <p>Proficient in statistical analysis and creating compelling dashboards with tools like Google Looker Studio.</p>
+                    </div>
+                    <div class="skill-card fade-in-element">
+                        <i class="fas fa-cogs skill-icon"></i>
+                        <h3>Tools & Automation</h3>
+                        <p>Experienced with essential tools including Git, n8n for automation, and backend platforms like Supabase.</p>
+                    </div>
+                    <div class="skill-card fade-in-element">
+                        <i class="fas fa-cloud skill-icon"></i>
+                        <h3>Cloud Computing</h3>
+                        <p>Knowledgeable in foundational concepts of cloud data services and deploying applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- ====================================================== -->
-        <!-- ================= UPDATED: PROJECTS SECTION ================= -->
-        <!-- ====================================================== -->
         <section id="projects">
+            <!-- Project Section remains the same -->
             <div class="container fade-in-element">
                 <h2>Project Portfolio</h2>
-                <div id="project-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="ai">AI/ML</button>
-                    <button class="filter-btn" data-filter="webapp">Web App</button>
-                </div>
                 <div class="project-grid">
                     <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank" class="project-card fade-in-element" data-category="ai">
                         <img src="AI_Campaign Pic.png" alt="AI Campaign Optimization">
@@ -291,14 +282,11 @@
                             <p>Generative AI & Streamlit</p>
                         </div>
                     </a>
-                    
-                    <!-- NEW: Financial Tracker Project -->
-                    <a href="https://github.com/GiDerAce6969/Financial-Tracking" target="_blank" class="project-card fade-in-element" data-category="webapp">
-                        <!-- PASTE YOUR SCREENSHOT URL HERE -->
+                    <a href="https://github.com/GiDerAce6969/fintrack-personal-finance-dashboard" target="_blank" class="project-card fade-in-element" data-category="webapp">
                         <img src="FinTrack Dashboard.png" alt="Personal Financial Tracker Dashboard">
                         <div class="project-overlay">
                             <h3>Personal Financial Tracker</h3>
-                            <p>HTML, CSS, JavaScript, localStorage</p>
+                            <p>HTML, CSS, JavaScript</p>
                         </div>
                     </a>
                 </div>
@@ -306,23 +294,25 @@
         </section>
 
         <section id="languages">
-            <!-- Language section is unchanged -->
             <div class="container fade-in-element">
                  <div class="section-intro">
                     <h2>Languages</h2>
                 </div>
+                 <!-- UPDATED: Languages -->
                 <ul class="language-list">
-                    <li class="language-item"><strong>Fluent:</strong> Chinese, English, Malay</li>
+                    <li class="language-item"><strong>Chinese:</strong> Native Speaker</li>
+                    <li class="language-item"><strong>English:</strong> Very Good</li>
+                    <li class="language-item"><strong>Malay:</strong> Very Good</li>
                 </ul>
             </div>
         </section>
 
         <section id="contact">
-           <!-- Contact section is unchanged -->
            <div class="container fade-in-element">
                 <h2>Get In Touch</h2>
+                 <!-- UPDATED: Contact text -->
                 <div class="section-intro">
-                    <p>I'm currently seeking full-time job opportunities/ Master Degree Offer/ Industry Collabration Opportunities. Feel free to reach out—I'd love to connect!</p>
+                    <p>I'm currently seeking Master's Degree offerings, full-time job opportunities, and industry collaboration opportunities. Feel free to reach out—I'd love to connect!</p>
                 </div>
                 <ul class="no-bullets">
                     <li><i class="fas fa-envelope"></i>Email: <a href="mailto:sslim1684@gmail.com">sslim1684@gmail.com</a></li>
@@ -334,7 +324,6 @@
     </main>
 
     <footer>
-        <!-- Footer remains the same -->
         <div class="container">
             <p>&copy; <script>document.write(new Date().getFullYear())</script> Lim Sean Shen. All Rights Reserved.</p>
             <div class="social-links">
@@ -355,9 +344,6 @@
             const navLinks = document.querySelector('.nav-links');
             menuToggle.addEventListener('click', () => { navLinks.classList.toggle('is-open'); menuToggle.querySelector('i').classList.toggle('fa-bars'); menuToggle.querySelector('i').classList.toggle('fa-times'); });
             document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { if (navLinks.classList.contains('is-open')) { navLinks.classList.remove('is-open'); menuToggle.querySelector('i').classList.add('fa-bars'); menuToggle.querySelector('i').classList.remove('fa-times'); } }); });
-            const filterContainer = document.querySelector('#project-filters');
-            const projectCards = document.querySelectorAll('.project-card');
-            if (filterContainer) { filterContainer.addEventListener('click', (e) => { if (e.target.tagName === 'BUTTON') { filterContainer.querySelector('.active').classList.remove('active'); e.target.classList.add('active'); const filterValue = e.target.getAttribute('data-filter'); projectCards.forEach(card => { card.style.display = (filterValue === 'all' || card.getAttribute('data-category') === filterValue) ? 'block' : 'none'; }); } }); }
             const backToTopButton = document.querySelector('.back-to-top');
             window.addEventListener('scroll', () => { backToTopButton.classList.toggle('is-visible', window.scrollY > 300); });
         });
