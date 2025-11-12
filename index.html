@@ -80,6 +80,32 @@
         .skill-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
         .skill-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color); }
         .skill-card h3 { margin-bottom: 0.5rem; }
+        
+        /* --- NEW: Certificate Section Styles --- */
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .certificate-card {
+            display: block;
+            background-color: var(--bg-main);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: inherit; /* Inherit text color for link */
+        }
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            color: var(--accent-color); /* Change text color on hover */
+        }
+        .certificate-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color); }
+        .certificate-card h3 { margin-bottom: 0.5rem; }
+        .certificate-card p { margin-bottom: 0; }
+        
         /* --- Projects Section --- */
         #project-filters { text-align: center; margin-bottom: 2rem; }
         .filter-btn { background: none; border: 1px solid var(--border-color); padding: 8px 18px; margin: 5px; border-radius: 20px; cursor: pointer; font-family: 'Poppins'; transition: all 0.3s ease; }
@@ -113,6 +139,7 @@
         .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--heading-color); color: var(--bg-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
         .back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
         .menu-toggle { z-index: 1001; }
+        
         @media (max-width: 768px) {
             body { padding-top: 70px; }
             .navbar { height: 70px; padding: 15px 0; }
@@ -135,12 +162,14 @@
     <nav class="navbar">
         <div class="container">
             <a href="#home" class="logo">LIM SEAN SHEN</a>
+            <!-- UPDATED: Navigation Order -->
             <ul class="nav-links no-bullets">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -152,12 +181,10 @@
         <section class="hero" id="home">
             <div class="container">
                 <div class="hero-text fade-in-element">
-                    <!-- UPDATED: Tagline -->
                     <p class="tagline">Data Scientist | AI Developer | Business Analyst</p>
                     <h1>Hello, I'm Lim Sean Shen</h1>
-                    <!-- UPDATED: Summary -->
                     <p>A final-year Bachelor of Data Science student with practical R&D experience and a passion for business analytics. I am actively seeking Master's Degree offerings, full-time roles, and industry collaborations.</p>
-                    <a href="CV Version 2.pdf" target="_blank" class="btn btn-primary">View My Resume</a>
+                    <a href="Resume_LimSeanShen.pdf" target="_blank" class="btn btn-primary">View My Resume</a>
                 </div>
                 <div class="hero-image fade-in-element">
                     <img src="profile.jpg" alt="Lim Sean Shen">
@@ -168,7 +195,6 @@
         <section id="about">
             <div class="container fade-in-element">
                 <h2>About Me</h2>
-                <!-- UPDATED: About Me Points -->
                 <ul class="about-list">
                     <li>A high-achieving Data Science student (CGPA 3.7175) with proven R&D experience from a competitive internship at CBIEV.</li>
                     <li>Recognized as a **Top 5 capstone project achiever** among the Faculty of Computing and Information Technology.</li>
@@ -178,73 +204,11 @@
             </div>
         </section>
         
-        <section id="experience">
-            <div class="container fade-in-element">
-                <div class="section-intro">
-                    <h2>Work Experience</h2>
-                </div>
-                <div class="info-item">
-                    <div class="info-header">
-                        <h3>Internship</h3>
-                        <span class="info-meta">CBIEV (Center For Business Incubation & Entrepreneurial Ventures), TARUMT | Kuala Lumpur</span>
-                        <!-- UPDATED: Dates -->
-                        <span class="info-meta">June 2025 – Dec 2025</span>
-                    </div>
-                    <div class="info-body">
-                        <!-- UPDATED: Responsibilities -->
-                        <ul class="no-bullets">
-                            <li>Managed an internal project to develop an automation system for project tracking and management.</li>
-                            <li>Managed a governmental project to develop an automation system for analysing trending topics and performing sentiment analysis.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <div class="container fade-in-element">
-                <div class="section-intro">
-                    <h2>Education</h2>
-                </div>
-                <!-- UPDATED: Bachelor's Degree Info -->
-                <div class="info-item">
-                    <div class="info-header">
-                        <h3>Bachelor Degree in Data Science (Honours)</h3>
-                        <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
-                        <span class="info-meta">Nov 2022 – Dec 2025</span>
-                    </div>
-                    <div class="info-body">
-                        <ul class="no-bullets">
-                            <li>CGPA: 3.7175 / 4.0</li>
-                            <li>Top 5 capstone project among Faculty of Computing and Information Technology.</li>
-                            <li>Published an article based on the capstone project on IEEE 2025.</li>
-                            <li>Presented at two international events (2025 Nanning Competition & Research Symposium).</li>
-                            <li>Consistent President's List and Dean's List achiever.</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- UPDATED: Foundation Info -->
-                 <div class="info-item">
-                    <div class="info-header">
-                        <h3>Foundation in Computing</h3>
-                        <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
-                        <span class="info-meta">Sep 2021 – Sep 2022</span>
-                    </div>
-                    <div class="info-body">
-                        <ul class="no-bullets">
-                            <li>CGPA: 3.7333 / 4.0</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="skills">
             <div class="container fade-in-element">
                 <div class="section-intro">
                     <h2>Core Competencies</h2>
                 </div>
-                <!-- UPDATED: Skills Grid -->
                 <div class="skills-grid">
                     <div class="skill-card fade-in-element">
                         <i class="fas fa-brain skill-icon"></i>
@@ -270,19 +234,116 @@
             </div>
         </section>
 
+        <section id="experience">
+            <div class="container fade-in-element">
+                <div class="section-intro">
+                    <h2>Work Experience</h2>
+                </div>
+                <div class="info-item">
+                    <div class="info-header">
+                        <h3>Internship</h3>
+                        <span class="info-meta">CBIEV (Center For Business Incubation & Entrepreneurial Ventures), TARUMT | Kuala Lumpur</span>
+                        <span class="info-meta">June 2025 – Dec 2025</span>
+                    </div>
+                    <div class="info-body">
+                        <ul class="no-bullets">
+                            <li>Managed an internal project to develop an automation system for project tracking and management.</li>
+                            <li>Managed a governmental project to develop an automation system for analysing trending topics and performing sentiment analysis.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container fade-in-element">
+                <div class="section-intro">
+                    <h2>Education</h2>
+                </div>
+                <div class="info-item">
+                    <div class="info-header">
+                        <h3>Bachelor Degree in Data Science (Honours)</h3>
+                        <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
+                        <span class="info-meta">Nov 2022 – Dec 2025</span>
+                    </div>
+                    <div class="info-body">
+                        <ul class="no-bullets">
+                            <li>CGPA: 3.7175 / 4.0</li>
+                            <li>Top 5 capstone project among Faculty of Computing and Information Technology.</li>
+                            <li>Published an article based on the capstone project on IEEE 2025.</li>
+                            <li>Presented at two international events (2025 Nanning Competition & Research Symposium).</li>
+                            <li>Consistent President's List and Dean's List achiever.</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="info-item">
+                    <div class="info-header">
+                        <h3>Foundation in Computing</h3>
+                        <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
+                        <span class="info-meta">Sep 2021 – Sep 2022</span>
+                    </div>
+                    <div class="info-body">
+                        <ul class="no-bullets">
+                            <li>CGPA: 3.7333 / 4.0</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- ================= NEW: CERTIFICATES SECTION ================= -->
+        <!-- ====================================================== -->
+        <section id="certificates">
+            <div class="container fade-in-element">
+                <div class="section-intro">
+                    <h2>Certifications</h2>
+                </div>
+                <div class="certificate-grid">
+                    <!-- Certificate 1 -->
+                    <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf" target="_blank" class="certificate-card fade-in-element">
+                        <i class="Certificate 1"></i>
+                        <h3>International Joint Student Research Symposium</h3>
+                        <p>Issued by: BINUS University</p>
+                    </a>
+                    
+                    <!-- Certificate 2 -->
+                    <a href="AsiaTech Cert.pdf" target="_blank" class="certificate-card fade-in-element">
+                        <i class="Certificate 2"></i>
+                        <h3>AsiaTech Commercialization Program</h3>
+                        <p>Issued by: AsiaTech Sdn. Bhd.</p>
+                    </a>
+
+                     <!-- Certificate 3 -->
+                    <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="certificate-card fade-in-element">
+                        <i class="Certificate 3"></i>
+                        <h3>Online Course on Fundamental In Trading Market</h3>
+                        <p>Issued by: Bursa Malaysia</p>
+                    </a>
+
+                    <!-- Certificate 4 -->
+                    <a href="Nanning Competition.pdf" target="_blank" class="certificate-card fade-in-element">
+                        <i class="Certificate 4"></i>
+                        <h3>2025 Nanning International Elite Innovation and Entrepreneurship Competition</h3>
+                        <p>Issued by: TARUMT</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
         <section id="projects">
-            <!-- Project Section remains the same -->
             <div class="container fade-in-element">
                 <h2>Project Portfolio</h2>
                 <div class="project-grid">
-                    <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank" class="project-card fade-in-element" data-category="ai">
+                    <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank" class="project-card fade-in-element">
                         <img src="AI_Campaign Pic.png" alt="AI Campaign Optimization">
                         <div class="project-overlay">
                             <h3>AI-Driven Campaign Optimization</h3>
                             <p>Generative AI & Streamlit</p>
                         </div>
                     </a>
-                    <a href="https://github.com/GiDerAce6969/fintrack-personal-finance-dashboard" target="_blank" class="project-card fade-in-element" data-category="webapp">
+                    <a href="https://github.com/GiDerAce6969/Financial-Tracking" target="_blank" class="project-card fade-in-element">
                         <img src="FinTrack Dashboard.png" alt="Personal Financial Tracker Dashboard">
                         <div class="project-overlay">
                             <h3>Personal Financial Tracker</h3>
@@ -298,11 +359,10 @@
                  <div class="section-intro">
                     <h2>Languages</h2>
                 </div>
-                 <!-- UPDATED: Languages -->
                 <ul class="language-list">
                     <li class="language-item"><strong>Chinese:</strong> Native Speaker</li>
-                    <li class="language-item"><strong>English:</strong> Very Good</li>
-                    <li class="language-item"><strong>Malay:</strong> Very Good</li>
+                    <li class="language-item"><strong>English:</strong> MUET Band 4</li>
+                    <li class="language-item"><strong>Malay:</strong> Native Speaker</li>
                 </ul>
             </div>
         </section>
@@ -310,7 +370,6 @@
         <section id="contact">
            <div class="container fade-in-element">
                 <h2>Get In Touch</h2>
-                 <!-- UPDATED: Contact text -->
                 <div class="section-intro">
                     <p>I'm currently seeking Master's Degree offerings, full-time job opportunities, and industry collaboration opportunities. Feel free to reach out—I'd love to connect!</p>
                 </div>
