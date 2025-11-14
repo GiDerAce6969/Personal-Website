@@ -6,7 +6,7 @@
     <title>Lim Sean Shen - Data Science & AI Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -33,6 +33,7 @@
         a { color: var(--text-primary); text-decoration: none; transition: color 0.3s ease; }
         a:hover { color: var(--accent-color); }
         ul.no-bullets { list-style: none; padding-left: 0; }
+        
         /* --- Navigation --- */
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.98); backdrop-filter: blur(5px); padding: 20px 0; z-index: 1000; border-bottom: 1px solid var(--border-color); height: 80px; }
         .navbar .container { display: flex; justify-content: space-between; align-items: center; }
@@ -43,30 +44,35 @@
         .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--heading-color); transition: width 0.3s ease; }
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        
         /* --- Hero Section --- */
         .hero { padding: 4rem 0; background-color: var(--bg-main); }
         .hero .container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; }
-        .hero-text .tagline { font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--text-primary); font-size: 1.2rem; margin-bottom: 1rem; }
+        .hero-text .tagline { font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--text-primary); font-size: 1.2rem; margin-bottom: 1rem; min-height: 1.2em; /* For typing effect */ }
         .hero-text p { font-size: 1.05rem; margin-bottom: 2rem; }
         .hero-image { position: relative; text-align: center; padding: 20px; }
         .hero-image img { width: 100%; height: 100%; max-width: 350px; max-height: 350px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; z-index: 2; }
         .hero-image::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-alt); border-radius: 50%; z-index: 1; }
+        
         /* --- Buttons --- */
         .btn { display: inline-block; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 1rem; padding: 14px 30px; border-radius: 5px; transition: all 0.3s ease; cursor: pointer; }
         .btn-primary { background-color: var(--heading-color); color: var(--bg-main); border: 1px solid var(--heading-color); }
         .btn-primary:hover { background-color: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transform: translateY(-3px); }
+        
         /* --- Sections & Animation --- */
         section { padding: 80px 0; }
         section:nth-of-type(odd) { background-color: var(--bg-alt); }
         .fade-in-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
         .section-intro { max-width: 700px; margin: 0 auto 3rem auto; text-align: center; }
+        
         /* --- About Me Section --- */
         #about .container { max-width: 800px; }
         .about-list { margin-top: 2rem; list-style: none; padding-left: 0; }
         .about-list li { font-size: 1.1rem; color: var(--text-primary); padding-left: 2.5rem; position: relative; margin-bottom: 1.5rem; }
         .about-list li::before { content: '\f14a'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--heading-color); position: absolute; left: 0; top: 2px; font-size: 1.5rem; }
-        /* --- Experience & Education Sections (Shared Styles) --- */
+        
+        /* --- Experience & Education Sections (Original) --- */
         .info-item { background-color: var(--bg-main); border: 1px solid var(--border-color); border-left: 4px solid var(--heading-color); border-radius: 8px; padding: 30px; max-width: 800px; margin: 0 auto 1.5rem auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .info-header { margin-bottom: 1rem; }
         .info-header h3 { display: inline; margin-right: 1rem; }
@@ -74,6 +80,7 @@
         .info-body ul { list-style: none; padding-left: 0; }
         .info-body li { padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; }
         .info-body li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--heading-color); position: absolute; left: 0; top: 4px; }
+        
         /* --- Skills Section --- */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; }
         .skill-card { background-color: var(--bg-main); padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease; }
@@ -81,27 +88,10 @@
         .skill-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color); }
         .skill-card h3 { margin-bottom: 0.5rem; }
         
-        /* --- NEW: Certificate Section Styles --- */
-        .certificate-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .certificate-card {
-            display: block;
-            background-color: var(--bg-main);
-            padding: 30px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            color: inherit; /* Inherit text color for link */
-        }
-        .certificate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            color: var(--accent-color); /* Change text color on hover */
-        }
+        /* --- Certificate Section --- */
+        .certificate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .certificate-card { display: block; background-color: var(--bg-main); padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease; color: inherit; }
+        .certificate-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); color: var(--accent-color); }
         .certificate-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color); }
         .certificate-card h3 { margin-bottom: 0.5rem; }
         .certificate-card p { margin-bottom: 0; }
@@ -121,39 +111,270 @@
         .project-overlay h3 { color: white; margin-bottom: 0.2em; transform: translateY(10px); transition: transform 0.4s ease; }
         .project-overlay p { color: #ccc; margin-bottom: 0; transform: translateY(10px); transition: transform 0.4s ease 0.1s; }
         .project-card:hover .project-overlay h3, .project-card:hover .project-overlay p { transform: translateY(0); }
+        
         /* --- Language Section --- */
         #languages .language-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; list-style: none; padding-left: 0; }
         #languages .language-item { background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 5px; font-family: 'Poppins', sans-serif; font-weight: 500; }
         #languages .language-item strong { font-weight: 600; color: var(--heading-color); }
+        
         /* --- Contact Section --- */
         #contact .container { max-width: 700px; text-align: center; }
         #contact ul.no-bullets { display: inline-block; text-align: left; margin-top: 1.5em; }
         #contact li { margin-bottom: 12px; font-size: 1.05rem; }
         #contact i { margin-right: 12px; color: var(--heading-color); width: 20px; text-align: center; }
+        
         /* --- Footer --- */
         footer { text-align: center; padding: 40px 20px; background-color: var(--heading-color); color: var(--bg-alt); margin-top: 60px; }
         footer p { margin-bottom: 10px; color: var(--bg-alt); font-size: 0.9rem; }
         footer .social-links a { color: var(--bg-alt); margin: 0 10px; font-size: 1.4rem; transition: color 0.3s ease; }
         footer .social-links a:hover { color: #fff; }
+        
         /* --- Back to Top & Responsive Nav --- */
         .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--heading-color); color: var(--bg-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
         .back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
         .menu-toggle { z-index: 1001; }
         
+
+        /* ========================================= */
+        /* === NEW: ENHANCEMENT STYLES === */
+        /* ========================================= */
+
+        /* --- Theme Toggle Button --- */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: color 0.3s ease, transform 0.3s ease;
+            z-index: 1001;
+            margin-right: 15px; /* Add space next to menu toggle */
+        }
+        .theme-toggle:hover {
+            color: var(--accent-color);
+            transform: scale(1.1) rotate(15deg);
+        }
+        .theme-toggle .fa-sun {
+            display: none; /* Hide sun icon by default */
+        }
+
+        /* --- Dark Mode Theme --- */
+        body.dark-mode {
+            --bg-main: #1a202c; /* Dark blue/gray */
+            --bg-alt: #2d3748; /* Slightly lighter dark */
+            --text-primary: #e2e8f0; /* Light gray text */
+            --text-secondary: #a0aec0; /* Medium gray text */
+            --border-color: #4a5568;
+            --heading-color: #ffffff; /* White headings */
+            --accent-color: #63b3ed; /* A brighter blue for dark bg */
+        }
+
+        /* Adjust dark mode components */
+        body.dark-mode .navbar {
+            background-color: rgba(26, 32, 44, 0.95); /* Dark, blurred nav */
+            border-bottom-color: var(--border-color);
+        }
+        body.dark-mode .hero-image::before {
+            background-color: var(--bg-alt);
+        }
+        body.dark-mode .info-item,
+        body.dark-mode .skill-card,
+        body.dark-mode .certificate-card,
+        body.dark-mode .language-item {
+            background-color: var(--bg-alt);
+            border-color: var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        body.dark-mode .info-item {
+            border-left-color: var(--accent-color);
+        }
+        body.dark-mode .filter-btn {
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+        body.dark-mode .filter-btn:hover {
+            background-color: var(--text-secondary);
+            border-color: var(--text-secondary);
+            color: var(--bg-main);
+        }
+        body.dark-mode .filter-btn.active {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--bg-main);
+        }
+        body.dark-mode .nav-links {
+            background-color: var(--bg-alt); /* For mobile nav */
+        }
+        body.dark-mode .theme-toggle .fa-moon { display: none; }
+        body.dark-mode .theme-toggle .fa-sun { display: inline-block; }
+        body.dark-mode .cursor { background-color: var(--accent-color); }
+
+
+        /* --- Typing Effect --- */
+        .cursor {
+            display: inline-block;
+            background-color: var(--heading-color);
+            width: 3px;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+            position: relative;
+            top: 2px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* --- Vertical Timeline --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--heading-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            opacity: 0.1;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-main);
+            border: 4px solid var(--accent-color);
+            top: 30px; /* Align with padding */
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-left { left: 0; }
+        .timeline-right { left: 50%; }
+        .timeline-left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 32px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--border-color);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--border-color);
+        }
+        .timeline-right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 32px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--border-color);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--border-color) transparent transparent;
+        }
+        .timeline-right::after { left: -10px; }
+
+        /* The card content */
+        .timeline-content {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        /* Override info-item styles for timeline */
+        #experience .timeline-content,
+        #education .timeline-content {
+            margin: 0;
+            border-left: 1px solid var(--border-color); /* Remove thick left border */
+        }
+        body.dark-mode .timeline-content {
+            background-color: var(--bg-alt);
+            border-color: var(--border-color);
+        }
+        body.dark-mode .timeline-left::before { border-left-color: var(--border-color); }
+        body.dark-mode .timeline-right::before { border-right-color: var(--border-color); }
+        body.dark-mode .timeline-item::after { background-color: var(--bg-alt); }
+        
+
+        /* --- Upgraded Skill Card --- */
+        .tool-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 2.25rem;
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            justify-content: center;
+        }
+        .tool-logos i {
+            transition: all 0.3s ease;
+        }
+        .tool-logos i:hover {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        /* ========================================= */
+        /* === RESPONSIVE STYLES === */
+        /* ========================================= */
+        
         @media (max-width: 768px) {
             body { padding-top: 70px; }
             .navbar { height: 70px; padding: 15px 0; }
             .menu-toggle { display: block; }
+            .theme-toggle { margin-right: 10px; font-size: 1.15rem; } /* Adjust toggle for mobile */
             .nav-links { position: fixed; top: 0; right: 0; width: 70%; max-width: 300px; height: 100vh; background-color: var(--bg-main); flex-direction: column; padding-top: 5rem; border-left: 1px solid var(--border-color); box-shadow: -4px 0 15px rgba(0,0,0,0.1); transform: translateX(100%); transition: transform 0.3s ease-in-out; }
             .nav-links.is-open { transform: translateX(0); }
             .nav-links li { margin: 1rem 2rem; }
             .hero .container { grid-template-columns: 1fr; text-align: center; }
             .hero-image { grid-row: 1; margin-bottom: 2rem; }
             .hero-text { text-align: center; }
-            h1 { font-size: 2.5rem; } h2 { font-size: 1.8rem; }
+            h1 { font-size: 2.5rem; } 
+            h2 { font-size: 1.8rem; }
             #about .about-list li { font-size: 1rem; padding-left: 2rem; }
             #about .about-list li::before { font-size: 1.2rem; }
             .skills-grid { grid-template-columns: 1fr; }
+
+            /* Responsive Timeline */
+            .timeline::after {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 10px;
+            }
+            .timeline-item::after {
+                left: 11px; /* (20px line - (20px circle / 2) + 1px) */
+            }
+            .timeline-right, .timeline-left {
+                left: 0%;
+            }
+            .timeline-left::before, .timeline-right::before {
+                left: 40px;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--border-color) transparent transparent;
+            }
+            body.dark-mode .timeline-left::before, 
+            body.dark-mode .timeline-right::before {
+                border-right-color: var(--border-color);
+                border-left-color: transparent;
+            }
         }
     </style>
 </head>
@@ -162,18 +383,24 @@
     <nav class="navbar">
         <div class="container">
             <a href="#home" class="logo">LIM SEAN SHEN</a>
-            <!-- UPDATED: Navigation Order -->
-            <ul class="nav-links no-bullets">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="menu-toggle" aria-label="Open navigation menu"><i class="fas fa-bars"></i></button>
+            
+            <div style="display: flex; align-items: center;">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <ul class="nav-links no-bullets">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="menu-toggle" aria-label="Open navigation menu"><i class="fas fa-bars"></i></button>
+            </div>
         </div>
     </nav>
 
@@ -181,14 +408,16 @@
         <section class="hero" id="home">
             <div class="container">
                 <div class="hero-text fade-in-element">
-                    <p class="tagline">Data Scientist | AI Developer | Business Analyst</p>
+                    <p class="tagline">
+                        <span id="typing-text"></span><span class="cursor">&nbsp;</span>
+                    </p>
                     <h1>Hello, I'm Lim Sean Shen</h1>
                     <p>A final-year Bachelor of Data Science student with practical R&D experience and a passion for business analytics. I am actively seeking Master's Degree offerings, full-time roles, and industry collaborations.</p>
                     <a href="Resume_LimSeanShen.pdf" target="_blank" class="btn btn-primary">View My Resume</a>
                 </div>
                 <div class="hero-image fade-in-element">
                     <img src="profile.jpg" alt="Lim Sean Shen">
-                </div>
+                 </div>
             </div>
         </section>
 
@@ -211,25 +440,34 @@
                 </div>
                 <div class="skills-grid">
                     <div class="skill-card fade-in-element">
-                        <i class="fas fa-brain skill-icon"></i>
+                         <i class="fas fa-brain skill-icon"></i>
                         <h3>Machine Learning & AI</h3>
                         <p>Developing predictive models and AI solutions using Python, SQL, and Java in various machine learning projects.</p>
-                    </div>
+                     </div>
                     <div class="skill-card fade-in-element">
                         <i class="fas fa-chart-pie skill-icon"></i>
                         <h3>Data Analysis & Visualization</h3>
                         <p>Proficient in statistical analysis and creating compelling dashboards with tools like Google Looker Studio.</p>
                     </div>
+                    
                     <div class="skill-card fade-in-element">
                         <i class="fas fa-cogs skill-icon"></i>
                         <h3>Tools & Automation</h3>
-                        <p>Experienced with essential tools including Git, n8n for automation, and backend platforms like Supabase.</p>
+                        <p>Experienced with essential tools for version control, automation, and backend services.</p>
+                        <div class="tool-logos">
+                            <i class="fab fa-git-alt" title="Git"></i>
+                            <i class="fab fa-python" title="Python"></i>
+                            <i class="fab fa-java" title="Java"></i>
+                            <i class="fas fa-project-diagram" title="n8n"></i>
+                            <i class="fas fa-database" title="Supabase"></i>
+                        </div>
                     </div>
+                    
                     <div class="skill-card fade-in-element">
-                        <i class="fas fa-cloud skill-icon"></i>
+                         <i class="fas fa-cloud skill-icon"></i>
                         <h3>Cloud Computing</h3>
                         <p>Knowledgeable in foundational concepts of cloud data services and deploying applications.</p>
-                    </div>
+                     </div>
                 </div>
             </div>
         </section>
@@ -239,19 +477,24 @@
                 <div class="section-intro">
                     <h2>Work Experience</h2>
                 </div>
-                <div class="info-item">
-                    <div class="info-header">
-                        <h3>Internship</h3>
-                        <span class="info-meta">CBIEV (Center For Business Incubation & Entrepreneurial Ventures), TARUMT | Kuala Lumpur</span>
-                        <span class="info-meta">June 2025 – Dec 2025</span>
+                
+                <div class="timeline">
+                    <div class="timeline-item timeline-left fade-in-element">
+                        <div class="timeline-content"> 
+                            <div class="info-header">
+                                <h3>Internship</h3>
+                                <span class="info-meta">CBIEV (Center For Business Incubation & Entrepreneurial Ventures), TARUMT | Kuala Lumpur</span>
+                                <span class="info-meta">June 2025 – Dec 2025</span>
+                            </div>
+                            <div class="info-body">
+                                <ul class="no-bullets">
+                                    <li>Managed an internal project to develop an automation system for project tracking and management.</li>
+                                    <li>Managed a governmental project to develop an automation system for analysing trending topics and performing sentiment analysis.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="info-body">
-                        <ul class="no-bullets">
-                            <li>Managed an internal project to develop an automation system for project tracking and management.</li>
-                            <li>Managed a governmental project to develop an automation system for analysing trending topics and performing sentiment analysis.</li>
-                        </ul>
                     </div>
-                </div>
             </div>
         </section>
 
@@ -260,72 +503,73 @@
                 <div class="section-intro">
                     <h2>Education</h2>
                 </div>
-                <div class="info-item">
-                    <div class="info-header">
-                        <h3>Bachelor Degree in Data Science (Honours)</h3>
-                        <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
-                        <span class="info-meta">Nov 2022 – Dec 2025</span>
+                
+                <div class="timeline">
+                    <div class="timeline-item timeline-right fade-in-element">
+                        <div class="timeline-content">
+                            <div class="info-header">
+                                <h3>Bachelor Degree in Data Science (Honours)</h3>
+                                <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
+                                <span class="info-meta">Nov 2022 – Dec 2025</span>
+                            </div>
+                            <div class="info-body">
+                                <ul class="no-bullets">
+                                    <li>CGPA: 3.7175 / 4.0</li>
+                                    <li>Top 5 capstone project among Faculty of Computing and Information Technology.</li>
+                                    <li>Published an article based on the capstone project on IEEE 2025.</li>
+                                    <li>Presented at two international events (2025 Nanning Competition & Research Symposium).</li>
+                                    <li>Consistent President's List and Dean's List achiever.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="info-body">
-                        <ul class="no-bullets">
-                            <li>CGPA: 3.7175 / 4.0</li>
-                            <li>Top 5 capstone project among Faculty of Computing and Information Technology.</li>
-                            <li>Published an article based on the capstone project on IEEE 2025.</li>
-                            <li>Presented at two international events (2025 Nanning Competition & Research Symposium).</li>
-                            <li>Consistent President's List and Dean's List achiever.</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="info-item">
-                    <div class="info-header">
-                        <h3>Foundation in Computing</h3>
-                        <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
-                        <span class="info-meta">Sep 2021 – Sep 2022</span>
-                    </div>
-                    <div class="info-body">
-                        <ul class="no-bullets">
-                            <li>CGPA: 3.7333 / 4.0</li>
-                        </ul>
+                    
+                    <div class="timeline-item timeline-left fade-in-element">
+                        <div class="timeline-content">
+                            <div class="info-header">
+                                <h3>Foundation in Computing</h3>
+                                <span class="info-meta">Tunku Abdul Rahman University of Management and Technology (TARUMT)</span>
+                                <span class="info-meta">Sep 2021 – Sep 2022</span>
+                            </div>
+                            <div class="info-body">
+                                <ul class="no-bullets">
+                                    <li>CGPA: 3.7333 / 4.0</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ====================================================== -->
-        <!-- ================= NEW: CERTIFICATES SECTION ================= -->
-        <!-- ====================================================== -->
         <section id="certificates">
             <div class="container fade-in-element">
                 <div class="section-intro">
                     <h2>Certifications</h2>
                 </div>
-                <div class="certificate-grid">
-                    <!-- Certificate 1 -->
+                 <div class="certificate-grid">
                     <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf" target="_blank" class="certificate-card fade-in-element">
-                        <i class="Certificate 1"></i>
-                        <h3>International Joint Student Research Symposium</h3>
+                        <i class="fas fa-trophy certificate-icon"></i>
+                         <h3>International Joint Student Research Symposium</h3>
                         <p>Issued by: BINUS University</p>
                     </a>
                     
-                    <!-- Certificate 2 -->
                     <a href="AsiaTech Cert.pdf" target="_blank" class="certificate-card fade-in-element">
-                        <i class="Certificate 2"></i>
+                        <i class="fas fa-rocket certificate-icon"></i>
                         <h3>AsiaTech Commercialization Program</h3>
-                        <p>Issued by: AsiaTech Sdn. Bhd.</p>
+                         <p>Issued by: AsiaTech Sdn. Bhd.</p>
                     </a>
 
-                     <!-- Certificate 3 -->
-                    <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="certificate-card fade-in-element">
-                        <i class="Certificate 3"></i>
+                     <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="certificate-card fade-in-element">
+                         <i class="fas fa-chart-line certificate-icon"></i>
                         <h3>Online Course on Fundamental In Trading Market</h3>
                         <p>Issued by: Bursa Malaysia</p>
                     </a>
 
-                    <!-- Certificate 4 -->
-                    <a href="Nanning Competition.pdf" target="_blank" class="certificate-card fade-in-element">
-                        <i class="Certificate 4"></i>
+                     <a href="Nanning Competition.pdf" target="_blank" class="certificate-card fade-in-element">
+                        <i class="fas fa-star certificate-icon"></i>
                         <h3>2025 Nanning International Elite Innovation and Entrepreneurship Competition</h3>
-                        <p>Issued by: TARUMT</p>
+                         <p>Issued by: TARUMT</p>
                     </a>
 
                 </div>
@@ -334,23 +578,23 @@
 
         <section id="projects">
             <div class="container fade-in-element">
-                <h2>Project Portfolio</h2>
+                 <h2>Project Portfolio</h2>
                 <div class="project-grid">
                     <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank" class="project-card fade-in-element">
                         <img src="AI_Campaign Pic.png" alt="AI Campaign Optimization">
-                        <div class="project-overlay">
+                         <div class="project-overlay">
                             <h3>AI-Driven Campaign Optimization</h3>
                             <p>Generative AI & Streamlit</p>
                         </div>
-                    </a>
+                     </a>
                     <a href="https://github.com/GiDerAce6969/Financial-Tracking" target="_blank" class="project-card fade-in-element">
                         <img src="FinTrack Dashboard.png" alt="Personal Financial Tracker Dashboard">
                         <div class="project-overlay">
-                            <h3>Personal Financial Tracker</h3>
+                             <h3>Personal Financial Tracker</h3>
                             <p>HTML, CSS, JavaScript</p>
                         </div>
                     </a>
-                </div>
+                 </div>
             </div>
         </section>
 
@@ -358,12 +602,12 @@
             <div class="container fade-in-element">
                  <div class="section-intro">
                     <h2>Languages</h2>
-                </div>
+                 </div>
                 <ul class="language-list">
                     <li class="language-item"><strong>Chinese:</strong> Native Speaker</li>
                     <li class="language-item"><strong>English:</strong> MUET Band 4</li>
                     <li class="language-item"><strong>Malay:</strong> Native Speaker</li>
-                </ul>
+                 </ul>
             </div>
         </section>
 
@@ -371,12 +615,12 @@
            <div class="container fade-in-element">
                 <h2>Get In Touch</h2>
                 <div class="section-intro">
-                    <p>I'm currently seeking Master's Degree offerings, full-time job opportunities, and industry collaboration opportunities. Feel free to reach out—I'd love to connect!</p>
+                     <p>I'm currently seeking Master's Degree offerings, full-time job opportunities, and industry collaboration opportunities. Feel free to reach out—I'd love to connect!</p>
                 </div>
                 <ul class="no-bullets">
                     <li><i class="fas fa-envelope"></i>Email: <a href="mailto:sslim1684@gmail.com">sslim1684@gmail.com</a></li>
                     <li><i class="fab fa-linkedin"></i>LinkedIn: <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank">Lim Sean Shen</a></li>
-                    <li><i class="fab fa-github"></i>GitHub: <a href="https://github.com/GiDerAce6969" target="_blank">GiDerAce6969</a></li>
+                     <li><i class="fab fa-github"></i>GitHub: <a href="https://github.com/GiDerAce6969" target="_blank">GiDerAce6969</a></li>
                 </ul>
             </div>
         </section>
@@ -384,7 +628,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Lim Sean Shen. All Rights Reserved.</p>
+            <p>&copy;<script>document.write(new Date().getFullYear())</script> Lim Sean Shen. All Rights Reserved.</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/GiDerAce6969" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -394,17 +638,131 @@
 
     <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
-    <script>
-        // JS remains the same and will work with the new sections
+   
+     <script>
+        // --- Typing Effect Function (goes outside DOMContentLoaded) ---
+        function startTypingEffect() {
+            const roles = ["Data Scientist", "AI Developer", "Business Analyst"];
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typingSpeed = 100;
+            const deletingSpeed = 50;
+            const delayBetweenRoles = 1500;
+            const textElement = document.getElementById('typing-text');
+
+            function type() {
+                // Check if textElement exists first
+                if (!textElement) return;
+                
+                const currentRole = roles[roleIndex];
+                
+                if (isDeleting) {
+                    // Deleting
+                    textElement.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                        setTimeout(type, 500); // Pause before typing new role
+                    } else {
+                        setTimeout(type, deletingSpeed);
+                    }
+                } else {
+                    // Typing
+                    textElement.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                    if (charIndex === currentRole.length) {
+                        isDeleting = true;
+                        setTimeout(type, delayBetweenRoles); // Wait after finishing a role
+                    } else {
+                        setTimeout(type, typingSpeed);
+                    }
+                }
+            }
+            setTimeout(type, 500); // Initial delay
+        }
+
+        // --- Main Script ---
         document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); }); }, { threshold: 0.1 });
+            
+            // 1. Original: Fade-in Observer
+            const observer = new IntersectionObserver((entries) => { 
+                entries.forEach(entry => { 
+                    if (entry.isIntersecting) entry.target.classList.add('is-visible'); 
+                }); 
+            }, { threshold: 0.1 });
             document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
+            
+            // 2. Original: Mobile Menu
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
-            menuToggle.addEventListener('click', () => { navLinks.classList.toggle('is-open'); menuToggle.querySelector('i').classList.toggle('fa-bars'); menuToggle.querySelector('i').classList.toggle('fa-times'); });
-            document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { if (navLinks.classList.contains('is-open')) { navLinks.classList.remove('is-open'); menuToggle.querySelector('i').classList.add('fa-bars'); menuToggle.querySelector('i').classList.remove('fa-times'); } }); });
+            menuToggle.addEventListener('click', () => { 
+                navLinks.classList.toggle('is-open'); 
+                menuToggle.querySelector('i').classList.toggle('fa-bars'); 
+                menuToggle.querySelector('i').classList.toggle('fa-times'); 
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => { 
+                link.addEventListener('click', () => { 
+                    if (navLinks.classList.contains('is-open')) { 
+                        navLinks.classList.remove('is-open'); 
+                        menuToggle.querySelector('i').classList.add('fa-bars'); 
+                        menuToggle.querySelector('i').classList.remove('fa-times'); 
+                    } 
+                }); 
+            });
+            
+            // --- NEW FEATURES ---
+
+            // 3. NEW: Start Typing Effect
+            startTypingEffect();
+
+            // 4. NEW: Dark Mode Toggle
+            const themeToggle = document.querySelector('.theme-toggle');
+            const sunIcon = '<i class="fas fa-sun"></i>';
+            const moonIcon = '<i class="fas fa-moon"></i>';
+            // Check for saved theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = sunIcon;
+            }
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    themeToggle.innerHTML = sunIcon;
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeToggle.innerHTML = moonIcon;
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // 5. CONSOLIDATED: Scroll Listener (for Back-to-Top & Scroll-Spy)
             const backToTopButton = document.querySelector('.back-to-top');
-            window.addEventListener('scroll', () => { backToTopButton.classList.toggle('is-visible', window.scrollY > 300); });
+            const sections = document.querySelectorAll('section[id]');
+            const navLinksList = document.querySelectorAll('.nav-links a');
+            
+            window.addEventListener('scroll', () => {
+                
+                // Back-to-Top logic
+                backToTopButton.classList.toggle('is-visible', window.scrollY > 300);
+                
+                // Scroll-Spy logic
+                let current = 'home'; // Default to home
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 81) { // 80px nav height + 1px buffer
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinksList.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
         });
     </script>
 </body>
