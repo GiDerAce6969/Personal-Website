@@ -4,35 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lim Sean Shen - Creative Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Lim Sean Shen - Data Science Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* * DESIGN SYSTEM (Mode & Overrrides Inspired)
+         */
         :root {
-            /* --- Minimalist Professional Palette --- */
-            --bg-body: #ffffff;
-            --bg-card: #f8f9fa;
-
-            --text-primary: #1a202c;
-            --text-secondary: #4a5568;
-            --text-accent: #2d3748;
-            /* Dark Grey/Blue accent */
-
-            --border-color: #e2e8f0;
-            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            /* High-Contrast B2B SaaS Colors */
+            --bg-color: #FAFAFB; /* Off-white for depth */
+            --card-bg: #FFFFFF;
+            --text-main: #4B5563; /* Cool gray for readable paragraphs */
+            --text-heading: #09090B; /* Near black for punchy headings */
+            
+            /* Mode's signature vibrant accent vibe */
+            --accent-color: #00D084; /* Vibrant Mint/Emerald Green */
+            --accent-hover: #00B372;
+            --accent-light: rgba(0, 208, 132, 0.1);
+            
+            --border-color: #E4E4E7;
+            --border-hover: #D4D4D8;
 
             /* Typography */
-            --font-heading: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-            --font-mono: 'Roboto Mono', monospace;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --weight-regular: 400;
+            --weight-medium: 500;
+            --weight-semibold: 600;
+            --weight-bold: 800;
+
+            /* Spacing */
+            --spacing-sm: 1rem;
+            --spacing-md: 2.5rem;
+            --spacing-lg: 5rem;
+            --spacing-xl: 8rem;
+
+            /* Layout */
+            --container-width: 1140px;
+            --border-radius-pill: 100px;
+            --border-radius-card: 16px; /* Slightly rounder, modern SaaS feel */
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
         }
 
-        /* --- Global Reset & Base --- */
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -44,270 +65,343 @@
         }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg-body);
-            color: var(--text-primary);
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
 
-        /* --- Typography --- */
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--text-primary);
+        h1, h2, h3, h4 {
+            font-weight: var(--weight-bold);
+            color: var(--text-heading);
+            line-height: 1.1;
+            letter-spacing: -0.03em; /* Tight tracking like Mode.com */
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        p {
-            color: var(--text-secondary);
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
             margin-bottom: 1.5rem;
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, var(--text-gradient-start), var(--text-gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
         }
 
-        /* --- Utilities --- */
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            font-size: 0.85rem;
+            font-weight: var(--weight-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-weight: var(--weight-regular);
+            margin-bottom: 1rem;
+            max-width: 60ch;
+            font-size: 1.125rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        /* Utilities */
         .container {
-            max-width: 1200px;
+            width: 90%;
+            max-width: var(--container-width);
             margin: 0 auto;
-            padding: 0 24px;
             position: relative;
-            z-index: 2;
         }
 
-        .glass-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-shadow: var(--shadow-soft);
+        .section-padding {
+            padding: var(--spacing-xl) 0;
+        }
+
+        /* Bento Box Grid System (Overrrides inspired) */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-3 { grid-template-columns: 1fr; }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* Sleek Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.25rem 0;
+            background: rgba(250, 250, 251, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid transparent;
             transition: all 0.3s ease;
         }
 
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .navbar.scrolled {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.95);
         }
 
-        /* --- Navigation --- */
-        .navbar {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            width: auto;
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .nav-island {
+        .logo {
+            font-weight: var(--weight-bold);
+            font-size: 1.25rem;
+            letter-spacing: -0.04em;
+            color: var(--text-heading);
             display: flex;
             align-items: center;
-            gap: 8px;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 8px 12px;
-            border-radius: 100px;
-            box-shadow: var(--shadow-soft);
+            gap: 0.5rem;
+        }
+        
+        /* Small accent dot next to logo */
+        .logo::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
         }
 
         .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 100px;
-            transition: all 0.3s ease;
+            font-weight: var(--weight-medium);
+            font-size: 0.95rem;
+            color: var(--text-main);
         }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--bg-body);
-            background: var(--text-accent);
-            font-weight: 600;
+        .nav-link:hover {
+            color: var(--text-heading);
         }
 
-        /* --- Hero Section --- */
+        /* SaaS Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background-color: var(--text-heading);
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: var(--weight-semibold);
+            border-radius: var(--border-radius-pill);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid var(--text-heading);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5);
+            background-color: #000000;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-heading);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            box-shadow: 0 10px 20px -10px rgba(0, 208, 132, 0.5);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-heading);
+            border-color: var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-heading);
+            background-color: var(--text-heading);
+            color: #FFFFFF;
+        }
+
+        /* Modern Cards (Overrrides Vibe) */
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-card);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--accent-light);
+            color: var(--accent-color);
+            border-radius: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            position: relative;
-            padding-top: 80px;
+            padding-top: var(--spacing-lg);
         }
 
         .hero-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .hero-text h4 {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+        @media (min-width: 900px) {
+            .hero-layout {
+                grid-template-columns: 1.2fr 1fr;
+            }
         }
 
-        .hero-text h1 {
-            font-size: clamp(3rem, 6vw, 5rem);
-            line-height: 1.1;
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--accent-light);
+            color: #00A669;
+            font-weight: var(--weight-semibold);
+            font-size: 0.85rem;
+            border-radius: var(--border-radius-pill);
             margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 208, 132, 0.2);
         }
 
         .hero-image-wrapper {
             position: relative;
-            padding: 20px;
-            background: #fff;
-            box-shadow: var(--shadow-soft);
-            border-radius: 8px;
-            transform: rotate(3deg);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-image-wrapper:hover {
-            transform: rotate(0deg);
+            border-radius: var(--border-radius-card);
+            padding: 1rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
         }
 
         .hero-image {
             width: 100%;
-            border-radius: 4px;
+            border-radius: calc(var(--border-radius-card) - 0.5rem);
             display: block;
+            background: #eee; /* Fallback if image is missing */
+            aspect-ratio: 4/5;
+            object-fit: cover;
         }
 
-        /* --- Journey Timeline (RESTORED ORIGINAL) --- */
-        #journey {
-            background-color: var(--bg-card);
-        }
-
+        /* Timeline (Mode UI Style) */
         .timeline {
-            max-width: 800px;
-            margin: 3rem auto;
             position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 2rem;
         }
 
-        .timeline-line {
+        .timeline::before {
+            content: '';
             position: absolute;
+            left: 0;
             top: 0;
-            left: 50%;
-            width: 3px;
-            background-color: var(--border-color);
-            height: 100%;
-            transform: translateX(-50%);
-        }
-
-        .timeline-line-progress {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 3px;
-            background-color: var(--text-accent);
-            height: 0;
-            transform: translateX(-50%);
-            transition: height 1s ease-out;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
         }
 
         .timeline-item {
-            padding: 20px 0;
+            padding-bottom: 3rem;
             position: relative;
-            width: 50%;
         }
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 40px;
-            text-align: right;
+        .timeline-item:last-child {
+            padding-bottom: 0;
         }
 
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 40px;
-            text-align: left;
-        }
-
-        .timeline-dot {
+        /* Timeline Dot */
+        .timeline-item::after {
+            content: '';
             position: absolute;
-            top: 30px;
+            left: -33px; /* Centers on the 2px line (2rem padding left = 32px + 1px) */
+            top: 0;
             width: 16px;
             height: 16px;
-            background-color: #fff;
-            border: 3px solid var(--text-accent);
+            background: white;
+            border: 4px solid var(--accent-color);
             border-radius: 50%;
             z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-            transform: translateX(50%);
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-            transform: translateX(-50%);
-        }
-
-        .timeline-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 0 0 4px var(--bg-color);
         }
 
         .timeline-date {
-            color: var(--text-secondary);
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-mono);
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+            font-weight: var(--weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .timeline-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
+        .timeline-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-card);
+            box-shadow: var(--shadow-sm);
         }
 
-        .timeline-details {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1rem;
-        }
-
-        .timeline-details li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .timeline-details li::before {
-            content: '›';
-            position: absolute;
-            left: 0;
-            color: var(--text-accent);
-        }
-
-        /* --- Certificates --- */
+        /* Carousel */
         .logo-carousel {
             overflow: hidden;
             width: 100%;
@@ -318,8 +412,7 @@
 
         .carousel-track {
             display: flex;
-            align-items: flex-start;
-            gap: 2rem;
+            gap: 1.5rem;
             width: max-content;
             animation: scroll 40s linear infinite;
         }
@@ -329,538 +422,360 @@
         }
 
         @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .certificate-card {
+        .cert-card {
             display: flex;
             flex-direction: column;
-            background-color: #fff;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            width: 280px;
-            height: 320px;
-            flex-shrink: 0;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            border-radius: var(--border-radius-card);
+            padding: 2rem;
+            width: 220px;
+            height: 240px;
             text-align: center;
-            box-shadow: var(--shadow-soft);
-        }
-
-
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--text-accent);
-            color: #ffffff;
-            /* Ensure white text for contrast */
-            padding: 12px 30px;
-            border-radius: 50px;
-            /* Pillow shape for modern look */
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 1.5rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            opacity: 0.95;
+        .cert-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
-        /* --- Projects Section --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+        .cert-card img {
+            max-height: 60px;
+            margin-bottom: 1.5rem;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
         }
 
+        .cert-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Project Cards */
         .project-card {
-            display: block;
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--border-radius-card);
             border: 1px solid var(--border-color);
-            transition: all 0.4s ease;
+            background: var(--card-bg);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--text-accent);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-hover);
         }
 
-        .project-card img {
+        .project-img-wrapper {
             width: 100%;
             height: 280px;
-            object-fit: cover;
-            transition: 0.5s ease;
+            overflow: hidden;
+            background: #F3F4F6;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .project-card:hover img {
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
             transform: scale(1.05);
         }
 
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 30px;
-            background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
-            transform: translateY(20px);
-            transition: 0.3s;
-        }
-
-        .project-card:hover .project-overlay {
-            transform: translateY(0);
-        }
-
-        .project-overlay h3 {
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-
-        .project-overlay p {
-            color: var(--text-accent);
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-
-        /* --- Contact Section --- */
-        .contact-links {
+        .project-content {
+            padding: 2rem;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border: 1px solid var(--text-accent);
-            color: var(--text-accent);
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            background: transparent;
+        .project-link {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-heading);
+            font-weight: var(--weight-semibold);
+            font-size: 0.95rem;
         }
 
-        .btn:hover {
-            background: var(--text-accent);
-            color: var(--bg-body);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        .project-link:hover {
+            color: var(--accent-color);
         }
 
-        /* --- Layout & Animations --- */
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .section-header h2 {
-            margin-bottom: 1rem;
-        }
-
+        /* Scroll Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .reveal.visible {
+        .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .reveal-stagger {
-            transition-delay: calc(0.1s * var(--stagger-index, 1));
-        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
 
-        /* --- Memo Grid (Languages) --- */
-        .memo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .memo-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 30px;
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            margin-top: var(--spacing-xl);
+            background: var(--card-bg);
             text-align: center;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
         }
 
-        .memo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .memo-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--text-accent);
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 900px) {
-            .hero-layout {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .hero-card::before {
-                width: 100%;
-                height: 4px;
-                top: auto;
-                bottom: 0;
-            }
-
-            .hero-image-wrapper {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            .nav-link {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
+        .footer-content p {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin: 0 auto;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Marquee Removed for Cleaner Aesthetic -->
-
-    <nav class="navbar">
-        <div class="nav-island">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#journey" class="nav-link">Journey</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link active">Connect</a>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">SEAN SHEN</a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">Expertise</a>
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#projects" class="nav-link">Work</a>
+                <a href="#contact" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Contact</a>
+            </div>
         </div>
     </nav>
 
     <main>
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-layout">
-                    <div class="hero-text reveal">
-                        <h4>Hello, I'm</h4>
-                        <h1>Lim Sean Shen</h1>
-                        <p class="title" style="font-size: 1.5rem; margin-top: 1rem;">
-                            <span id="typing-effect"></span><span class="typing-cursor">|</span>
-                        </p>
-                        <p
-                            style="margin-top: 1.5rem; font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
-                            Designing intelligent data solutions and architecting the future of AI.
-                        </p>
-                        <a href="#contact" class="btn-primary">Let's Collaborate</a>
+        <section class="hero container">
+            <div class="hero-layout">
+                <div class="hero-content reveal">
+                    <span class="hero-badge">Data Scientist & Innovator</span>
+                    <h1>Intelligent data.<br>Better decisions.</h1>
+                    <p>I am <strong>Lim Sean Shen</strong>, architecting the future of AI and designing data-driven solutions that transform complex metrics into clear, actionable narratives.</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <a href="#projects" class="btn btn-accent">Explore My Work</a>
+                        <a href="#contact" class="btn btn-outline">Let's Collaborate</a>
                     </div>
-
-                    <div class="hero-image-wrapper reveal reveal-stagger" style="--stagger-index: 1;">
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div class="hero-image-wrapper">
                         <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2>Personal Skills</h2>
+        <section id="about" class="container section-padding">
+            <div class="reveal">
+                <h2>Platform capabilities</h2>
+                <p>A powerful blend of academic excellence and practical innovation designed to scale.</p>
+            </div>
+
+            <div class="grid grid-4" style="margin-top: 3rem;">
+                <div class="card reveal reveal-delay-1">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Academics</h3>
+                    <p style="font-size: 1rem;">CGPA 3.7175. Top 5 Capstone Project & Consistent Dean's List.</p>
                 </div>
-                <!-- Restored Memo Grid Design -->
-                <div class="memo-grid">
-                    <!-- Stat Card 1 -->
-                    <div class="memo-card reveal reveal-stagger" style="--stagger-index: 1;">
-                        <i class="fas fa-graduation-cap memo-icon"></i>
-                        <h3>Academic Excellence</h3>
-                        <p>CGPA 3.7175 Data Science Graduate. Top 5 Capstone Project & Consistent Dean's List Achiever.
-                        </p>
+                <div class="card reveal reveal-delay-2">
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovation</h3>
+                    <p style="font-size: 1rem;">IEEE Published Author (2025). Award winner at Nanning Competition.</p>
+                </div>
+                <div class="card reveal reveal-delay-3">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI & ML</h3>
+                    <p style="font-size: 1rem;">Python, TensorFlow, GenAI APIs. Building intelligent systems.</p>
+                </div>
+                <div class="card reveal reveal-delay-1">
+                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Analytics</h3>
+                    <p style="font-size: 1rem;">SQL, EDA, Looker Studio. Turning numbers into narratives.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="container section-padding">
+            <div class="reveal" style="max-width: 600px; margin-bottom: 4rem;">
+                <h2>My Journey</h2>
+                <p>The roadmap of my professional and academic evolution.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Jun 2025 – Dec 2025</div>
+                        <h3>Data Analyst Internship</h3>
+                        <h4 style="color: var(--text-main);">CBIEV, TARUMT</h4>
+                        <p style="margin-bottom: 0; font-size: 1rem;">Developed automation systems for project tracking and managed sentiment analysis for governmental projects, streamlining decision-making workflows.</p>
                     </div>
-                    <!-- Stat Card 2 -->
-                    <div class="memo-card reveal reveal-stagger" style="--stagger-index: 2;">
-                        <i class="fas fa-lightbulb memo-icon"></i>
-                        <h3>Innovation Leader</h3>
-                        <p>Published IEEE author (2025). Award winner at Nanning Innovation Competition.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Nov 2022 – Dec 2025</div>
+                        <h3>Bachelor of Data Science</h3>
+                        <h4 style="color: var(--text-main);">TARUMT (CGPA: 3.7175)</h4>
+                        <p style="margin-bottom: 0; font-size: 1rem;">Achieved Top 5 Capstone, secured an IEEE Publication, and delivered presentations on international stages.</p>
                     </div>
-                    <!-- Core Skill 1 -->
-                    <div class="memo-card reveal reveal-stagger" style="--stagger-index: 3;">
-                        <i class="fas fa-brain memo-icon"></i>
-                        <h3>AI & Machine Learning</h3>
-                        <p>Specialist in Python, TensorFlow, and Generative AI APIs. Building the brains of tomorrow.
-                        </p>
-                    </div>
-                    <!-- Core Skill 2 -->
-                    <div class="memo-card reveal reveal-stagger" style="--stagger-index: 4;">
-                        <i class="fas fa-chart-bar memo-icon"></i>
-                        <h3>Data Analytics</h3>
-                        <p>Turning numbers into narratives with SQL, EDA, and Looks Studio dashboards.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Sep 2021 – Sep 2022</div>
+                        <h3>Foundation in Computing</h3>
+                        <h4 style="color: var(--text-main);">TARUMT (CGPA: 3.7333)</h4>
+                        <p style="margin-bottom: 0; font-size: 1rem;">Built a highly rigorous and solid foundation in core computing principles, algorithms, and programming.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" style="display: none;">
-            <!-- Merged into About/Bento -->
-        </section>
-
-        <section id="journey">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2>My Journey</h2>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-line"></div>
-                    <div class="timeline-line-progress"></div>
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">June 2025 – Dec 2025</div>
-                            <h3>Data Analyst Internship</h3>
-                            <p>CBIEV, TARUMT, Kuala Lumpur</p>
-                            <ul class="timeline-details">
-                                <li>Managed an internal project to develop an automation system for project tracking and
-                                    management.</li>
-                                <li>Managed a governmental project for analysing trending topics and performing
-                                    sentiment analysis.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">Nov 2022 – Dec 2025</div>
-                            <h3>Bachelor of Data Science (Honours)</h3>
-                            <p>TARUMT - CGPA: 3.7175</p>
-                            <ul class="timeline-details">
-                                <li>Top 5 capstone project among Faculty of Computing and Information Technology.</li>
-                                <li>Published an article based on the capstone project on IEEE 2025.</li>
-                                <li>Presented at two international events (2025 Nanning Competition & Research
-                                    Symposium).</li>
-                                <li>Consistent President's List and Dean's List achiever.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">Sep 2021 – Sep 2022</div>
-                            <h3>Foundation in Computing</h3>
-                            <p>TARUMT - CGPA: 3.7333</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="container section-padding" style="border-top: 1px solid var(--border-color);">
+            <div class="reveal" style="text-align: center;">
+                <h2>Trusted Certifications</h2>
             </div>
-        </section>
-
-        <!-- === UPDATED CERTIFICATES SECTION === -->
-        <section id="certificates">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2>Licenses & Certifications</h2>
-                </div>
-                <div class="logo-carousel">
-                    <div class="carousel-track">
-                        <!-- Original Set -->
-                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
-                            class="certificate-card">
-                            <img src="Bursa cert.png" alt="Bursa Malaysia" class="cert-logo">
-                            <h3>Derivatives eCourse</h3>
-                            <p>Bursa Malaysia</p>
-                        </a>
-                        <a href="Nanning Competition.pdf" target="_blank" class="certificate-card">
-                            <img src="Nanning cert.png" alt="TAR UMT" class="cert-logo">
-                            <h3>Nanning Innovation Competition</h3>
-                            <p>TAR UMT & CBIEV</p>
-                        </a>
-                        <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf"
-                            target="_blank" class="certificate-card">
-                            <img src="BINUS cert.png" alt="BINUS University" class="cert-logo">
-                            <h3>International Joint Student Research Symposium</h3>
-                            <p>BINUS University</p>
-                        </a>
-                        <a href="AsiaTech Cert.pdf" target="_blank" class="certificate-card">
-                            <img src="AsiaTech cert.png" alt="AsiaTech" class="cert-logo">
-                            <h3>AsiaTech Commercialization Program</h3>
-                            <p>TAR UMT & AsiaTech</p>
-                        </a>
-                        <!-- Duplicate Set for seamless loop -->
-                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
-                            class="certificate-card">
-                            <img src="Bursa cert.png" alt="Bursa Malaysia" class="cert-logo">
-                            <h3>Derivatives eCourse</h3>
-                            <p>Bursa Malaysia</p>
-                        </a>
-                        <a href="Nanning Competition.pdf" target="_blank" class="certificate-card">
-                            <img src="Nanning cert.png" alt="TAR UMT" class="cert-logo">
-                            <h3>Nanning Innovation Competition</h3>
-                            <p>TAR UMT & CBIEV</p>
-                        </a>
-                        <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf"
-                            target="_blank" class="certificate-card">
-                            <img src="BINUS cert.png" alt="BINUS University" class="cert-logo">
-                            <h3>International Joint Student Research Symposium</h3>
-                            <p>BINUS University</p>
-                        </a>
-                        <a href="AsiaTech Cert.pdf" target="_blank" class="certificate-card">
-                            <img src="AsiaTech cert.png" alt="AsiaTech" class="cert-logo">
-                            <h3>AsiaTech Commercialization Program</h3>
-                            <p>TAR UMT & AsiaTech</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2>Project Portfolio</h2>
-                </div>
-                <div class="project-grid">
-                    <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank"
-                        class="project-card reveal reveal-stagger" style="--stagger-index: 1;">
-                        <img src="AI_Campaign Pic.png" alt="AI Campaign Optimization">
-                        <div class="project-overlay">
-                            <h3>AI-Driven Campaign Optimization</h3>
-                            <p>Generative AI & Streamlit</p>
-                        </div>
+            <div class="logo-carousel reveal reveal-delay-2">
+                <div class="carousel-track">
+                    <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="cert-card">
+                        <img src="Bursa cert.png" alt="Bursa">
+                        <h4>Derivatives</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
                     </a>
-                    <a href="https://github.com/GiDerAce6969/fintrack-personal-finance-dashboard" target="_blank"
-                        class="project-card reveal reveal-stagger" style="--stagger-index: 2;">
-                        <img src="FinTrack Dashboard.png" alt="Personal Financial Tracker Dashboard">
-                        <div class="project-overlay">
-                            <h3>Personal Financial Tracker</h3>
-                            <p>HTML, CSS, JavaScript</p>
-                        </div>
+                    <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
+                        <img src="Nanning cert.png" alt="Nanning">
+                        <h4>Innovation</h4>
+                        <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
+                    </a>
+                    <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf" target="_blank" class="cert-card">
+                        <img src="BINUS cert.png" alt="BINUS">
+                        <h4>Symposium</h4>
+                        <p style="font-size: 0.85rem; margin:0;">BINUS University</p>
+                    </a>
+                    <a href="AsiaTech Cert.pdf" target="_blank" class="cert-card">
+                        <img src="AsiaTech cert.png" alt="AsiaTech">
+                        <h4>Commercialization</h4>
+                        <p style="font-size: 0.85rem; margin:0;">AsiaTech</p>
+                    </a>
+                    <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="cert-card">
+                        <img src="Bursa cert.png" alt="Bursa">
+                        <h4>Derivatives</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
+                    </a>
+                    <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
+                        <img src="Nanning cert.png" alt="Nanning">
+                        <h4>Innovation</h4>
+                        <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="languages">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2>Languages</h2>
-                </div>
-                <div class="memo-grid" style="max-width: 900px; margin: 0 auto;">
-                    <div class="memo-card reveal reveal-stagger" style="--stagger-index: 1;">
-                        <i class="fas fa-language memo-icon"></i>
-                        <h3>Chinese & Malay</h3>
-                        <p>Native Speaker proficiency.</p>
+        <section id="projects" class="container section-padding">
+            <div class="reveal">
+                <h2>Featured Integrations & Work</h2>
+                <p>Real-world applications of data engineering, visualization, and AI.</p>
+            </div>
+            
+            <div class="grid grid-2" style="margin-top: 3rem;">
+                <article class="project-card reveal">
+                    <div class="project-img-wrapper">
+                        <img src="AI_Campaign Pic.png" alt="AI Campaign" class="project-img">
                     </div>
-                    <div class="memo-card reveal reveal-stagger" style="--stagger-index: 2;">
-                        <i class="fas fa-comments memo-icon"></i>
-                        <h3>English</h3>
-                        <p>Professional proficiency (MUET Band 4 / IELTS 6.5 equivalent).</p>
+                    <div class="project-content">
+                        <h3>AI-Driven Campaign Optimization</h3>
+                        <p style="font-size: 1rem;">Built with Generative AI & Streamlit. Optimizing marketing campaigns with intelligent, data-backed insights.</p>
+                        <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank" class="project-link">
+                            View Repository <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
+                </article>
+
+                <article class="project-card reveal reveal-delay-2">
+                    <div class="project-img-wrapper">
+                        <img src="FinTrack Dashboard.png" alt="FinTrack" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Financial Tracker</h3>
+                        <p style="font-size: 1rem;">A minimalist, component-driven dashboard for personal finance. Developed utilizing raw HTML, CSS, and JS.</p>
+                        <a href="https://github.com/GiDerAce6969/fintrack-personal-finance-dashboard" target="_blank" class="project-link">
+                            View Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="container section-padding reveal">
+            <div style="text-align: center; max-width: 900px; margin: 0 auto; background: var(--text-heading); color: white; padding: 5rem 2rem; border-radius: 24px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -50%; left: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(0,208,132,0.15) 0%, transparent 70%); pointer-events: none;"></div>
+                
+                <h2 style="color: white;">Ready to scale your data strategy?</h2>
+                <p style="color: #A1A1AA; margin: 1.5rem auto 2.5rem; font-size: 1.2rem;">
+                    Currently exploring Master's Degree programs in data science or business analysis, full-time engineering roles, and exciting industry collaborations.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:sslim1684@gmail.com" class="btn btn-accent">Contact via Email</a>
+                    <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" class="btn" style="background: white; color: var(--text-heading); border-color: white;">Connect on LinkedIn</a>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <div class="container reveal">
-                <div class="section-header">
-                    <h2>Get In Touch</h2>
-                    <p>I'm currently seeking Master's Degree offerings, full-time job opportunities, and industry
-                        collaboration opportunities. Feel free to reach out—I'd love to connect!</p>
-                </div>
-                <div class="contact-links">
-                    <a href="mailto:sslim1684@gmail.com" class="btn">Email Me</a>
-                    <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank"
-                        class="btn">LinkedIn</a>
-                </div>
-            </div>
-        </section>
     </main>
 
+    <footer>
+        <div class="container footer-content">
+            <a href="#" class="logo" style="justify-content: center; margin-bottom: 1rem; font-size: 1.1rem;">SEAN SHEN</a>
+            <p>&copy; 2026 Lim Sean Shen. Designed with precision.</p>
+        </div>
+    </footer>
+
     <script>
-
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Typing Effect ---
-            const typingElement = document.getElementById('typing-effect');
-            if (typingElement) {
-                const roles = ["Data Scientist", "AI Architect", "Business Analyst"];
-                let roleIndex = 0, charIndex = 0, isDeleting = false;
+            // Scroll Reveal Animation (Smoother cubic-bezier)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-                function type() {
-                    const currentRole = roles[roleIndex];
-                    if (isDeleting) {
-                        typingElement.textContent = currentRole.substring(0, charIndex - 1);
-                        charIndex--;
-                    } else {
-                        typingElement.textContent = currentRole.substring(0, charIndex + 1);
-                        charIndex++;
-                    }
-
-                    if (!isDeleting && charIndex === currentRole.length) {
-                        isDeleting = true;
-                        setTimeout(type, 2000); // Pause at end
-                    } else if (isDeleting && charIndex === 0) {
-                        isDeleting = false;
-                        roleIndex = (roleIndex + 1) % roles.length;
-                        setTimeout(type, 500); // Pause before new word
-                    } else {
-                        setTimeout(type, isDeleting ? 50 : 100);
-                    }
-                }
-                type();
-            }
-
-            // --- Intersection Observer for Reveals ---
-            const observer = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        entry.target.classList.add('active');
                     }
                 });
-            }, { threshold: 0.1 });
+            }, observerOptions);
 
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
 
-            // --- Navbar Active State ---
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
-                    }
-                });
+                if (window.scrollY > 20) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
         });
     </script>
