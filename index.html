@@ -521,8 +521,8 @@
         /* Scroll Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(50px);
+            transition: all 1ms cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
@@ -560,6 +560,9 @@
                 <a href="#about" class="nav-link">Expertise</a>
                 <a href="#journey" class="nav-link">Journey</a>
                 <a href="#projects" class="nav-link">Work</a>
+                <a href="Personal CV.pdf" target="_blank" class="nav-link" style="display: flex; align-items: center; gap: 0.4rem;">
+                    <i class="fas fa-file-pdf" style="color: var(--accent-color);"></i> Resume
+                </a>
                 <a href="#contact" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Contact</a>
             </div>
         </div>
@@ -569,12 +572,19 @@
         <section class="hero container">
             <div class="hero-layout">
                 <div class="hero-content reveal">
-                    <span class="hero-badge">Data Scientist & Innovator</span>
+                    <span class="hero-badge">Data Scientist</span>
+                    <span class="hero-badge">Business Analyst</span>
+                    <span class="hero-badge">AI Engineer</span>
+                    <span class="hero-badge">Full Stack Enthusiast</span>
                     <h1>Intelligent data.<br>Better decisions.</h1>
-                    <p>I am <strong>Lim Sean Shen</strong>, architecting the future of AI and designing data-driven solutions that transform complex metrics into clear, actionable narratives.</p>
-                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                    <p>I am <strong>Lim Sean Shen</strong>, pursuing a master degree in business analytics/ data science.</p>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
                         <a href="#projects" class="btn btn-accent">Explore My Work</a>
-                        <a href="#contact" class="btn btn-outline">Let's Collaborate</a>
+                        <a href="Personal CV.pdf" target="_blank" download="Personal CV.pdf" class="btn btn-outline" style="background: white;">
+                            <i class="fas fa-download"></i> Download CV/Resume
+                        </a>
+                        <a href="#contact" class="btn btn-outline" style="border: none; text-decoration: underline; text-underline-offset: 4px;">Let's Collaborate</a>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-2">
@@ -711,12 +721,12 @@
 
                 <article class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrapper">
-                        <img src="BI Dashboard.png" alt="FinTrack" class="project-img">
+                        <img src="BI Dashboard.png" alt="Business Intelligence Dashboard" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Business Intelligence Dashboard</h3>
-                        <p style="font-size: 1rem;">Built with modern UI/UX design, able to connect with multiple databases. Easy to evaluate the data and generate insights.</p>
-                        <a href="https://github.com/GiDerAce6969/Business-Intelligence-Dashboard" target="_blank" class="project-link">
+                        <p style="font-size: 1rem;">A high-fidelity BI platform emphasizing modern UI/UX. Engineered to seamlessly connect and aggregate data from multiple databases for intuitive, real-time analytics.</p>
+                        <a href="#" target="_blank" class="project-link">
                             View Repository <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
