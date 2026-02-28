@@ -259,23 +259,27 @@
             color: #FFFFFF;
         }
 
-        /* Modern Cards (Overrrides Vibe) */
+        /* Modern Cards (Glassmorphism Vibe) */
         .card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: var(--border-radius-card);
+            padding: 2rem;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             height: 100%;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            z-index: 2;
         }
 
         .card:hover {
-            border-color: var(--border-hover);
+            border-color: rgba(255, 255, 255, 1);
             transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.1);
+            background: rgba(255, 255, 255, 0.7);
         }
 
         .card-icon {
@@ -324,6 +328,7 @@
             border: 1px solid rgba(0, 208, 132, 0.2);
         }
 
+        /* Profile Picture Flip Card CSS */
         .hero-image-wrapper {
             position: relative;
             border-radius: var(--border-radius-card);
@@ -331,15 +336,72 @@
             background: white;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-lg);
+            perspective: 1000px; /* Enable 3D space */
+            cursor: pointer; /* Show it's clickable */
+        }
+
+        .flipper {
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/5;
+        }
+
+        /* The toggle class applied via JS */
+        .hero-image-wrapper.flipped .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .flipper-front, .flipper-back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: calc(var(--border-radius-card) - 0.5rem);
+            overflow: hidden;
+        }
+
+        .flipper-front {
+            z-index: 2;
+            transform: rotateY(0deg);
         }
 
         .hero-image {
             width: 100%;
-            border-radius: calc(var(--border-radius-card) - 0.5rem);
+            height: 100%;
             display: block;
-            background: #eee; /* Fallback if image is missing */
-            aspect-ratio: 4/5;
+            background: #eee;
             object-fit: cover;
+        }
+
+        .flipper-back {
+            transform: rotateY(180deg);
+            background: var(--text-heading); /* Dark background for contrast */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid var(--accent-color);
+        }
+
+        .flipper-back i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .flipper-back p {
+            font-size: 1.75rem;
+            font-weight: var(--weight-bold);
+            color: white;
+            margin: 0;
+            line-height: 1.2;
         }
 
         /* Timeline (Mode UI Style) */
@@ -401,29 +463,64 @@
             box-shadow: var(--shadow-sm);
         }
 
-        /* Carousel */
-        .logo-carousel {
-            overflow: hidden;
+        /* Glassmorphism Background Blobs */
+        .glass-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+            animation: floatBlob 10s ease-in-out infinite alternate;
+        }
+        
+        .blob-1 {
+            top: 5%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 208, 132, 0.4);
+        }
+        
+        .blob-2 {
+            bottom: 5%;
+            right: -5%;
+            width: 250px;
+            height: 250px;
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 20px) scale(1.1); }
+        }
+
+        /* 3D Globe Carousel */
+        .globe-container {
+            perspective: 1200px;
             width: 100%;
-            padding: 2rem 0;
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-
-        .carousel-track {
+            height: 400px;
             display: flex;
-            gap: 1.5rem;
-            width: max-content;
-            animation: scroll 40s linear infinite;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
         }
 
-        .logo-carousel:hover .carousel-track {
-            animation-play-state: paused;
+        .globe {
+            width: 220px;
+            height: 240px;
+            position: relative;
+            transform-style: preserve-3d;
+            /* Animation is now controlled by JavaScript for dynamic speed */
         }
 
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .globe-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
         }
 
         .cert-card {
@@ -521,8 +618,8 @@
         /* Scroll Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 1ms cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
@@ -560,7 +657,7 @@
                 <a href="#about" class="nav-link">Expertise</a>
                 <a href="#journey" class="nav-link">Journey</a>
                 <a href="#projects" class="nav-link">Work</a>
-                <a href="Personal CV.pdf" target="_blank" class="nav-link" style="display: flex; align-items: center; gap: 0.4rem;">
+                <a href="Lim_Sean_Shen_CV.pdf" target="_blank" class="nav-link" style="display: flex; align-items: center; gap: 0.4rem;">
                     <i class="fas fa-file-pdf" style="color: var(--accent-color);"></i> Resume
                 </a>
                 <a href="#contact" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Contact</a>
@@ -572,36 +669,53 @@
         <section class="hero container">
             <div class="hero-layout">
                 <div class="hero-content reveal">
-                    <span class="hero-badge">Data Scientist</span>
-                    <span class="hero-badge">Business Analyst</span>
-                    <span class="hero-badge">AI Engineer</span>
-                    <span class="hero-badge">Full Stack Enthusiast</span>
+                    <span class="hero-badge">Data Science</span>
+                    <span class="hero-badge">Data Warehousing</span>
+                    <span class="hero-badge">Database Management</span>
+                    <span class="hero-badge">Data Engineering</span>
+                    <span class="hero-badge">Business Analytics</span>
+                    <span class="hero-badge">AI Engineering</span>
                     <h1>Intelligent data.<br>Better decisions.</h1>
-                    <p>I am <strong>Lim Sean Shen</strong>, pursuing a master degree in business analytics/ data science.</p>
+                    <p>I am <strong>Lim Sean Shen</strong>, currently pursuing a job opportunity in data science | business analytics | data analytics.</p>
                     
                     <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
                         <a href="#projects" class="btn btn-accent">Explore My Work</a>
-                        <a href="Personal CV.pdf" target="_blank" download="Personal CV.pdf" class="btn btn-outline" style="background: white;">
-                            <i class="fas fa-download"></i> Download CV/Resume
+                        <a href="Lim_Sean_Shen_CV.pdf" target="_blank" download="Lim_Sean_Shen_CV.pdf" class="btn btn-outline" style="background: white;">
+                            <i class="fas fa-download"></i> Download CV
                         </a>
                         <a href="#contact" class="btn btn-outline" style="border: none; text-decoration: underline; text-underline-offset: 4px;">Let's Collaborate</a>
                     </div>
                 </div>
+                
                 <div class="reveal reveal-delay-2">
-                    <div class="hero-image-wrapper">
-                        <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image">
+                    <!-- Added Flip Card interaction here -->
+                    <div class="hero-image-wrapper" onclick="this.classList.toggle('flipped')" title="Click to flip!">
+                        <div class="flipper">
+                            <!-- Front showing the image -->
+                            <div class="flipper-front">
+                                <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image">
+                            </div>
+                            <!-- Back showing the text -->
+                            <div class="flipper-back">
+                                <i class="fas fa-camera-retro"></i>
+                                <p>This is my picture!</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="container section-padding">
-            <div class="reveal">
+        <section id="about" class="container section-padding" style="position: relative;">
+            <div class="glass-blob blob-1"></div>
+            <div class="glass-blob blob-2"></div>
+            
+            <div class="reveal" style="position: relative; z-index: 1;">
                 <h2>Platform capabilities</h2>
                 <p>A powerful blend of academic excellence and practical innovation designed to scale.</p>
             </div>
 
-            <div class="grid grid-4" style="margin-top: 3rem;">
+            <div class="grid grid-4" style="margin-top: 3rem; position: relative; z-index: 1;">
                 <div class="card reveal reveal-delay-1">
                     <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h3>Academics</h3>
@@ -625,13 +739,15 @@
             </div>
         </section>
 
-        <section id="journey" class="container section-padding">
-            <div class="reveal" style="max-width: 600px; margin-bottom: 4rem;">
+        <section id="journey" class="container section-padding" style="position: relative;">
+            <div class="glass-blob blob-2" style="top: -5%; right: 10%;"></div>
+            
+            <div class="reveal" style="max-width: 600px; margin-bottom: 4rem; position: relative; z-index: 1;">
                 <h2>My Journey</h2>
                 <p>The roadmap of my professional and academic evolution.</p>
             </div>
 
-            <div class="timeline">
+            <div class="timeline" style="position: relative; z-index: 1;">
                 <div class="timeline-item reveal">
                     <div class="timeline-card">
                         <div class="timeline-date">Jun 2025 – Dec 2025</div>
@@ -659,42 +775,55 @@
             </div>
         </section>
 
-        <section class="container section-padding" style="border-top: 1px solid var(--border-color);">
+        <section class="container section-padding" style="border-top: 1px solid var(--border-color); overflow: hidden;">
             <div class="reveal" style="text-align: center;">
                 <h2>Trusted Certifications</h2>
             </div>
-            <div class="logo-carousel reveal reveal-delay-2">
-                <div class="carousel-track">
-                    <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="cert-card">
-                        <img src="Bursa cert.png" alt="Bursa">
-                        <h4>Derivatives</h4>
-                        <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
-                    </a>
-                    <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
-                        <img src="Nanning cert.png" alt="Nanning">
-                        <h4>Innovation</h4>
-                        <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
-                    </a>
-                    <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf" target="_blank" class="cert-card">
-                        <img src="BINUS cert.png" alt="BINUS">
-                        <h4>Symposium</h4>
-                        <p style="font-size: 0.85rem; margin:0;">BINUS University</p>
-                    </a>
-                    <a href="AsiaTech Cert.pdf" target="_blank" class="cert-card">
-                        <img src="AsiaTech cert.png" alt="AsiaTech">
-                        <h4>Commercialization</h4>
-                        <p style="font-size: 0.85rem; margin:0;">AsiaTech</p>
-                    </a>
-                    <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="cert-card">
-                        <img src="Bursa cert.png" alt="Bursa">
-                        <h4>Derivatives</h4>
-                        <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
-                    </a>
-                    <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
-                        <img src="Nanning cert.png" alt="Nanning">
-                        <h4>Innovation</h4>
-                        <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
-                    </a>
+            
+            <div class="globe-container reveal reveal-delay-2" id="globe-container">
+                <div class="globe" id="globe">
+                    <div class="globe-item" style="transform: rotateY(0deg) translateZ(260px);">
+                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="cert-card">
+                            <img src="Bursa cert.png" alt="Bursa">
+                            <h4>Derivatives</h4>
+                            <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
+                        </a>
+                    </div>
+                    <div class="globe-item" style="transform: rotateY(60deg) translateZ(260px);">
+                        <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
+                            <img src="Nanning cert.png" alt="Nanning">
+                            <h4>Innovation</h4>
+                            <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
+                        </a>
+                    </div>
+                    <div class="globe-item" style="transform: rotateY(120deg) translateZ(260px);">
+                        <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf" target="_blank" class="cert-card">
+                            <img src="BINUS cert.png" alt="BINUS">
+                            <h4>Symposium</h4>
+                            <p style="font-size: 0.85rem; margin:0;">BINUS University</p>
+                        </a>
+                    </div>
+                    <div class="globe-item" style="transform: rotateY(180deg) translateZ(260px);">
+                        <a href="AsiaTech Cert.pdf" target="_blank" class="cert-card">
+                            <img src="AsiaTech cert.png" alt="AsiaTech">
+                            <h4>Commercialization</h4>
+                            <p style="font-size: 0.85rem; margin:0;">AsiaTech</p>
+                        </a>
+                    </div>
+                    <div class="globe-item" style="transform: rotateY(240deg) translateZ(260px);">
+                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="cert-card">
+                            <img src="Bursa cert.png" alt="Bursa">
+                            <h4>Derivatives</h4>
+                            <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
+                        </a>
+                    </div>
+                    <div class="globe-item" style="transform: rotateY(300deg) translateZ(260px);">
+                        <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
+                            <img src="Nanning cert.png" alt="Nanning">
+                            <h4>Innovation</h4>
+                            <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -726,7 +855,7 @@
                     <div class="project-content">
                         <h3>Business Intelligence Dashboard</h3>
                         <p style="font-size: 1rem;">A high-fidelity BI platform emphasizing modern UI/UX. Engineered to seamlessly connect and aggregate data from multiple databases for intuitive, real-time analytics.</p>
-                        <a href="#" target="_blank" class="project-link">
+                        <a href="https://github.com/GiDerAce6969/Business-Intelligence-Dashboard" target="_blank" class="project-link">
                             View Repository <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -787,6 +916,45 @@
                     navbar.classList.remove('scrolled');
                 }
             });
+
+            // Dynamic Globe 3D Rotation Physics
+            const globe = document.getElementById('globe');
+            const globeContainer = document.getElementById('globe-container');
+            
+            if (globe && globeContainer) {
+                let currentAngle = 0;
+                let speed = 0.25; // Base constant speed
+                const targetSpeed = 0.25; 
+                let isHovered = false;
+                let hasSpun = false;
+
+                // Pause on hover
+                globe.addEventListener('mouseenter', () => isHovered = true);
+                globe.addEventListener('mouseleave', () => isHovered = false);
+
+                function animateGlobe() {
+                    if (!isHovered) {
+                        // Friction formula to smoothly slow down from fast spin to target speed
+                        speed = speed + (targetSpeed - speed) * 0.03; 
+                        currentAngle += speed;
+                        globe.style.transform = `rotateX(-5deg) rotateY(${currentAngle}deg)`;
+                    }
+                    requestAnimationFrame(animateGlobe);
+                }
+                animateGlobe();
+                
+                // Trigger fast spin on scroll reveal
+                const globeObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !hasSpun) {
+                            speed = 35; // The initial high-speed burst (degrees per frame)
+                            hasSpun = true;
+                        }
+                    });
+                }, { threshold: 0.2 });
+                
+                globeObserver.observe(globeContainer);
+            }
         });
     </script>
 </body>
