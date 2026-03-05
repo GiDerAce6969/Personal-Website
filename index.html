@@ -16,16 +16,20 @@
          */
         :root {
             /* High-Contrast B2B SaaS Colors */
-            --bg-color: #FAFAFB; /* Off-white for depth */
+            --bg-color: #FAFAFB;
+            /* Off-white for depth */
             --card-bg: #FFFFFF;
-            --text-main: #4B5563; /* Cool gray for readable paragraphs */
-            --text-heading: #09090B; /* Near black for punchy headings */
-            
+            --text-main: #4B5563;
+            /* Cool gray for readable paragraphs */
+            --text-heading: #09090B;
+            /* Near black for punchy headings */
+
             /* Mode's signature vibrant accent vibe */
-            --accent-color: #00D084; /* Vibrant Mint/Emerald Green */
+            --accent-color: #00D084;
+            /* Vibrant Mint/Emerald Green */
             --accent-hover: #00B372;
             --accent-light: rgba(0, 208, 132, 0.1);
-            
+
             --border-color: #E4E4E7;
             --border-hover: #D4D4D8;
 
@@ -45,12 +49,13 @@
             /* Layout */
             --container-width: 1140px;
             --border-radius-pill: 100px;
-            --border-radius-card: 16px; /* Slightly rounder, modern SaaS feel */
-            
+            --border-radius-card: 16px;
+            /* Slightly rounder, modern SaaS feel */
+
             /* Shadows */
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
         }
 
         /* Reset & Base Styles */
@@ -74,11 +79,15 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-weight: var(--weight-bold);
             color: var(--text-heading);
             line-height: 1.1;
-            letter-spacing: -0.03em; /* Tight tracking like Mode.com */
+            letter-spacing: -0.03em;
+            /* Tight tracking like Mode.com */
         }
 
         h1 {
@@ -136,13 +145,26 @@
             gap: 1.5rem;
         }
 
-        .grid-2 { grid-template-columns: 1fr; }
-        .grid-3 { grid-template-columns: 1fr; }
-        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .grid-2 {
+            grid-template-columns: 1fr;
+        }
+
+        .grid-3 {
+            grid-template-columns: 1fr;
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
 
         @media (min-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr 1fr; }
-            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         /* Sleek Navbar */
@@ -182,7 +204,7 @@
             gap: 0.5rem;
             cursor: pointer;
         }
-        
+
         .logo::before {
             content: '';
             display: inline-block;
@@ -199,7 +221,9 @@
         }
 
         @media (min-width: 768px) {
-            .nav-links { display: flex; }
+            .nav-links {
+                display: flex;
+            }
         }
 
         .nav-link {
@@ -231,7 +255,7 @@
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5);
             background-color: #000000;
         }
 
@@ -336,8 +360,10 @@
             background: white;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-lg);
-            perspective: 1000px; /* Enable 3D space */
-            cursor: pointer; /* Show it's clickable */
+            perspective: 1000px;
+            /* Enable 3D space */
+            cursor: pointer;
+            /* Show it's clickable */
         }
 
         .flipper {
@@ -352,7 +378,8 @@
             transform: rotateY(180deg);
         }
 
-        .flipper-front, .flipper-back {
+        .flipper-front,
+        .flipper-back {
             backface-visibility: hidden;
             position: absolute;
             top: 0;
@@ -433,7 +460,7 @@
         .timeline-item::after {
             content: '';
             position: absolute;
-            left: -33px; 
+            left: -33px;
             top: 0;
             width: 16px;
             height: 16px;
@@ -471,13 +498,31 @@
             pointer-events: none;
             animation: floatBlob 10s ease-in-out infinite alternate;
         }
-        
-        .blob-1 { top: 5%; left: -5%; width: 300px; height: 300px; background: rgba(0, 208, 132, 0.4); }
-        .blob-2 { bottom: 5%; right: -5%; width: 250px; height: 250px; background: rgba(59, 130, 246, 0.3); }
+
+        .blob-1 {
+            top: 5%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 208, 132, 0.4);
+        }
+
+        .blob-2 {
+            bottom: 5%;
+            right: -5%;
+            width: 250px;
+            height: 250px;
+            background: rgba(59, 130, 246, 0.3);
+        }
 
         @keyframes floatBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(20px, 20px) scale(1.1); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(20px, 20px) scale(1.1);
+            }
         }
 
         /* 3D Globe Carousel */
@@ -500,8 +545,10 @@
 
         .globe-item {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             transform-style: preserve-3d;
         }
 
@@ -514,7 +561,8 @@
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius-card);
             padding: 2rem;
-            width: 220px; height: 240px;
+            width: 220px;
+            height: 240px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -533,7 +581,10 @@
             transition: all 0.3s ease;
         }
 
-        .cert-card:hover img { filter: grayscale(0%); opacity: 1; }
+        .cert-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
 
         /* Project Cards */
         .project-card {
@@ -568,7 +619,9 @@
             transition: transform 0.5s ease;
         }
 
-        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
 
         .project-content {
             padding: 2rem;
@@ -587,7 +640,9 @@
             font-size: 0.95rem;
         }
 
-        .project-link:hover { color: var(--accent-color); }
+        .project-link:hover {
+            color: var(--accent-color);
+        }
 
         /* Scroll Animations */
         .reveal {
@@ -596,10 +651,22 @@
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
 
         /* Footer */
         footer {
@@ -627,10 +694,12 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+
         .admin-modal.show {
             display: flex;
             opacity: 1;
         }
+
         .admin-overlay {
             position: absolute;
             inset: 0;
@@ -638,6 +707,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
+
         .admin-card {
             position: relative;
             width: 90%;
@@ -651,6 +721,7 @@
             max-height: 85vh;
             overflow-y: auto;
         }
+
         .admin-header {
             display: flex;
             justify-content: space-between;
@@ -659,6 +730,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 1rem;
         }
+
         .admin-close {
             background: rgba(255, 255, 255, 0.1);
             border: none;
@@ -669,13 +741,18 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .admin-close:hover { background: rgba(255, 50, 50, 0.8); }
+
+        .admin-close:hover {
+            background: rgba(255, 50, 50, 0.8);
+        }
+
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
+
         .stat-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -683,19 +760,43 @@
             padding: 1.5rem;
             text-align: center;
         }
-        .stat-card h4 { color: #A1A1AA; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .stat-card .value { font-size: 2.5rem; font-weight: bold; color: var(--accent-color); }
+
+        .stat-card h4 {
+            color: #A1A1AA;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
         .visit-log {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9rem;
         }
-        .visit-log th { text-align: left; padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); color: #A1A1AA; }
-        .visit-log td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        .visit-log th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #A1A1AA;
+        }
+
+        .visit-log td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
     </style>
-    
-    <!-- Load your separate config file (Generated by GitHub Actions or local file) -->
+
+    <!-- Load your separate config file -->
     <script src="config.js"></script>
+    <script type="module" src="admin_dashboard.js"></script>
 </head>
 
 <body>
@@ -707,7 +808,8 @@
                 <a href="#about" class="nav-link">Expertise</a>
                 <a href="#journey" class="nav-link">Journey</a>
                 <a href="#projects" class="nav-link">Work</a>
-                <a href="Lim_Sean_Shen_CV.pdf" target="_blank" class="nav-link" style="display: flex; align-items: center; gap: 0.4rem;">
+                <a href="Lim_Sean_Shen_CV.pdf" target="_blank" class="nav-link"
+                    style="display: flex; align-items: center; gap: 0.4rem;">
                     <i class="fas fa-file-pdf" style="color: var(--accent-color);"></i> Resume
                 </a>
                 <a href="#contact" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Contact</a>
@@ -728,17 +830,21 @@
                         <span class="hero-badge" style="margin-bottom: 0;">AI Engineering</span>
                     </div>
                     <h1>Intelligent data.<br>Better decisions.</h1>
-                    <p>I am <strong>Lim Sean Shen</strong>, currently pursuing a job opportunity in data science | business analytics | data analytics.</p>
-                    
+                    <p>I am <strong>Lim Sean Shen</strong>, currently pursuing a job opportunity in data science |
+                        business analytics | data analytics.</p>
+
                     <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
                         <a href="#projects" class="btn btn-accent">Explore My Work</a>
-                        <a href="Lim_Sean_Shen_CV.pdf" target="_blank" download="Lim_Sean_Shen_CV.pdf" class="btn btn-outline" style="background: white;">
+                        <a href="Lim_Sean_Shen_CV.pdf" target="_blank" download="Lim_Sean_Shen_CV.pdf"
+                            class="btn btn-outline" style="background: white;">
                             <i class="fas fa-download"></i> Download CV
                         </a>
-                        <a href="#contact" class="btn btn-outline" style="border: none; text-decoration: underline; text-underline-offset: 4px;">Let's Collaborate</a>
+                        <a href="#contact" class="btn btn-outline"
+                            style="border: none; text-decoration: underline; text-underline-offset: 4px;">Let's
+                            Collaborate</a>
                     </div>
                 </div>
-                
+
                 <div class="reveal reveal-delay-2">
                     <div class="hero-image-wrapper" onclick="this.classList.toggle('flipped')" title="Click to flip!">
                         <div class="flipper">
@@ -758,7 +864,7 @@
         <section id="about" class="container section-padding" style="position: relative;">
             <div class="glass-blob blob-1"></div>
             <div class="glass-blob blob-2"></div>
-            
+
             <div class="reveal" style="position: relative; z-index: 1;">
                 <h2>Platform capabilities</h2>
                 <p>A powerful blend of academic excellence and practical innovation designed to scale.</p>
@@ -790,7 +896,7 @@
 
         <section id="journey" class="container section-padding" style="position: relative;">
             <div class="glass-blob blob-2" style="top: -5%; right: 10%;"></div>
-            
+
             <div class="reveal" style="max-width: 600px; margin-bottom: 4rem; position: relative; z-index: 1;">
                 <h2>My Journey</h2>
                 <p>The roadmap of my professional and academic evolution.</p>
@@ -802,7 +908,9 @@
                         <div class="timeline-date">Jun 2025 – Dec 2025</div>
                         <h3>Data Analyst Internship</h3>
                         <h4 style="color: var(--text-main);">CBIEV, TARUMT</h4>
-                        <p style="margin-bottom: 0; font-size: 1rem;">Developed automation systems for project tracking and managed sentiment analysis for governmental projects, streamlining decision-making workflows.</p>
+                        <p style="margin-bottom: 0; font-size: 1rem;">Developed automation systems for project tracking
+                            and managed sentiment analysis for governmental projects, streamlining decision-making
+                            workflows.</p>
                     </div>
                 </div>
                 <div class="timeline-item reveal">
@@ -810,7 +918,8 @@
                         <div class="timeline-date">Nov 2022 – Dec 2025</div>
                         <h3>Bachelor of Data Science</h3>
                         <h4 style="color: var(--text-main);">TARUMT (CGPA: 3.7175)</h4>
-                        <p style="margin-bottom: 0; font-size: 1rem;">Achieved Top 5 Capstone, secured an IEEE Publication, and delivered presentations on international stages.</p>
+                        <p style="margin-bottom: 0; font-size: 1rem;">Achieved Top 5 Capstone, secured an IEEE
+                            Publication, and delivered presentations on international stages.</p>
                     </div>
                 </div>
                 <div class="timeline-item reveal">
@@ -818,7 +927,8 @@
                         <div class="timeline-date">Sep 2021 – Sep 2022</div>
                         <h3>Foundation in Computing</h3>
                         <h4 style="color: var(--text-main);">TARUMT (CGPA: 3.7333)</h4>
-                        <p style="margin-bottom: 0; font-size: 1rem;">Built a highly rigorous and solid foundation in core computing principles, algorithms, and programming.</p>
+                        <p style="margin-bottom: 0; font-size: 1rem;">Built a highly rigorous and solid foundation in
+                            core computing principles, algorithms, and programming.</p>
                     </div>
                 </div>
             </div>
@@ -828,11 +938,12 @@
             <div class="reveal" style="text-align: center;">
                 <h2>Trusted Certifications</h2>
             </div>
-            
+
             <div class="globe-container reveal reveal-delay-2" id="globe-container">
                 <div class="globe" id="globe">
                     <div class="globe-item" style="transform: rotateY(0deg) translateZ(260px);">
-                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="cert-card">
+                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
+                            class="cert-card">
                             <img src="Bursa cert.png" alt="Bursa">
                             <h4>Derivatives</h4>
                             <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
@@ -846,7 +957,8 @@
                         </a>
                     </div>
                     <div class="globe-item" style="transform: rotateY(120deg) translateZ(260px);">
-                        <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf" target="_blank" class="cert-card">
+                        <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf"
+                            target="_blank" class="cert-card">
                             <img src="BINUS cert.png" alt="BINUS">
                             <h4>Symposium</h4>
                             <p style="font-size: 0.85rem; margin:0;">BINUS University</p>
@@ -860,7 +972,8 @@
                         </a>
                     </div>
                     <div class="globe-item" style="transform: rotateY(240deg) translateZ(260px);">
-                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank" class="cert-card">
+                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
+                            class="cert-card">
                             <img src="Bursa cert.png" alt="Bursa">
                             <h4>Derivatives</h4>
                             <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
@@ -882,7 +995,7 @@
                 <h2>Featured Integrations & Work</h2>
                 <p>Real-world applications of data engineering, visualization, and AI.</p>
             </div>
-            
+
             <div class="grid grid-2" style="margin-top: 3rem;">
                 <article class="project-card reveal">
                     <div class="project-img-wrapper">
@@ -890,8 +1003,10 @@
                     </div>
                     <div class="project-content">
                         <h3>AI-Driven Campaign Optimization</h3>
-                        <p style="font-size: 1rem;">Built with Generative AI & Streamlit. Optimizing marketing campaigns with intelligent, data-backed insights.</p>
-                        <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank" class="project-link">
+                        <p style="font-size: 1rem;">Built with Generative AI & Streamlit. Optimizing marketing campaigns
+                            with intelligent, data-backed insights.</p>
+                        <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank"
+                            class="project-link">
                             View Repository <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -903,7 +1018,9 @@
                     </div>
                     <div class="project-content">
                         <h3>Business Intelligence Dashboard</h3>
-                        <p style="font-size: 1rem;">A high-fidelity BI platform emphasizing modern UI/UX. Engineered to seamlessly connect and aggregate data from multiple databases for intuitive, real-time analytics.</p>
+                        <p style="font-size: 1rem;">A high-fidelity BI platform emphasizing modern UI/UX. Engineered to
+                            seamlessly connect and aggregate data from multiple databases for intuitive, real-time
+                            analytics.</p>
                         <a href="#" target="_blank" class="project-link">
                             View Repository <i class="fas fa-arrow-right"></i>
                         </a>
@@ -913,16 +1030,22 @@
         </section>
 
         <section id="contact" class="container section-padding reveal">
-            <div style="text-align: center; max-width: 900px; margin: 0 auto; background: var(--text-heading); color: white; padding: 5rem 2rem; border-radius: 24px; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -50%; left: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(0,208,132,0.15) 0%, transparent 70%); pointer-events: none;"></div>
-                
+            <div
+                style="text-align: center; max-width: 900px; margin: 0 auto; background: var(--text-heading); color: white; padding: 5rem 2rem; border-radius: 24px; position: relative; overflow: hidden;">
+                <div
+                    style="position: absolute; top: -50%; left: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(0,208,132,0.15) 0%, transparent 70%); pointer-events: none;">
+                </div>
+
                 <h2 style="color: white;">Ready to scale your data strategy?</h2>
                 <p style="color: #A1A1AA; margin: 1.5rem auto 2.5rem; font-size: 1.2rem;">
-                    Currently exploring Master's Degree programs in data science or business analysis, full-time engineering roles, and exciting industry collaborations.
+                    Currently exploring Master's Degree programs in data science or business analysis, full-time
+                    engineering roles, and exciting industry collaborations.
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="mailto:sslim1684@gmail.com" class="btn btn-accent">Contact via Email</a>
-                    <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" class="btn" style="background: white; color: var(--text-heading); border-color: white;">Connect on LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" class="btn"
+                        style="background: white; color: var(--text-heading); border-color: white;">Connect on
+                        LinkedIn</a>
                 </div>
             </div>
         </section>
@@ -931,7 +1054,8 @@
 
     <footer>
         <div class="container footer-content">
-            <a href="#" class="logo" style="justify-content: center; margin-bottom: 1rem; font-size: 1.1rem;">SEAN SHEN</a>
+            <a href="#" class="logo" style="justify-content: center; margin-bottom: 1rem; font-size: 1.1rem;">SEAN
+                SHEN</a>
             <p>&copy; 2026 Lim Sean Shen. Designed with precision.</p>
         </div>
     </footer>
@@ -939,14 +1063,19 @@
     <!-- Secret Passcode Modal -->
     <div id="passcodeModal" class="admin-modal">
         <div class="admin-overlay" id="closePasscodeOverlay"></div>
-        <div style="position: relative; z-index: 10000; background: rgba(15,15,20,0.95); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); width: 90%; max-width: 350px; text-align: center; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+        <div
+            style="position: relative; z-index: 10000; background: rgba(15,15,20,0.95); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); width: 90%; max-width: 350px; text-align: center; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
             <i class="fas fa-lock" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
             <h3 style="margin-bottom: 0.5rem;">Admin Access</h3>
             <p style="font-size: 0.9rem; color: #A1A1AA; margin-bottom: 1.5rem;">Enter passcode to access dashboard.</p>
-            <input type="password" id="passcodeInput" style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: white; text-align: center; font-size: 1.5rem; letter-spacing: 0.3em; margin-bottom: 0.5rem;" placeholder="••••" />
-            <p id="passcodeError" style="color: #ef4444; font-size: 0.85rem; display: none; margin-bottom: 1rem;">Incorrect passcode.</p>
+            <input type="password" id="passcodeInput"
+                style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: white; text-align: center; font-size: 1.5rem; letter-spacing: 0.3em; margin-bottom: 0.5rem;"
+                placeholder="••••" />
+            <p id="passcodeError" style="color: #ef4444; font-size: 0.85rem; display: none; margin-bottom: 1rem;">
+                Incorrect passcode.</p>
             <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem;">
-                <button id="cancelPasscodeBtn" class="btn" style="padding: 0.6rem 1.2rem; background: transparent; border: 1px solid rgba(255,255,255,0.2);">Cancel</button>
+                <button id="cancelPasscodeBtn" class="btn"
+                    style="padding: 0.6rem 1.2rem; background: transparent; border: 1px solid rgba(255,255,255,0.2);">Cancel</button>
                 <button id="submitPasscodeBtn" class="btn btn-accent" style="padding: 0.6rem 1.2rem;">Unlock</button>
             </div>
         </div>
@@ -962,7 +1091,7 @@
                 </h2>
                 <button class="admin-close" id="closeAdminBtn"><i class="fas fa-times"></i></button>
             </div>
-            
+
             <div class="stat-grid">
                 <div class="stat-card">
                     <h4>Total Page Views</h4>
@@ -983,14 +1112,16 @@
                 <table class="visit-log">
                     <thead>
                         <tr>
-                            <th>Time</th>
-                            <th>Browser</th>
-                            <th>OS</th>
-                            <th>IP Address & Details</th>
+                            <th>Time & Location</th>
+                            <th>Device & OS</th>
+                            <th>Network & ISP</th>
+                            <th>Referrer & Meta</th>
                         </tr>
                     </thead>
                     <tbody id="visitLogBody">
-                        <tr><td colspan="4" style="text-align: center; color: #A1A1AA;">Loading data...</td></tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center; color: #A1A1AA;">Loading data...</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -1020,11 +1151,11 @@
             // Globe Animation
             const globe = document.getElementById('globe');
             const globeContainer = document.getElementById('globe-container');
-            
+
             if (globe && globeContainer) {
                 let currentAngle = 0;
-                let speed = 0.25; 
-                const targetSpeed = 0.25; 
+                let speed = 0.25;
+                const targetSpeed = 0.25;
                 let isHovered = false;
                 let hasSpun = false;
 
@@ -1033,18 +1164,18 @@
 
                 function animateGlobe() {
                     if (!isHovered) {
-                        speed = speed + (targetSpeed - speed) * 0.03; 
+                        speed = speed + (targetSpeed - speed) * 0.03;
                         currentAngle += speed;
                         globe.style.transform = `rotateX(-5deg) rotateY(${currentAngle}deg)`;
                     }
                     requestAnimationFrame(animateGlobe);
                 }
                 animateGlobe();
-                
+
                 const globeObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting && !hasSpun) {
-                            speed = 35; 
+                            speed = 35;
                             hasSpun = true;
                         }
                     });
@@ -1056,7 +1187,7 @@
             const passcodeModal = document.getElementById('passcodeModal');
             const passcodeInput = document.getElementById('passcodeInput');
             const passcodeError = document.getElementById('passcodeError');
-            
+
             let clickCount = 0;
             let clickTimer;
 
@@ -1088,7 +1219,7 @@
                     triggerAdminPrompt();
                 }
             });
-            
+
             const closePasscode = () => passcodeModal.classList.remove('show');
             document.getElementById('cancelPasscodeBtn').addEventListener('click', closePasscode);
             document.getElementById('closePasscodeOverlay').addEventListener('click', closePasscode);
@@ -1103,14 +1234,17 @@
 
         // Securely load configuration from the external config.js file (or Canvas environment)
         const activeConfig = window.myFirebaseConfig || (typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null);
-        const activePasscode = window.ADMIN_PASSCODE || "1234";
+
+        // Read the passcode strictly from config.js. Fallback to 1234 ONLY inside the AI Canvas preview environment.
+        const activePasscode = window.ADMIN_PASSCODE || (typeof __firebase_config !== 'undefined' ? "1234" : null);
+
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'my-portfolio-analytics';
 
         const adminModal = document.getElementById('adminModal');
         const passcodeModal = document.getElementById('passcodeModal');
         const passcodeInput = document.getElementById('passcodeInput');
         const passcodeError = document.getElementById('passcodeError');
-        
+
         let unsubscribeSnapshot = null;
         let app, auth, db;
 
@@ -1172,28 +1306,33 @@
                         const visitsRef = collection(db, 'artifacts', appId, 'public', 'data', 'portfolio_visits');
                         const ua = navigator.userAgent;
                         let browser = "Unknown Browser";
-                        if(ua.includes("Firefox")) browser = "Firefox";
-                        else if(ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
-                        else if(ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
-                        else if(ua.includes("Edg")) browser = "Edge";
+                        if (ua.includes("Firefox")) browser = "Firefox";
+                        else if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
+                        else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+                        else if (ua.includes("Edg")) browser = "Edge";
 
                         let os = "Unknown OS";
-                        if(ua.includes("Win")) os = "Windows";
-                        else if(ua.includes("Mac")) os = "MacOS";
-                        else if(ua.includes("Linux")) os = "Linux";
-                        else if(ua.includes("Android")) os = "Android";
-                        else if(ua.includes("like Mac")) os = "iOS";
+                        if (ua.includes("Win")) os = "Windows";
+                        else if (ua.includes("Mac")) os = "MacOS";
+                        else if (ua.includes("Linux")) os = "Linux";
+                        else if (ua.includes("Android")) os = "Android";
+                        else if (ua.includes("like Mac")) os = "iOS";
 
                         await addDoc(visitsRef, {
                             uid: user.uid,
                             ip: ipAddress,
+                            location: locationStr,     // <-- NEW
+                            isp: ispStr,               // <-- NEW
                             browser: browser,
                             os: os,
                             isMobile: /Mobi|Android/i.test(ua),
                             screen: `${window.screen.width}x${window.screen.height}`,
+                            language: language,        // <-- NEW
+                            timezone: timezone,        // <-- NEW
+                            referrer: referrer,        // <-- NEW
                             timestamp: serverTimestamp()
                         });
-                        
+
                         sessionStorage.setItem('visit_logged', 'true');
                     }
                 } catch (error) {
@@ -1223,12 +1362,12 @@
 
             adminModal.classList.add('show');
             const visitsRef = collection(db, 'artifacts', appId, 'public', 'data', 'portfolio_visits');
-            const q = query(visitsRef); 
+            const q = query(visitsRef);
 
             unsubscribeSnapshot = onSnapshot(q, (snapshot) => {
                 const visits = [];
                 snapshot.forEach(doc => visits.push({ id: doc.id, ...doc.data() }));
-                
+
                 visits.sort((a, b) => (b.timestamp?.toMillis() || 0) - (a.timestamp?.toMillis() || 0));
 
                 const totalViews = visits.length;
@@ -1242,7 +1381,7 @@
 
                 const tbody = document.getElementById('visitLogBody');
                 tbody.innerHTML = '';
-                
+
                 if (visits.length === 0) {
                     tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No visitors yet.</td></tr>';
                     return;
