@@ -14,7 +14,9 @@ I am a passionate and analytical Data Science graduate, driven to uncover the st
 -   🔍 **Problem Solver:** I am a detail-oriented individual, committed to developing practical, data-driven solutions and eager to contribute to a forward-thinking team.
 -   🌱 **Career Goal:** Actively seeking **full-time job opportunities** in data science, AI engineering, and data analysis. 
 
-**UPDATE** Currently Pursuing Master Degree Offer with fund
+**UPDATE 5/3/2026** 
+
+Currently purusing in job enployment
 
 ---
 
