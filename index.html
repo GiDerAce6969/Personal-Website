@@ -130,7 +130,7 @@
             padding: var(--spacing-xl) 0;
         }
 
-        /* Bento Box Grid System (Overrrides inspired) */
+        /* Bento Box Grid System */
         .grid {
             display: grid;
             gap: 1.5rem;
@@ -180,9 +180,9 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            cursor: pointer;
         }
         
-        /* Small accent dot next to logo */
         .logo::before {
             content: '';
             display: inline-block;
@@ -348,7 +348,6 @@
             aspect-ratio: 4/5;
         }
 
-        /* The toggle class applied via JS */
         .hero-image-wrapper.flipped .flipper {
             transform: rotateY(180deg);
         }
@@ -379,7 +378,7 @@
 
         .flipper-back {
             transform: rotateY(180deg);
-            background: var(--text-heading); /* Dark background for contrast */
+            background: var(--text-heading);
             color: white;
             display: flex;
             flex-direction: column;
@@ -404,7 +403,7 @@
             line-height: 1.2;
         }
 
-        /* Timeline (Mode UI Style) */
+        /* Timeline */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -431,11 +430,10 @@
             padding-bottom: 0;
         }
 
-        /* Timeline Dot */
         .timeline-item::after {
             content: '';
             position: absolute;
-            left: -33px; /* Centers on the 2px line (2rem padding left = 32px + 1px) */
+            left: -33px; 
             top: 0;
             width: 16px;
             height: 16px;
@@ -474,21 +472,8 @@
             animation: floatBlob 10s ease-in-out infinite alternate;
         }
         
-        .blob-1 {
-            top: 5%;
-            left: -5%;
-            width: 300px;
-            height: 300px;
-            background: rgba(0, 208, 132, 0.4);
-        }
-        
-        .blob-2 {
-            bottom: 5%;
-            right: -5%;
-            width: 250px;
-            height: 250px;
-            background: rgba(59, 130, 246, 0.3);
-        }
+        .blob-1 { top: 5%; left: -5%; width: 300px; height: 300px; background: rgba(0, 208, 132, 0.4); }
+        .blob-2 { bottom: 5%; right: -5%; width: 250px; height: 250px; background: rgba(59, 130, 246, 0.3); }
 
         @keyframes floatBlob {
             0% { transform: translate(0, 0) scale(1); }
@@ -511,15 +496,12 @@
             height: 240px;
             position: relative;
             transform-style: preserve-3d;
-            /* Animation is now controlled by JavaScript for dynamic speed */
         }
 
         .globe-item {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             transform-style: preserve-3d;
         }
 
@@ -532,8 +514,7 @@
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius-card);
             padding: 2rem;
-            width: 220px;
-            height: 240px;
+            width: 220px; height: 240px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -552,10 +533,7 @@
             transition: all 0.3s ease;
         }
 
-        .cert-card:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
+        .cert-card:hover img { filter: grayscale(0%); opacity: 1; }
 
         /* Project Cards */
         .project-card {
@@ -590,9 +568,7 @@
             transition: transform 0.5s ease;
         }
 
-        .project-card:hover .project-img {
-            transform: scale(1.05);
-        }
+        .project-card:hover .project-img { transform: scale(1.05); }
 
         .project-content {
             padding: 2rem;
@@ -611,9 +587,7 @@
             font-size: 0.95rem;
         }
 
-        .project-link:hover {
-            color: var(--accent-color);
-        }
+        .project-link:hover { color: var(--accent-color); }
 
         /* Scroll Animations */
         .reveal {
@@ -622,11 +596,7 @@
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        .reveal.active { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
@@ -645,7 +615,87 @@
             color: var(--text-main);
             margin: 0 auto;
         }
+
+        /* Admin Dashboard */
+        .admin-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .admin-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        .admin-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .admin-card {
+            position: relative;
+            width: 90%;
+            max-width: 950px;
+            background: rgba(15, 15, 20, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 2.5rem;
+            color: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+        .admin-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .admin-close:hover { background: rgba(255, 50, 50, 0.8); }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-card h4 { color: #A1A1AA; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-card .value { font-size: 2.5rem; font-weight: bold; color: var(--accent-color); }
+        .visit-log {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .visit-log th { text-align: left; padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); color: #A1A1AA; }
+        .visit-log td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
     </style>
+    
+    <!-- Load your separate config file (Generated by GitHub Actions or local file) -->
+    <script src="config.js"></script>
 </head>
 
 <body>
@@ -669,12 +719,14 @@
         <section class="hero container">
             <div class="hero-layout">
                 <div class="hero-content reveal">
-                    <span class="hero-badge">Data Science</span>
-                    <span class="hero-badge">Data Warehousing</span>
-                    <span class="hero-badge">Database Management</span>
-                    <span class="hero-badge">Data Engineering</span>
-                    <span class="hero-badge">Business Analytics</span>
-                    <span class="hero-badge">AI Engineering</span>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                        <span class="hero-badge" style="margin-bottom: 0;">Data Science</span>
+                        <span class="hero-badge" style="margin-bottom: 0;">Data Warehousing</span>
+                        <span class="hero-badge" style="margin-bottom: 0;">Database Management</span>
+                        <span class="hero-badge" style="margin-bottom: 0;">Data Engineering</span>
+                        <span class="hero-badge" style="margin-bottom: 0;">Business Analytics</span>
+                        <span class="hero-badge" style="margin-bottom: 0;">AI Engineering</span>
+                    </div>
                     <h1>Intelligent data.<br>Better decisions.</h1>
                     <p>I am <strong>Lim Sean Shen</strong>, currently pursuing a job opportunity in data science | business analytics | data analytics.</p>
                     
@@ -688,14 +740,11 @@
                 </div>
                 
                 <div class="reveal reveal-delay-2">
-                    <!-- Added Flip Card interaction here -->
                     <div class="hero-image-wrapper" onclick="this.classList.toggle('flipped')" title="Click to flip!">
                         <div class="flipper">
-                            <!-- Front showing the image -->
                             <div class="flipper-front">
                                 <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image">
                             </div>
-                            <!-- Back showing the text -->
                             <div class="flipper-back">
                                 <i class="fas fa-camera-retro"></i>
                                 <p>This is my picture!</p>
@@ -850,12 +899,12 @@
 
                 <article class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrapper">
-                        <img src="BI Dashboard.png" alt="Business Intelligence Dashboard" class="project-img">
+                        <img src="BI_Dashboard.png" alt="Business Intelligence Dashboard" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Business Intelligence Dashboard</h3>
                         <p style="font-size: 1rem;">A high-fidelity BI platform emphasizing modern UI/UX. Engineered to seamlessly connect and aggregate data from multiple databases for intuitive, real-time analytics.</p>
-                        <a href="https://github.com/GiDerAce6969/Business-Intelligence-Dashboard" target="_blank" class="project-link">
+                        <a href="#" target="_blank" class="project-link">
                             View Repository <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -887,54 +936,103 @@
         </div>
     </footer>
 
+    <!-- Secret Passcode Modal -->
+    <div id="passcodeModal" class="admin-modal">
+        <div class="admin-overlay" id="closePasscodeOverlay"></div>
+        <div style="position: relative; z-index: 10000; background: rgba(15,15,20,0.95); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); width: 90%; max-width: 350px; text-align: center; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+            <i class="fas fa-lock" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+            <h3 style="margin-bottom: 0.5rem;">Admin Access</h3>
+            <p style="font-size: 0.9rem; color: #A1A1AA; margin-bottom: 1.5rem;">Enter passcode to access dashboard.</p>
+            <input type="password" id="passcodeInput" style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: white; text-align: center; font-size: 1.5rem; letter-spacing: 0.3em; margin-bottom: 0.5rem;" placeholder="••••" />
+            <p id="passcodeError" style="color: #ef4444; font-size: 0.85rem; display: none; margin-bottom: 1rem;">Incorrect passcode.</p>
+            <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem;">
+                <button id="cancelPasscodeBtn" class="btn" style="padding: 0.6rem 1.2rem; background: transparent; border: 1px solid rgba(255,255,255,0.2);">Cancel</button>
+                <button id="submitPasscodeBtn" class="btn btn-accent" style="padding: 0.6rem 1.2rem;">Unlock</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secret Admin Dashboard Modal -->
+    <div id="adminModal" class="admin-modal">
+        <div class="admin-overlay" id="closeAdminOverlay"></div>
+        <div class="admin-card">
+            <div class="admin-header">
+                <h2 style="color: white; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-satellite-dish" style="color: var(--accent-color);"></i> Analytics Command Center
+                </h2>
+                <button class="admin-close" id="closeAdminBtn"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <h4>Total Page Views</h4>
+                    <div class="value" id="statTotalViews">--</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Unique Visitors</h4>
+                    <div class="value" id="statUniqueUsers">--</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Desktop / Mobile</h4>
+                    <div class="value" id="statDeviceSplit" style="font-size: 1.5rem; margin-top: 0.5rem;">--</div>
+                </div>
+            </div>
+
+            <h3 style="color: white; margin-bottom: 1rem;">Recent Visitors</h3>
+            <div style="background: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden;">
+                <table class="visit-log">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Browser</th>
+                            <th>OS</th>
+                            <th>IP Address & Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="visitLogBody">
+                        <tr><td colspan="4" style="text-align: center; color: #A1A1AA;">Loading data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- UI Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Scroll Reveal Animation (Smoother cubic-bezier)
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            // Scroll Reveal Animation
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('active');
                 });
             }, observerOptions);
 
-            const revealElements = document.querySelectorAll('.reveal');
-            revealElements.forEach(el => observer.observe(el));
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
             // Navbar Scroll Effect
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
+                if (window.scrollY > 20) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
             });
 
-            // Dynamic Globe 3D Rotation Physics
+            // Globe Animation
             const globe = document.getElementById('globe');
             const globeContainer = document.getElementById('globe-container');
             
             if (globe && globeContainer) {
                 let currentAngle = 0;
-                let speed = 0.25; // Base constant speed
+                let speed = 0.25; 
                 const targetSpeed = 0.25; 
                 let isHovered = false;
                 let hasSpun = false;
 
-                // Pause on hover
                 globe.addEventListener('mouseenter', () => isHovered = true);
                 globe.addEventListener('mouseleave', () => isHovered = false);
 
                 function animateGlobe() {
                     if (!isHovered) {
-                        // Friction formula to smoothly slow down from fast spin to target speed
                         speed = speed + (targetSpeed - speed) * 0.03; 
                         currentAngle += speed;
                         globe.style.transform = `rotateX(-5deg) rotateY(${currentAngle}deg)`;
@@ -943,19 +1041,233 @@
                 }
                 animateGlobe();
                 
-                // Trigger fast spin on scroll reveal
                 const globeObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting && !hasSpun) {
-                            speed = 35; // The initial high-speed burst (degrees per frame)
+                            speed = 35; 
                             hasSpun = true;
                         }
                     });
                 }, { threshold: 0.2 });
-                
                 globeObserver.observe(globeContainer);
             }
+
+            // Modal Trigger UI logic
+            const passcodeModal = document.getElementById('passcodeModal');
+            const passcodeInput = document.getElementById('passcodeInput');
+            const passcodeError = document.getElementById('passcodeError');
+            
+            let clickCount = 0;
+            let clickTimer;
+
+            const triggerAdminPrompt = () => {
+                passcodeInput.value = '';
+                passcodeError.style.display = 'none';
+                passcodeModal.classList.add('show');
+                setTimeout(() => passcodeInput.focus(), 100);
+                clickCount = 0;
+            };
+
+            const logos = document.querySelectorAll('.logo');
+            logos.forEach(logo => {
+                logo.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    clickCount++;
+                    clearTimeout(clickTimer);
+                    if (clickCount >= 5) {
+                        triggerAdminPrompt();
+                    } else {
+                        clickTimer = setTimeout(() => { clickCount = 0; }, 1500);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.altKey && e.key.toLowerCase() === 'd') {
+                    e.preventDefault();
+                    triggerAdminPrompt();
+                }
+            });
+            
+            const closePasscode = () => passcodeModal.classList.remove('show');
+            document.getElementById('cancelPasscodeBtn').addEventListener('click', closePasscode);
+            document.getElementById('closePasscodeOverlay').addEventListener('click', closePasscode);
         });
+    </script>
+
+    <!-- Firebase Analytics Tracker -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';
+        import { getAuth, signInAnonymously, signInWithCustomToken } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';
+        import { getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
+
+        // Securely load configuration from the external config.js file (or Canvas environment)
+        const activeConfig = window.myFirebaseConfig || (typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null);
+        const activePasscode = window.ADMIN_PASSCODE || "1234";
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'my-portfolio-analytics';
+
+        const adminModal = document.getElementById('adminModal');
+        const passcodeModal = document.getElementById('passcodeModal');
+        const passcodeInput = document.getElementById('passcodeInput');
+        const passcodeError = document.getElementById('passcodeError');
+        
+        let unsubscribeSnapshot = null;
+        let app, auth, db;
+
+        const handlePasscodeSubmit = () => {
+            if (passcodeInput.value === activePasscode) {
+                passcodeModal.classList.remove('show');
+                openDashboard();
+            } else {
+                passcodeError.style.display = 'block';
+                passcodeInput.value = '';
+                passcodeInput.focus();
+            }
+        };
+
+        document.getElementById('submitPasscodeBtn').addEventListener('click', handlePasscodeSubmit);
+        passcodeInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handlePasscodeSubmit(); });
+
+        const closeDashboard = () => {
+            adminModal.classList.remove('show');
+            if (unsubscribeSnapshot) unsubscribeSnapshot();
+        };
+
+        document.getElementById('closeAdminBtn').addEventListener('click', closeDashboard);
+        document.getElementById('closeAdminOverlay').addEventListener('click', closeDashboard);
+
+        const initAuth = async () => {
+            if (!auth) return;
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+        };
+
+        // Only initialize if the activeConfig was successfully loaded from config.js
+        if (activeConfig && activeConfig.apiKey) {
+            app = initializeApp(activeConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+
+            const trackVisitor = async () => {
+                try {
+                    await initAuth();
+                    const user = auth.currentUser;
+                    if (!user) return;
+
+                    const isOwner = typeof __initial_auth_token !== 'undefined' && !!__initial_auth_token;
+
+                    if (!isOwner && !sessionStorage.getItem('visit_logged')) {
+                        let ipAddress = "Unknown IP";
+                        try {
+                            const ipResponse = await fetch('https://api.ipify.org?format=json');
+                            const ipData = await ipResponse.json();
+                            ipAddress = ipData.ip;
+                        } catch (e) {
+                            console.warn("Failed to fetch IP address for analytics.");
+                        }
+
+                        const visitsRef = collection(db, 'artifacts', appId, 'public', 'data', 'portfolio_visits');
+                        const ua = navigator.userAgent;
+                        let browser = "Unknown Browser";
+                        if(ua.includes("Firefox")) browser = "Firefox";
+                        else if(ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
+                        else if(ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+                        else if(ua.includes("Edg")) browser = "Edge";
+
+                        let os = "Unknown OS";
+                        if(ua.includes("Win")) os = "Windows";
+                        else if(ua.includes("Mac")) os = "MacOS";
+                        else if(ua.includes("Linux")) os = "Linux";
+                        else if(ua.includes("Android")) os = "Android";
+                        else if(ua.includes("like Mac")) os = "iOS";
+
+                        await addDoc(visitsRef, {
+                            uid: user.uid,
+                            ip: ipAddress,
+                            browser: browser,
+                            os: os,
+                            isMobile: /Mobi|Android/i.test(ua),
+                            screen: `${window.screen.width}x${window.screen.height}`,
+                            timestamp: serverTimestamp()
+                        });
+                        
+                        sessionStorage.setItem('visit_logged', 'true');
+                    }
+                } catch (error) {
+                    console.error("Analytics Setup Error:", error);
+                }
+            };
+            trackVisitor();
+        }
+
+        const openDashboard = async () => {
+            if (!activeConfig || !activeConfig.apiKey) {
+                adminModal.classList.add('show');
+                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center; padding: 2rem;"><strong>Configuration Missing</strong><br>Firebase is not configured.<br><br>The <code>config.js</code> file could not be found or is empty. If you are on GitHub Pages, ensure your GitHub Actions workflow successfully injected the secret.</td></tr>';
+                return;
+            }
+
+            let user = auth.currentUser;
+            if (!user) {
+                await initAuth();
+                user = auth.currentUser;
+            }
+            if (!user) {
+                adminModal.classList.add('show');
+                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center;">Authentication error. Please refresh the page and try again.</td></tr>';
+                return;
+            }
+
+            adminModal.classList.add('show');
+            const visitsRef = collection(db, 'artifacts', appId, 'public', 'data', 'portfolio_visits');
+            const q = query(visitsRef); 
+
+            unsubscribeSnapshot = onSnapshot(q, (snapshot) => {
+                const visits = [];
+                snapshot.forEach(doc => visits.push({ id: doc.id, ...doc.data() }));
+                
+                visits.sort((a, b) => (b.timestamp?.toMillis() || 0) - (a.timestamp?.toMillis() || 0));
+
+                const totalViews = visits.length;
+                const uniqueUsers = new Set(visits.map(v => v.uid)).size;
+                const mobileCount = visits.filter(v => v.isMobile).length;
+                const desktopCount = totalViews - mobileCount;
+
+                document.getElementById('statTotalViews').innerText = totalViews;
+                document.getElementById('statUniqueUsers').innerText = uniqueUsers;
+                document.getElementById('statDeviceSplit').innerText = `${desktopCount} Desktop / ${mobileCount} Mobile`;
+
+                const tbody = document.getElementById('visitLogBody');
+                tbody.innerHTML = '';
+                
+                if (visits.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No visitors yet.</td></tr>';
+                    return;
+                }
+
+                visits.slice(0, 20).forEach(visit => {
+                    const date = visit.timestamp ? new Date(visit.timestamp.toDate()).toLocaleString() : 'Just now';
+                    const ip = visit.ip || 'Unknown IP';
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${date}</td>
+                        <td>${visit.browser || 'Unknown'}</td>
+                        <td>${visit.os || 'Unknown'} ${visit.isMobile ? '📱' : '💻'}</td>
+                        <td style="font-family: monospace;">
+                            <span style="color: var(--accent-color);">${ip}</span> <br>
+                            <span style="font-size: 0.8em; color: #666;">${visit.screen || 'N/A'}</span>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }, (error) => {
+                console.error("Dashboard Error:", error);
+                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center;">Error fetching data. Ensure database is connected and security rules are configured.</td></tr>';
+            });
+        };
     </script>
 </body>
 
