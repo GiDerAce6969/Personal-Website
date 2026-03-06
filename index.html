@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -12,26 +12,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* * DESIGN SYSTEM (Mode & Overrrides Inspired)
-         */
+        /* * DESIGN SYSTEM */
         :root {
-            /* High-Contrast B2B SaaS Colors */
+            /* Light Mode Defaults */
             --bg-color: #FAFAFB;
-            /* Off-white for depth */
-            --card-bg: #FFFFFF;
+            --card-bg: rgba(255, 255, 255, 0.4);
+            --card-border: rgba(255, 255, 255, 0.8);
+            --card-hover-bg: rgba(255, 255, 255, 0.7);
             --text-main: #4B5563;
-            /* Cool gray for readable paragraphs */
             --text-heading: #09090B;
-            /* Near black for punchy headings */
 
-            /* Mode's signature vibrant accent vibe */
             --accent-color: #00D084;
-            /* Vibrant Mint/Emerald Green */
             --accent-hover: #00B372;
             --accent-light: rgba(0, 208, 132, 0.1);
 
             --border-color: #E4E4E7;
             --border-hover: #D4D4D8;
+            --nav-bg: rgba(250, 250, 251, 0.8);
 
             /* Typography */
             --font-main: 'Plus Jakarta Sans', sans-serif;
@@ -40,17 +37,14 @@
             --weight-semibold: 600;
             --weight-bold: 800;
 
-            /* Spacing */
+            /* Spacing & Layout */
             --spacing-sm: 1rem;
             --spacing-md: 2.5rem;
             --spacing-lg: 5rem;
             --spacing-xl: 8rem;
-
-            /* Layout */
             --container-width: 1140px;
             --border-radius-pill: 100px;
             --border-radius-card: 16px;
-            /* Slightly rounder, modern SaaS feel */
 
             /* Shadows */
             --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -58,7 +52,24 @@
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
         }
 
-        /* Reset & Base Styles */
+        /* Dark Mode Overrides */
+        [data-theme="dark"] {
+            --bg-color: #09090B;
+            --card-bg: rgba(24, 24, 27, 0.6);
+            --card-border: rgba(63, 63, 70, 0.5);
+            --card-hover-bg: rgba(39, 39, 42, 0.8);
+            --text-main: #A1A1AA;
+            --text-heading: #FAFAFA;
+
+            --border-color: #27272A;
+            --border-hover: #3F3F46;
+            --nav-bg: rgba(9, 9, 11, 0.8);
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -75,8 +86,8 @@
             color: var(--text-main);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         h1,
@@ -87,7 +98,7 @@
             color: var(--text-heading);
             line-height: 1.1;
             letter-spacing: -0.03em;
-            /* Tight tracking like Mode.com */
+            transition: color 0.3s ease;
         }
 
         h1 {
@@ -127,7 +138,6 @@
             transition: all 0.2s ease;
         }
 
-        /* Utilities */
         .container {
             width: 90%;
             max-width: var(--container-width);
@@ -139,7 +149,6 @@
             padding: var(--spacing-xl) 0;
         }
 
-        /* Bento Box Grid System */
         .grid {
             display: grid;
             gap: 1.5rem;
@@ -174,9 +183,8 @@
             left: 0;
             width: 100%;
             padding: 1.25rem 0;
-            background: rgba(250, 250, 251, 0.8);
+            background: var(--nav-bg);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid transparent;
             transition: all 0.3s ease;
@@ -185,7 +193,6 @@
         .navbar.scrolled {
             padding: 1rem 0;
             border-bottom: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.95);
         }
 
         .nav-content {
@@ -203,6 +210,7 @@
             align-items: center;
             gap: 0.5rem;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
 
         .logo::before {
@@ -230,10 +238,31 @@
             font-weight: var(--weight-medium);
             font-size: 0.95rem;
             color: var(--text-main);
+            cursor: pointer;
         }
 
         .nav-link:hover {
             color: var(--text-heading);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-heading);
+            background: rgba(128, 128, 128, 0.1);
         }
 
         /* SaaS Buttons */
@@ -244,7 +273,7 @@
             gap: 0.5rem;
             padding: 1rem 2rem;
             background-color: var(--text-heading);
-            color: #FFFFFF;
+            color: var(--bg-color);
             font-size: 1rem;
             font-weight: var(--weight-semibold);
             border-radius: var(--border-radius-pill);
@@ -256,13 +285,13 @@
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5);
-            background-color: #000000;
+            opacity: 0.9;
         }
 
         .btn-accent {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
-            color: var(--text-heading);
+            color: #000;
         }
 
         .btn-accent:hover {
@@ -280,30 +309,29 @@
         .btn-outline:hover {
             border-color: var(--text-heading);
             background-color: var(--text-heading);
-            color: #FFFFFF;
+            color: var(--bg-color);
         }
 
-        /* Modern Cards (Glassmorphism Vibe) */
+        /* Modern Cards */
         .card {
-            background: rgba(255, 255, 255, 0.4);
+            background: var(--card-bg);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--card-border);
             border-radius: var(--border-radius-card);
             padding: 2rem;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             height: 100%;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            box-shadow: var(--shadow-sm);
             z-index: 2;
         }
 
         .card:hover {
-            border-color: rgba(255, 255, 255, 1);
+            border-color: var(--accent-color);
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.1);
-            background: rgba(255, 255, 255, 0.7);
+            box-shadow: var(--shadow-md);
+            background: var(--card-hover-bg);
         }
 
         .card-icon {
@@ -344,7 +372,7 @@
             display: inline-block;
             padding: 0.5rem 1rem;
             background: var(--accent-light);
-            color: #00A669;
+            color: var(--accent-color);
             font-weight: var(--weight-semibold);
             font-size: 0.85rem;
             border-radius: var(--border-radius-pill);
@@ -357,13 +385,12 @@
             position: relative;
             border-radius: var(--border-radius-card);
             padding: 1rem;
-            background: white;
-            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             box-shadow: var(--shadow-lg);
             perspective: 1000px;
-            /* Enable 3D space */
             cursor: pointer;
-            /* Show it's clickable */
+            backdrop-filter: blur(10px);
         }
 
         .flipper {
@@ -393,6 +420,28 @@
         .flipper-front {
             z-index: 2;
             transform: rotateY(0deg);
+            background: var(--text-heading);
+            color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid var(--accent-color);
+        }
+
+        .flipper-front i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .flipper-front p {
+            font-size: 1.5rem;
+            font-weight: var(--weight-bold);
+            margin: 0;
+            line-height: 1.2;
         }
 
         .hero-image {
@@ -405,29 +454,6 @@
 
         .flipper-back {
             transform: rotateY(180deg);
-            background: var(--text-heading);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            border: 2px solid var(--accent-color);
-        }
-
-        .flipper-back i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .flipper-back p {
-            font-size: 1.75rem;
-            font-weight: var(--weight-bold);
-            color: white;
-            margin: 0;
-            line-height: 1.2;
         }
 
         /* Timeline */
@@ -464,11 +490,12 @@
             top: 0;
             width: 16px;
             height: 16px;
-            background: white;
+            background: var(--card-bg);
             border: 4px solid var(--accent-color);
             border-radius: 50%;
             z-index: 1;
             box-shadow: 0 0 0 4px var(--bg-color);
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         .timeline-date {
@@ -482,10 +509,16 @@
 
         .timeline-card {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
             padding: 1.5rem;
             border-radius: var(--border-radius-card);
             box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .timeline-card:hover {
+            border-color: var(--accent-color);
         }
 
         /* Glassmorphism Background Blobs */
@@ -558,7 +591,8 @@
             align-items: center;
             justify-content: center;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
             border-radius: var(--border-radius-card);
             padding: 2rem;
             width: 220px;
@@ -571,6 +605,7 @@
             border-color: var(--accent-color);
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
+            background: var(--card-hover-bg);
         }
 
         .cert-card img {
@@ -591,8 +626,9 @@
             display: flex;
             flex-direction: column;
             border-radius: var(--border-radius-card);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--card-border);
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
@@ -601,7 +637,7 @@
         .project-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--border-hover);
+            border-color: var(--accent-color);
         }
 
         .project-img-wrapper {
@@ -681,6 +717,125 @@
             font-size: 0.95rem;
             color: var(--text-main);
             margin: 0 auto;
+        }
+
+        /* --- NEW: Interactive Canvas Background --- */
+        #network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- NEW: Digital Pets & Frieren UI --- */
+        #pet-container {
+            position: fixed;
+            bottom: 20px;
+            left: -100px;
+            z-index: 9999;
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            transition: left 0.1s linear;
+            pointer-events: none;
+        }
+
+        /* The Actual Pet Image */
+        #pet-sprite {
+            height: 80px;
+            width: auto;
+            user-select: none;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+            transition: transform 0.2s ease;
+            pointer-events: auto;
+        }
+
+        .walking-left #pet-sprite {
+            transform: scaleX(-1);
+        }
+
+        /* Generic Pet Sprite animations for Roaming Pokemon */
+        .pet-sprite-anim {
+            cursor: pointer;
+            user-select: none;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+            animation: bob 0.6s infinite alternate ease-in-out;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pet-sprite-anim>img {
+            transition: transform 0.2s ease;
+            image-rendering: pixelated;
+        }
+
+        .pet-sprite-anim:hover {
+            animation-play-state: paused;
+            z-index: 10000 !important;
+        }
+
+        .pet-sprite-anim:hover>img {
+            transform: scale(1.1);
+        }
+
+        .walking-left.pet-sprite-anim>img {
+            transform: scaleX(-1);
+        }
+
+        .walking-left.pet-sprite-anim:hover>img {
+            transform: scaleX(-1) scale(1.1);
+        }
+
+        @keyframes bob {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Speech Bubble for Roaming Pokemon */
+        .pet-bubble {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.8);
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-family: var(--font-main);
+            color: var(--text-heading);
+            font-weight: bold;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+            box-shadow: var(--shadow-md);
+        }
+
+        .pet-bubble::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: var(--border-color) transparent transparent transparent;
+        }
+
+        .pet-bubble.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
         }
 
         /* Admin Dashboard */
@@ -794,12 +949,13 @@
         }
     </style>
 
-    <!-- Load your separate config file -->
     <script src="config.js"></script>
     <script type="module" src="admin_dashboard.js"></script>
 </head>
 
 <body>
+
+    <canvas id="network-canvas"></canvas>
 
     <nav class="navbar" id="navbar">
         <div class="container nav-content">
@@ -812,6 +968,9 @@
                     style="display: flex; align-items: center; gap: 0.4rem;">
                     <i class="fas fa-file-pdf" style="color: var(--accent-color);"></i> Resume
                 </a>
+                <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">
+                    <i class="fas fa-sun"></i>
+                </button>
                 <a href="#contact" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Contact</a>
             </div>
         </div>
@@ -836,7 +995,7 @@
                     <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
                         <a href="#projects" class="btn btn-accent">Explore My Work</a>
                         <a href="Lim_Sean_Shen_CV.pdf" target="_blank" download="Lim_Sean_Shen_CV.pdf"
-                            class="btn btn-outline" style="background: white;">
+                            class="btn btn-outline" style="background: var(--card-bg);">
                             <i class="fas fa-download"></i> Download CV
                         </a>
                         <a href="#contact" class="btn btn-outline"
@@ -849,11 +1008,12 @@
                     <div class="hero-image-wrapper" onclick="this.classList.toggle('flipped')" title="Click to flip!">
                         <div class="flipper">
                             <div class="flipper-front">
-                                <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image">
+                                <i class="fas fa-user-secret"></i>
+                                <p>Click to reveal<br>my picture!</p>
                             </div>
                             <div class="flipper-back">
-                                <i class="fas fa-camera-retro"></i>
-                                <p>This is my picture!</p>
+                                <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image"
+                                    onerror="this.src='https://ui-avatars.com/api/?name=Sean+Shen&background=00D084&color=fff&size=500'">
                             </div>
                         </div>
                     </div>
@@ -944,14 +1104,18 @@
                     <div class="globe-item" style="transform: rotateY(0deg) translateZ(260px);">
                         <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
                             class="cert-card">
-                            <img src="Bursa cert.png" alt="Bursa">
+                            <img src="Bursa cert.png"
+                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
+                                alt="Bursa">
                             <h4>Derivatives</h4>
                             <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
                         </a>
                     </div>
                     <div class="globe-item" style="transform: rotateY(60deg) translateZ(260px);">
                         <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
-                            <img src="Nanning cert.png" alt="Nanning">
+                            <img src="Nanning cert.png"
+                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
+                                alt="Nanning">
                             <h4>Innovation</h4>
                             <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
                         </a>
@@ -959,14 +1123,18 @@
                     <div class="globe-item" style="transform: rotateY(120deg) translateZ(260px);">
                         <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf"
                             target="_blank" class="cert-card">
-                            <img src="BINUS cert.png" alt="BINUS">
+                            <img src="BINUS cert.png"
+                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
+                                alt="BINUS">
                             <h4>Symposium</h4>
                             <p style="font-size: 0.85rem; margin:0;">BINUS University</p>
                         </a>
                     </div>
                     <div class="globe-item" style="transform: rotateY(180deg) translateZ(260px);">
                         <a href="AsiaTech Cert.pdf" target="_blank" class="cert-card">
-                            <img src="AsiaTech cert.png" alt="AsiaTech">
+                            <img src="AsiaTech cert.png"
+                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
+                                alt="AsiaTech">
                             <h4>Commercialization</h4>
                             <p style="font-size: 0.85rem; margin:0;">AsiaTech</p>
                         </a>
@@ -974,14 +1142,18 @@
                     <div class="globe-item" style="transform: rotateY(240deg) translateZ(260px);">
                         <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
                             class="cert-card">
-                            <img src="Bursa cert.png" alt="Bursa">
+                            <img src="Bursa cert.png"
+                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
+                                alt="Bursa">
                             <h4>Derivatives</h4>
                             <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
                         </a>
                     </div>
                     <div class="globe-item" style="transform: rotateY(300deg) translateZ(260px);">
                         <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
-                            <img src="Nanning cert.png" alt="Nanning">
+                            <img src="Nanning cert.png"
+                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
+                                alt="Nanning">
                             <h4>Innovation</h4>
                             <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
                         </a>
@@ -999,7 +1171,9 @@
             <div class="grid grid-2" style="margin-top: 3rem;">
                 <article class="project-card reveal">
                     <div class="project-img-wrapper">
-                        <img src="AI_Campaign Pic.png" alt="AI Campaign" class="project-img">
+                        <img src="AI_Campaign Pic.png"
+                            onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'"
+                            alt="AI Campaign" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>AI-Driven Campaign Optimization</h3>
@@ -1014,7 +1188,9 @@
 
                 <article class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrapper">
-                        <img src="BI_Dashboard.png" alt="Business Intelligence Dashboard" class="project-img">
+                        <img src="BI_Dashboard.png"
+                            onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'"
+                            alt="Business Intelligence Dashboard" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Business Intelligence Dashboard</h3>
@@ -1031,20 +1207,21 @@
 
         <section id="contact" class="container section-padding reveal">
             <div
-                style="text-align: center; max-width: 900px; margin: 0 auto; background: var(--text-heading); color: white; padding: 5rem 2rem; border-radius: 24px; position: relative; overflow: hidden;">
+                style="text-align: center; max-width: 900px; margin: 0 auto; background: var(--text-heading); color: var(--bg-color); padding: 5rem 2rem; border-radius: 24px; position: relative; overflow: hidden;">
                 <div
                     style="position: absolute; top: -50%; left: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(0,208,132,0.15) 0%, transparent 70%); pointer-events: none;">
                 </div>
 
-                <h2 style="color: white;">Ready to scale your data strategy?</h2>
-                <p style="color: #A1A1AA; margin: 1.5rem auto 2.5rem; font-size: 1.2rem;">
+                <h2 style="color: var(--bg-color);">Ready to scale your data strategy?</h2>
+                <p style="color: rgba(255,255,255,0.7); margin: 1.5rem auto 2.5rem; font-size: 1.2rem;">
                     Currently exploring Master's Degree programs in data science or business analysis, full-time
                     engineering roles, and exciting industry collaborations.
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="mailto:sslim1684@gmail.com" class="btn btn-accent">Contact via Email</a>
                     <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" class="btn"
-                        style="background: white; color: var(--text-heading); border-color: white;">Connect on
+                        style="background: var(--bg-color); color: var(--text-heading); border-color: var(--bg-color);">Connect
+                        on
                         LinkedIn</a>
                 </div>
             </div>
@@ -1060,13 +1237,18 @@
         </div>
     </footer>
 
-    <!-- Secret Passcode Modal -->
+    <div id="roaming-pets-container"></div>
+
+    <div id="pet-container">
+        <img id="pet-sprite" src="" alt="Virtual Pet" />
+    </div>
+
     <div id="passcodeModal" class="admin-modal">
         <div class="admin-overlay" id="closePasscodeOverlay"></div>
         <div
             style="position: relative; z-index: 10000; background: rgba(15,15,20,0.95); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); width: 90%; max-width: 350px; text-align: center; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
             <i class="fas fa-lock" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
-            <h3 style="margin-bottom: 0.5rem;">Admin Access</h3>
+            <h3 style="margin-bottom: 0.5rem; color: white;">Admin Access</h3>
             <p style="font-size: 0.9rem; color: #A1A1AA; margin-bottom: 1.5rem;">Enter passcode to access dashboard.</p>
             <input type="password" id="passcodeInput"
                 style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: white; text-align: center; font-size: 1.5rem; letter-spacing: 0.3em; margin-bottom: 0.5rem;"
@@ -1075,13 +1257,12 @@
                 Incorrect passcode.</p>
             <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem;">
                 <button id="cancelPasscodeBtn" class="btn"
-                    style="padding: 0.6rem 1.2rem; background: transparent; border: 1px solid rgba(255,255,255,0.2);">Cancel</button>
+                    style="padding: 0.6rem 1.2rem; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white;">Cancel</button>
                 <button id="submitPasscodeBtn" class="btn btn-accent" style="padding: 0.6rem 1.2rem;">Unlock</button>
             </div>
         </div>
     </div>
 
-    <!-- Secret Admin Dashboard Modal -->
     <div id="adminModal" class="admin-modal">
         <div class="admin-overlay" id="closeAdminOverlay"></div>
         <div class="admin-card">
@@ -1128,10 +1309,276 @@
         </div>
     </div>
 
-    <!-- UI Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Scroll Reveal Animation
+
+            /* --- 1. DARK MODE TOGGLE --- */
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const icon = themeToggleBtn.querySelector('i');
+
+            const savedTheme = localStorage.getItem('portfolio_theme');
+            if (savedTheme === 'light') {
+                document.documentElement.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                if (currentTheme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('portfolio_theme', 'light');
+                    icon.className = 'fas fa-moon';
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('portfolio_theme', 'dark');
+                    icon.className = 'fas fa-sun';
+                }
+            });
+
+            /* --- 2. LIVE DATA NETWORK BACKGROUND --- */
+            const canvas = document.getElementById('network-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const particleCount = window.innerWidth < 768 ? 40 : 80;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            let mouse = { x: null, y: null, radius: 150 };
+            window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+            window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.size = Math.random() * 2 + 1;
+                }
+                update() {
+                    if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+                    if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+                    this.x += this.vx;
+                    this.y += this.vy;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                    ctx.fillStyle = isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                const lineColor = isDark ? '255,255,255' : '0,0,0';
+                const accentColor = '0, 208, 132';
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    for (let j = i; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 120) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(${lineColor}, ${0.1 - distance / 1200})`;
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+
+                    if (mouse.x != null) {
+                        const dxMouse = particles[i].x - mouse.x;
+                        const dyMouse = particles[i].y - mouse.y;
+                        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                        if (distMouse < mouse.radius) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(${accentColor}, ${0.3 - distMouse / (mouse.radius * 3)})`;
+                            ctx.lineWidth = 1.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            /* --- 3. DIGITAL VPET (FRIEREN & ROAMING POKEMON) --- */
+
+            // Spawn Roaming Pokemon
+            const roamingContainer = document.getElementById('roaming-pets-container');
+            const pokemonGifs = [
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif', // Pikachu
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/133.gif', // Eevee
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif', // Charmander
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif', // Squirtle
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif'  // Bulbasaur
+            ];
+
+            // Map specific phrases to each Pokemon based on their index
+            const pokemonPhrases = [
+                ['Pika!', 'Pikachu!', '⚡'],           // Pikachu (Index 0)
+                ['Eev!', 'Eevee!', '🐾', '*sniff*'], // Eevee (Index 1)
+                ['Char!', 'Charmander!', '🔥'],      // Charmander (Index 2)
+                ['Squirtle!', 'Squir!', '💧'],       // Squirtle (Index 3)
+                ['Saur!', 'Bulba!', '🍃', '✨']       // Bulbasaur (Index 4)
+            ];
+
+            const roamers = [];
+
+            for (let i = 0; i < pokemonGifs.length; i++) {
+                const petDiv = document.createElement('div');
+                petDiv.className = 'pet-sprite-anim';
+                petDiv.style.position = 'fixed';
+                petDiv.style.bottom = '20px';
+                petDiv.style.zIndex = '9998';
+
+                petDiv.innerHTML = `
+                    <img src="${pokemonGifs[i]}" style="height: 50px; width: auto;" alt="Roaming Pokemon" />
+                    <div class="pet-bubble"></div>
+                `;
+                roamingContainer.appendChild(petDiv);
+
+                const bubble = petDiv.querySelector('.pet-bubble');
+
+                // Advanced state machine for natural roaming
+                roamers.push({
+                    el: petDiv,
+                    bubble: bubble,
+                    x: Math.random() * 80 + 10,
+                    dir: Math.random() > 0.5 ? 1 : -1,
+                    speed: 0.02 + Math.random() * 0.03,
+                    bounds: [Math.random() * 15, 75 + Math.random() * 20], // Defines their patrol area
+                    state: 'walk', // 'walk' or 'idle'
+                    timer: Math.floor(Math.random() * 200),
+                    bubbleTimer: 0,
+                    isHovered: false
+                });
+
+                petDiv.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const c = roamers[i];
+                    const phrases = pokemonPhrases[i];
+                    c.bubble.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+                    c.bubble.classList.add('show');
+                    c.bubbleTimer = 180;
+                });
+
+                petDiv.addEventListener('mouseenter', () => roamers[i].isHovered = true);
+                petDiv.addEventListener('mouseleave', () => roamers[i].isHovered = false);
+            }
+
+            // ========================================================
+            // 🧝‍♀️ FRIEREN ANIMATIONS (Pixel Art Roaming)
+            // ========================================================
+            const VPET_WALK_IMG = 'https://media.tenor.com/tYtA9V-9B_4AAAAi/frieren-pixel.gif';
+            const VPET_IDLE_IMG = 'https://media.tenor.com/6Z3h-wN_pT4AAAAi/frieren-pixel-idle.gif';
+            // ========================================================
+            const petContainer = document.getElementById('pet-container');
+            const petSprite = document.getElementById('pet-sprite');
+
+            // Initialize image
+            petSprite.src = VPET_WALK_IMG;
+
+            let frierenX = 20;
+            let frierenDir = 1;
+            let isFrierenHovered = false;
+
+            // Pause and idle when hovered
+            petContainer.addEventListener('mouseenter', () => {
+                isFrierenHovered = true;
+                petSprite.src = VPET_IDLE_IMG;
+            });
+
+            // Resume walking when mouse leaves
+            petContainer.addEventListener('mouseleave', () => {
+                isFrierenHovered = false;
+                petSprite.src = VPET_WALK_IMG;
+            });
+
+            function movePet() {
+                // Move Frieren if not being hovered
+                if (!isFrierenHovered) {
+                    frierenX += frierenDir * 0.04;
+                    if (frierenX > 85) frierenDir = -1; // Turn around at right edge
+                    if (frierenX < 5) frierenDir = 1;  // Turn around at left edge
+
+                    petContainer.style.left = `${frierenX}%`;
+                    if (frierenDir === -1) petContainer.classList.add('walking-left');
+                    else petContainer.classList.remove('walking-left');
+                }
+
+                // Move Roaming Pokemon 
+                roamers.forEach((c, index) => {
+                    if (!c.isHovered) {
+                        if (c.state === 'walk') {
+                            c.x += c.dir * c.speed;
+                            c.el.style.left = `${c.x}%`;
+                            if (c.dir === -1) c.el.classList.add('walking-left');
+                            else c.el.classList.remove('walking-left');
+
+                            // Check boundaries to stop and turn around
+                            if (c.x > c.bounds[1]) {
+                                c.dir = -1;
+                                c.state = 'idle';
+                                c.timer = 60 + Math.random() * 100;
+                            } else if (c.x < c.bounds[0]) {
+                                c.dir = 1;
+                                c.state = 'idle';
+                                c.timer = 60 + Math.random() * 100;
+                            } else if (Math.random() < 0.002) {
+                                // Randomly stop to sniff or look around mid-walk
+                                c.state = 'idle';
+                                c.timer = 40 + Math.random() * 60;
+                            }
+                        } else if (c.state === 'idle') {
+                            c.timer--;
+                            if (c.timer <= 0) {
+                                c.state = 'walk';
+                                if (Math.random() < 0.1) c.dir *= -1;
+                            }
+                        }
+                    }
+
+                    // Handle Pokemon Speech Bubbles
+                    if (c.bubbleTimer > 0) {
+                        c.bubbleTimer--;
+                        if (c.bubbleTimer === 0) c.bubble.classList.remove('show');
+                    } else if (Math.random() < 0.001) {
+                        const phrases = pokemonPhrases[index];
+                        c.bubble.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+                        c.bubble.classList.add('show');
+                        c.bubbleTimer = 150;
+                    }
+                });
+
+                requestAnimationFrame(movePet);
+            }
+            // Start animation loop
+            movePet();
+
+
+            /* --- 4. SCROLL ANIMATIONS & GLOBE --- */
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1141,14 +1588,12 @@
 
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-            // Navbar Scroll Effect
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) navbar.classList.add('scrolled');
                 else navbar.classList.remove('scrolled');
             });
 
-            // Globe Animation
             const globe = document.getElementById('globe');
             const globeContainer = document.getElementById('globe-container');
 
@@ -1183,7 +1628,7 @@
                 globeObserver.observe(globeContainer);
             }
 
-            // Modal Trigger UI logic
+            /* --- 5. ADMIN MODAL TRIGGERS --- */
             const passcodeModal = document.getElementById('passcodeModal');
             const passcodeInput = document.getElementById('passcodeInput');
             const passcodeError = document.getElementById('passcodeError');
@@ -1224,189 +1669,6 @@
             document.getElementById('cancelPasscodeBtn').addEventListener('click', closePasscode);
             document.getElementById('closePasscodeOverlay').addEventListener('click', closePasscode);
         });
-    </script>
-
-    <!-- Firebase Analytics Tracker -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';
-        import { getAuth, signInAnonymously, signInWithCustomToken } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';
-        import { getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
-
-        // Securely load configuration from the external config.js file (or Canvas environment)
-        const activeConfig = window.myFirebaseConfig || (typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null);
-
-        // Read the passcode strictly from config.js. Fallback to 1234 ONLY inside the AI Canvas preview environment.
-        const activePasscode = window.ADMIN_PASSCODE || (typeof __firebase_config !== 'undefined' ? "1234" : null);
-
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'my-portfolio-analytics';
-
-        const adminModal = document.getElementById('adminModal');
-        const passcodeModal = document.getElementById('passcodeModal');
-        const passcodeInput = document.getElementById('passcodeInput');
-        const passcodeError = document.getElementById('passcodeError');
-
-        let unsubscribeSnapshot = null;
-        let app, auth, db;
-
-        const handlePasscodeSubmit = () => {
-            if (passcodeInput.value === activePasscode) {
-                passcodeModal.classList.remove('show');
-                openDashboard();
-            } else {
-                passcodeError.style.display = 'block';
-                passcodeInput.value = '';
-                passcodeInput.focus();
-            }
-        };
-
-        document.getElementById('submitPasscodeBtn').addEventListener('click', handlePasscodeSubmit);
-        passcodeInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handlePasscodeSubmit(); });
-
-        const closeDashboard = () => {
-            adminModal.classList.remove('show');
-            if (unsubscribeSnapshot) unsubscribeSnapshot();
-        };
-
-        document.getElementById('closeAdminBtn').addEventListener('click', closeDashboard);
-        document.getElementById('closeAdminOverlay').addEventListener('click', closeDashboard);
-
-        const initAuth = async () => {
-            if (!auth) return;
-            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                await signInWithCustomToken(auth, __initial_auth_token);
-            } else {
-                await signInAnonymously(auth);
-            }
-        };
-
-        // Only initialize if the activeConfig was successfully loaded from config.js
-        if (activeConfig && activeConfig.apiKey) {
-            app = initializeApp(activeConfig);
-            auth = getAuth(app);
-            db = getFirestore(app);
-
-            const trackVisitor = async () => {
-                try {
-                    await initAuth();
-                    const user = auth.currentUser;
-                    if (!user) return;
-
-                    const isOwner = typeof __initial_auth_token !== 'undefined' && !!__initial_auth_token;
-
-                    if (!isOwner && !sessionStorage.getItem('visit_logged')) {
-                        let ipAddress = "Unknown IP";
-                        try {
-                            const ipResponse = await fetch('https://api.ipify.org?format=json');
-                            const ipData = await ipResponse.json();
-                            ipAddress = ipData.ip;
-                        } catch (e) {
-                            console.warn("Failed to fetch IP address for analytics.");
-                        }
-
-                        const visitsRef = collection(db, 'artifacts', appId, 'public', 'data', 'portfolio_visits');
-                        const ua = navigator.userAgent;
-                        let browser = "Unknown Browser";
-                        if (ua.includes("Firefox")) browser = "Firefox";
-                        else if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
-                        else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
-                        else if (ua.includes("Edg")) browser = "Edge";
-
-                        let os = "Unknown OS";
-                        if (ua.includes("Win")) os = "Windows";
-                        else if (ua.includes("Mac")) os = "MacOS";
-                        else if (ua.includes("Linux")) os = "Linux";
-                        else if (ua.includes("Android")) os = "Android";
-                        else if (ua.includes("like Mac")) os = "iOS";
-
-                        await addDoc(visitsRef, {
-                            uid: user.uid,
-                            ip: ipAddress,
-                            location: locationStr,     // <-- NEW
-                            isp: ispStr,               // <-- NEW
-                            browser: browser,
-                            os: os,
-                            isMobile: /Mobi|Android/i.test(ua),
-                            screen: `${window.screen.width}x${window.screen.height}`,
-                            language: language,        // <-- NEW
-                            timezone: timezone,        // <-- NEW
-                            referrer: referrer,        // <-- NEW
-                            timestamp: serverTimestamp()
-                        });
-
-                        sessionStorage.setItem('visit_logged', 'true');
-                    }
-                } catch (error) {
-                    console.error("Analytics Setup Error:", error);
-                }
-            };
-            trackVisitor();
-        }
-
-        const openDashboard = async () => {
-            if (!activeConfig || !activeConfig.apiKey) {
-                adminModal.classList.add('show');
-                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center; padding: 2rem;"><strong>Configuration Missing</strong><br>Firebase is not configured.<br><br>The <code>config.js</code> file could not be found or is empty. If you are on GitHub Pages, ensure your GitHub Actions workflow successfully injected the secret.</td></tr>';
-                return;
-            }
-
-            let user = auth.currentUser;
-            if (!user) {
-                await initAuth();
-                user = auth.currentUser;
-            }
-            if (!user) {
-                adminModal.classList.add('show');
-                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center;">Authentication error. Please refresh the page and try again.</td></tr>';
-                return;
-            }
-
-            adminModal.classList.add('show');
-            const visitsRef = collection(db, 'artifacts', appId, 'public', 'data', 'portfolio_visits');
-            const q = query(visitsRef);
-
-            unsubscribeSnapshot = onSnapshot(q, (snapshot) => {
-                const visits = [];
-                snapshot.forEach(doc => visits.push({ id: doc.id, ...doc.data() }));
-
-                visits.sort((a, b) => (b.timestamp?.toMillis() || 0) - (a.timestamp?.toMillis() || 0));
-
-                const totalViews = visits.length;
-                const uniqueUsers = new Set(visits.map(v => v.uid)).size;
-                const mobileCount = visits.filter(v => v.isMobile).length;
-                const desktopCount = totalViews - mobileCount;
-
-                document.getElementById('statTotalViews').innerText = totalViews;
-                document.getElementById('statUniqueUsers').innerText = uniqueUsers;
-                document.getElementById('statDeviceSplit').innerText = `${desktopCount} Desktop / ${mobileCount} Mobile`;
-
-                const tbody = document.getElementById('visitLogBody');
-                tbody.innerHTML = '';
-
-                if (visits.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No visitors yet.</td></tr>';
-                    return;
-                }
-
-                visits.slice(0, 20).forEach(visit => {
-                    const date = visit.timestamp ? new Date(visit.timestamp.toDate()).toLocaleString() : 'Just now';
-                    const ip = visit.ip || 'Unknown IP';
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${date}</td>
-                        <td>${visit.browser || 'Unknown'}</td>
-                        <td>${visit.os || 'Unknown'} ${visit.isMobile ? '📱' : '💻'}</td>
-                        <td style="font-family: monospace;">
-                            <span style="color: var(--accent-color);">${ip}</span> <br>
-                            <span style="font-size: 0.8em; color: #666;">${visit.screen || 'N/A'}</span>
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            }, (error) => {
-                console.error("Dashboard Error:", error);
-                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center;">Error fetching data. Ensure database is connected and security rules are configured.</td></tr>';
-            });
-        };
     </script>
 </body>
 
