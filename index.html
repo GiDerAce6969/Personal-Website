@@ -70,16 +70,8 @@
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
             background-color: var(--bg-color);
@@ -90,714 +82,142 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-weight: var(--weight-bold);
-            color: var(--text-heading);
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            transition: color 0.3s ease;
-        }
+        h1, h2, h3, h4 { font-weight: var(--weight-bold); color: var(--text-heading); line-height: 1.1; letter-spacing: -0.03em; transition: color 0.3s ease;}
+        h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); margin-bottom: 1.5rem; }
+        h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        h4 { font-size: 0.85rem; font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-main); margin-bottom: 0.5rem; }
+        p { font-weight: var(--weight-regular); margin-bottom: 1rem; max-width: 60ch; font-size: 1.125rem; }
+        a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 
-        h1 {
-            font-size: clamp(3.5rem, 6vw, 5.5rem);
-            margin-bottom: 1.5rem;
-        }
+        .container { width: 90%; max-width: var(--container-width); margin: 0 auto; position: relative; }
+        .section-padding { padding: var(--spacing-xl) 0; }
 
-        h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        h4 {
-            font-size: 0.85rem;
-            font-weight: var(--weight-semibold);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            font-weight: var(--weight-regular);
-            margin-bottom: 1rem;
-            max-width: 60ch;
-            font-size: 1.125rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s ease;
-        }
-
-        .container {
-            width: 90%;
-            max-width: var(--container-width);
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-padding {
-            padding: var(--spacing-xl) 0;
-        }
-
-        .grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .grid-2 {
-            grid-template-columns: 1fr;
-        }
-
-        .grid-3 {
-            grid-template-columns: 1fr;
-        }
-
-        .grid-4 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
+        .grid { display: grid; gap: 1.5rem; }
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-3 { grid-template-columns: 1fr; }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 
         @media (min-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .grid-3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
         }
 
         /* Sleek Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.25rem 0;
-            background: var(--nav-bg);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 1.25rem 0; background: var(--nav-bg); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid transparent; transition: all 0.3s ease; }
+        .navbar.scrolled { padding: 1rem 0; border-bottom: 1px solid var(--border-color); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: var(--weight-bold); font-size: 1.25rem; letter-spacing: -0.04em; color: var(--text-heading); display: flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: color 0.3s ease;}
+        .logo::before { content: ''; display: inline-block; width: 8px; height: 8px; background-color: var(--accent-color); border-radius: 50%; }
+        .nav-links { display: none; gap: 2rem; align-items: center; }
+        @media (min-width: 768px) { .nav-links { display: flex; } }
+        .nav-link { font-weight: var(--weight-medium); font-size: 0.95rem; color: var(--text-main); cursor: pointer;}
+        .nav-link:hover { color: var(--text-heading); }
 
-        .navbar.scrolled {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: var(--weight-bold);
-            font-size: 1.25rem;
-            letter-spacing: -0.04em;
-            color: var(--text-heading);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .logo::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-        }
-
-        .nav-links {
-            display: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        @media (min-width: 768px) {
-            .nav-links {
-                display: flex;
-            }
-        }
-
-        .nav-link {
-            font-weight: var(--weight-medium);
-            font-size: 0.95rem;
-            color: var(--text-main);
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
-            color: var(--text-heading);
-        }
-
-        .theme-toggle {
-            background: transparent;
-            border: none;
-            font-size: 1.2rem;
-            color: var(--text-main);
-            cursor: pointer;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        .theme-toggle:hover {
-            color: var(--text-heading);
-            background: rgba(128, 128, 128, 0.1);
-        }
+        .theme-toggle { background: transparent; border: none; font-size: 1.2rem; color: var(--text-main); cursor: pointer; transition: color 0.3s ease; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; }
+        .theme-toggle:hover { color: var(--text-heading); background: rgba(128,128,128,0.1); }
 
         /* SaaS Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background-color: var(--text-heading);
-            color: var(--bg-color);
-            font-size: 1rem;
-            font-weight: var(--weight-semibold);
-            border-radius: var(--border-radius-pill);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid var(--text-heading);
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5);
-            opacity: 0.9;
-        }
-
-        .btn-accent {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: #000;
-        }
-
-        .btn-accent:hover {
-            background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
-            box-shadow: 0 10px 20px -10px rgba(0, 208, 132, 0.5);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-heading);
-            border-color: var(--border-color);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--text-heading);
-            background-color: var(--text-heading);
-            color: var(--bg-color);
-        }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; background-color: var(--text-heading); color: var(--bg-color); font-size: 1rem; font-weight: var(--weight-semibold); border-radius: var(--border-radius-pill); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid var(--text-heading); cursor: pointer; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5); opacity: 0.9; }
+        .btn-accent { background-color: var(--accent-color); border-color: var(--accent-color); color: #000; }
+        .btn-accent:hover { background-color: var(--accent-hover); border-color: var(--accent-hover); box-shadow: 0 10px 20px -10px rgba(0, 208, 132, 0.5); }
+        .btn-outline { background-color: transparent; color: var(--text-heading); border-color: var(--border-color); }
+        .btn-outline:hover { border-color: var(--text-heading); background-color: var(--text-heading); color: var(--bg-color); }
 
         /* Modern Cards */
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--card-border);
-            border-radius: var(--border-radius-card);
-            padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            z-index: 2;
-        }
-
-        .card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            background: var(--card-hover-bg);
-        }
-
-        .card-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: var(--accent-light);
-            color: var(--accent-color);
-            border-radius: 12px;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
+        .card { background: var(--card-bg); backdrop-filter: blur(16px); border: 1px solid var(--card-border); border-radius: var(--border-radius-card); padding: 2rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); height: 100%; position: relative; overflow: hidden; box-shadow: var(--shadow-sm); z-index: 2; }
+        .card:hover { border-color: var(--accent-color); transform: translateY(-4px); box-shadow: var(--shadow-md); background: var(--card-hover-bg); }
+        .card-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--accent-light); color: var(--accent-color); border-radius: 12px; font-size: 1.5rem; margin-bottom: 1.5rem; }
 
         /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding-top: var(--spacing-lg);
-        }
-
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        @media (min-width: 900px) {
-            .hero-layout {
-                grid-template-columns: 1.2fr 1fr;
-            }
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--accent-light);
-            color: var(--accent-color);
-            font-weight: var(--weight-semibold);
-            font-size: 0.85rem;
-            border-radius: var(--border-radius-pill);
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 208, 132, 0.2);
-        }
+        .hero { min-height: 90vh; display: flex; align-items: center; padding-top: var(--spacing-lg); }
+        .hero-layout { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+        @media (min-width: 900px) { .hero-layout { grid-template-columns: 1.2fr 1fr; } }
+        .hero-badge { display: inline-block; padding: 0.5rem 1rem; background: var(--accent-light); color: var(--accent-color); font-weight: var(--weight-semibold); font-size: 0.85rem; border-radius: var(--border-radius-pill); margin-bottom: 1.5rem; border: 1px solid rgba(0, 208, 132, 0.2); }
 
         /* Profile Picture Flip Card CSS */
-        .hero-image-wrapper {
-            position: relative;
-            border-radius: var(--border-radius-card);
-            padding: 1rem;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow-lg);
-            perspective: 1000px;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-        }
-
-        .flipper {
-            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
-            transform-style: preserve-3d;
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4/5;
-        }
-
-        .hero-image-wrapper.flipped .flipper {
-            transform: rotateY(180deg);
-        }
-
-        .flipper-front,
-        .flipper-back {
-            backface-visibility: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: calc(var(--border-radius-card) - 0.5rem);
-            overflow: hidden;
-        }
-
-        .flipper-front {
-            z-index: 2;
-            transform: rotateY(0deg);
-            background: var(--text-heading);
-            color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            border: 2px solid var(--accent-color);
-        }
-
-        .flipper-front i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .flipper-front p {
-            font-size: 1.5rem;
-            font-weight: var(--weight-bold);
-            margin: 0;
-            line-height: 1.2;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            display: block;
-            background: #eee;
-            object-fit: cover;
-        }
-
-        .flipper-back {
-            transform: rotateY(180deg);
-        }
+        .hero-image-wrapper { position: relative; border-radius: var(--border-radius-card); padding: 1rem; background: var(--card-bg); border: 1px solid var(--card-border); box-shadow: var(--shadow-lg); perspective: 1000px; cursor: pointer; backdrop-filter: blur(10px); }
+        .flipper { transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; position: relative; width: 100%; aspect-ratio: 4/5; }
+        .hero-image-wrapper.flipped .flipper { transform: rotateY(180deg); }
+        .flipper-front, .flipper-back { backface-visibility: hidden; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: calc(var(--border-radius-card) - 0.5rem); overflow: hidden; }
+        
+        .flipper-front { z-index: 2; transform: rotateY(0deg); background: var(--text-heading); color: var(--bg-color); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; border: 2px solid var(--accent-color); }
+        .flipper-front i { font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem; }
+        .flipper-front p { font-size: 1.5rem; font-weight: var(--weight-bold); margin: 0; line-height: 1.2; }
+        
+        .hero-image { width: 100%; height: 100%; display: block; background: #eee; object-fit: cover; }
+        .flipper-back { transform: rotateY(180deg); }
 
         /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border-color);
-        }
-
-        .timeline-item {
-            padding-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: -33px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            background: var(--card-bg);
-            border: 4px solid var(--accent-color);
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 0 4px var(--bg-color);
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-
-        .timeline-date {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            margin-bottom: 0.25rem;
-            font-weight: var(--weight-bold);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .timeline-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--card-border);
-            padding: 1.5rem;
-            border-radius: var(--border-radius-card);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s;
-        }
-
-        .timeline-card:hover {
-            border-color: var(--accent-color);
-        }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 2rem; }
+        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--border-color); }
+        .timeline-item { padding-bottom: 3rem; position: relative; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-item::after { content: ''; position: absolute; left: -33px; top: 0; width: 16px; height: 16px; background: var(--card-bg); border: 4px solid var(--accent-color); border-radius: 50%; z-index: 1; box-shadow: 0 0 0 4px var(--bg-color); transition: background 0.3s, box-shadow 0.3s; }
+        .timeline-date { font-size: 0.9rem; color: var(--accent-color); margin-bottom: 0.25rem; font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: 0.05em; }
+        .timeline-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); padding: 1.5rem; border-radius: var(--border-radius-card); box-shadow: var(--shadow-sm); transition: all 0.3s; }
+        .timeline-card:hover { border-color: var(--accent-color); }
 
         /* Glassmorphism Background Blobs */
-        .glass-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: 0;
-            opacity: 0.5;
-            pointer-events: none;
-            animation: floatBlob 10s ease-in-out infinite alternate;
-        }
-
-        .blob-1 {
-            top: 5%;
-            left: -5%;
-            width: 300px;
-            height: 300px;
-            background: rgba(0, 208, 132, 0.4);
-        }
-
-        .blob-2 {
-            bottom: 5%;
-            right: -5%;
-            width: 250px;
-            height: 250px;
-            background: rgba(59, 130, 246, 0.3);
-        }
-
-        @keyframes floatBlob {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            100% {
-                transform: translate(20px, 20px) scale(1.1);
-            }
-        }
+        .glass-blob { position: absolute; border-radius: 50%; filter: blur(60px); z-index: 0; opacity: 0.5; pointer-events: none; animation: floatBlob 10s ease-in-out infinite alternate; }
+        .blob-1 { top: 5%; left: -5%; width: 300px; height: 300px; background: rgba(0, 208, 132, 0.4); }
+        .blob-2 { bottom: 5%; right: -5%; width: 250px; height: 250px; background: rgba(59, 130, 246, 0.3); }
+        @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(20px, 20px) scale(1.1); } }
 
         /* 3D Globe Carousel */
-        .globe-container {
-            perspective: 1200px;
-            width: 100%;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .globe {
-            width: 220px;
-            height: 240px;
-            position: relative;
-            transform-style: preserve-3d;
-        }
-
-        .globe-item {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-        }
-
-        .cert-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--card-border);
-            border-radius: var(--border-radius-card);
-            padding: 2rem;
-            width: 220px;
-            height: 240px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .cert-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            background: var(--card-hover-bg);
-        }
-
-        .cert-card img {
-            max-height: 60px;
-            margin-bottom: 1.5rem;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .cert-card:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
+        .globe-container { perspective: 1200px; width: 100%; height: 400px; display: flex; justify-content: center; align-items: center; margin-top: 3rem; }
+        .globe { width: 220px; height: 240px; position: relative; transform-style: preserve-3d; }
+        .globe-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform-style: preserve-3d; }
+        .cert-card { display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: var(--border-radius-card); padding: 2rem; width: 220px; height: 240px; text-align: center; transition: all 0.3s ease; }
+        .cert-card:hover { border-color: var(--accent-color); transform: translateY(-5px); box-shadow: var(--shadow-md); background: var(--card-hover-bg); }
+        .cert-card img { max-height: 60px; margin-bottom: 1.5rem; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease; }
+        .cert-card:hover img { filter: grayscale(0%); opacity: 1; }
 
         /* Project Cards */
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            border-radius: var(--border-radius-card);
-            border: 1px solid var(--card-border);
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-color);
-        }
-
-        .project-img-wrapper {
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-            background: #F3F4F6;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-img {
-            transform: scale(1.05);
-        }
-
-        .project-content {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .project-link {
-            margin-top: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-heading);
-            font-weight: var(--weight-semibold);
-            font-size: 0.95rem;
-        }
-
-        .project-link:hover {
-            color: var(--accent-color);
-        }
+        .project-card { display: flex; flex-direction: column; border-radius: var(--border-radius-card); border: 1px solid var(--card-border); background: var(--card-bg); backdrop-filter: blur(10px); transition: all 0.3s ease; overflow: hidden; box-shadow: var(--shadow-sm); }
+        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--accent-color); }
+        .project-img-wrapper { width: 100%; height: 280px; overflow: hidden; background: #F3F4F6; border-bottom: 1px solid var(--border-color); }
+        .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .project-link { margin-top: auto; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-heading); font-weight: var(--weight-semibold); font-size: 0.95rem; }
+        .project-link:hover { color: var(--accent-color); }
 
         /* Scroll Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .reveal-delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        .reveal-delay-3 {
-            transition-delay: 0.3s;
-        }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
 
         /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 0;
-            margin-top: var(--spacing-xl);
-            background: var(--card-bg);
-            text-align: center;
-        }
+        footer { border-top: 1px solid var(--border-color); padding: 3rem 0; margin-top: var(--spacing-xl); background: var(--card-bg); text-align: center; }
+        .footer-content p { font-size: 0.95rem; color: var(--text-main); margin: 0 auto; }
 
-        .footer-content p {
-            font-size: 0.95rem;
-            color: var(--text-main);
-            margin: 0 auto;
-        }
+        /* --- Interactive Canvas Background --- */
+        #network-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
-        /* --- NEW: Interactive Canvas Background --- */
-        #network-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* --- NEW: Digital Pets & Frieren UI --- */
-        #pet-container {
-            position: fixed;
-            bottom: 20px;
-            left: -100px;
-            z-index: 9999;
-            display: flex;
-            align-items: flex-end;
-            gap: 1rem;
-            transition: left 0.1s linear;
-            pointer-events: none;
-        }
-
-        /* The Actual Pet Image */
-        #pet-sprite {
-            height: 80px;
-            width: auto;
-            user-select: none;
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
-            transition: transform 0.2s ease;
-            pointer-events: auto;
-        }
-
-        .walking-left #pet-sprite {
-            transform: scaleX(-1);
-        }
-
+        /* --- ROAMING POKEMON --- */
         /* Generic Pet Sprite animations for Roaming Pokemon */
         .pet-sprite-anim {
             cursor: pointer;
             user-select: none;
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
             animation: bob 0.6s infinite alternate ease-in-out;
             position: relative;
             display: flex;
             justify-content: center;
         }
-
-        .pet-sprite-anim>img {
-            transition: transform 0.2s ease;
-            image-rendering: pixelated;
-        }
-
-        .pet-sprite-anim:hover {
-            animation-play-state: paused;
-            z-index: 10000 !important;
-        }
-
-        .pet-sprite-anim:hover>img {
-            transform: scale(1.1);
-        }
-
-        .walking-left.pet-sprite-anim>img {
-            transform: scaleX(-1);
-        }
-
-        .walking-left.pet-sprite-anim:hover>img {
-            transform: scaleX(-1) scale(1.1);
-        }
+        .pet-sprite-anim > img { transition: transform 0.2s ease; image-rendering: pixelated; }
+        .pet-sprite-anim:hover { animation-play-state: paused; z-index: 10000 !important; }
+        .pet-sprite-anim:hover > img { transform: scale(1.1); }
+        .walking-left.pet-sprite-anim > img { transform: scaleX(-1); }
+        .walking-left.pet-sprite-anim:hover > img { transform: scaleX(-1) scale(1.1); }
 
         @keyframes bob {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-10px);
-            }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
         }
 
         /* Speech Bubble for Roaming Pokemon */
@@ -821,7 +241,7 @@
             white-space: nowrap;
             box-shadow: var(--shadow-md);
         }
-
+        
         .pet-bubble::after {
             content: '';
             position: absolute;
@@ -839,122 +259,30 @@
         }
 
         /* Admin Dashboard */
-        .admin-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .admin-modal.show {
-            display: flex;
-            opacity: 1;
-        }
-
-        .admin-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .admin-card {
-            position: relative;
-            width: 90%;
-            max-width: 950px;
-            background: rgba(15, 15, 20, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
-            padding: 2.5rem;
-            color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05);
-            max-height: 85vh;
-            overflow-y: auto;
-        }
-
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 1rem;
-        }
-
-        .admin-close {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .admin-close:hover {
-            background: rgba(255, 50, 50, 0.8);
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .stat-card h4 {
-            color: #A1A1AA;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .stat-card .value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-
-        .visit-log {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        .visit-log th {
-            text-align: left;
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            color: #A1A1AA;
-        }
-
-        .visit-log td {
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        .admin-modal { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+        .admin-modal.show { display: flex; opacity: 1; }
+        .admin-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .admin-card { position: relative; width: 90%; max-width: 950px; background: rgba(15, 15, 20, 0.75); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 24px; padding: 2.5rem; color: white; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05); max-height: 85vh; overflow-y: auto; }
+        .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem; }
+        .admin-close { background: rgba(255, 255, 255, 0.1); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; transition: all 0.2s; }
+        .admin-close:hover { background: rgba(255, 50, 50, 0.8); }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .stat-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 1.5rem; text-align: center; }
+        .stat-card h4 { color: #A1A1AA; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-card .value { font-size: 2.5rem; font-weight: bold; color: var(--accent-color); }
+        .visit-log { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .visit-log th { text-align: left; padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: #A1A1AA; }
+        .visit-log td { padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .visit-log tr.hover-row:hover { background-color: rgba(255, 255, 255, 0.03); }
     </style>
 
+    <!-- Load your separate config file -->
     <script src="config.js"></script>
-    <script type="module" src="admin_dashboard.js"></script>
 </head>
 
 <body>
 
+    <!-- Particle Network Background -->
     <canvas id="network-canvas"></canvas>
 
     <nav class="navbar" id="navbar">
@@ -968,6 +296,7 @@
                     style="display: flex; align-items: center; gap: 0.4rem;">
                     <i class="fas fa-file-pdf" style="color: var(--accent-color);"></i> Resume
                 </a>
+                <!-- Dark Mode Toggle Button -->
                 <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">
                     <i class="fas fa-sun"></i>
                 </button>
@@ -1012,8 +341,8 @@
                                 <p>Click to reveal<br>my picture!</p>
                             </div>
                             <div class="flipper-back">
-                                <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image"
-                                    onerror="this.src='https://ui-avatars.com/api/?name=Sean+Shen&background=00D084&color=fff&size=500'">
+                                <!-- Fallback image if profile.jpg is missing -->
+                                <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image" onerror="this.src='https://ui-avatars.com/api/?name=Sean+Shen&background=00D084&color=fff&size=500'">
                             </div>
                         </div>
                     </div>
@@ -1104,18 +433,14 @@
                     <div class="globe-item" style="transform: rotateY(0deg) translateZ(260px);">
                         <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
                             class="cert-card">
-                            <img src="Bursa cert.png"
-                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
-                                alt="Bursa">
+                            <img src="Bursa cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="Bursa">
                             <h4>Derivatives</h4>
                             <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
                         </a>
                     </div>
                     <div class="globe-item" style="transform: rotateY(60deg) translateZ(260px);">
                         <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
-                            <img src="Nanning cert.png"
-                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
-                                alt="Nanning">
+                            <img src="Nanning cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="Nanning">
                             <h4>Innovation</h4>
                             <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
                         </a>
@@ -1123,18 +448,14 @@
                     <div class="globe-item" style="transform: rotateY(120deg) translateZ(260px);">
                         <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf"
                             target="_blank" class="cert-card">
-                            <img src="BINUS cert.png"
-                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
-                                alt="BINUS">
+                            <img src="BINUS cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="BINUS">
                             <h4>Symposium</h4>
                             <p style="font-size: 0.85rem; margin:0;">BINUS University</p>
                         </a>
                     </div>
                     <div class="globe-item" style="transform: rotateY(180deg) translateZ(260px);">
                         <a href="AsiaTech Cert.pdf" target="_blank" class="cert-card">
-                            <img src="AsiaTech cert.png"
-                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
-                                alt="AsiaTech">
+                            <img src="AsiaTech cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="AsiaTech">
                             <h4>Commercialization</h4>
                             <p style="font-size: 0.85rem; margin:0;">AsiaTech</p>
                         </a>
@@ -1142,18 +463,14 @@
                     <div class="globe-item" style="transform: rotateY(240deg) translateZ(260px);">
                         <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
                             class="cert-card">
-                            <img src="Bursa cert.png"
-                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
-                                alt="Bursa">
+                            <img src="Bursa cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="Bursa">
                             <h4>Derivatives</h4>
                             <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
                         </a>
                     </div>
                     <div class="globe-item" style="transform: rotateY(300deg) translateZ(260px);">
                         <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
-                            <img src="Nanning cert.png"
-                                onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'"
-                                alt="Nanning">
+                            <img src="Nanning cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="Nanning">
                             <h4>Innovation</h4>
                             <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
                         </a>
@@ -1171,9 +488,7 @@
             <div class="grid grid-2" style="margin-top: 3rem;">
                 <article class="project-card reveal">
                     <div class="project-img-wrapper">
-                        <img src="AI_Campaign Pic.png"
-                            onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'"
-                            alt="AI Campaign" class="project-img">
+                        <img src="AI_Campaign Pic.png" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'" alt="AI Campaign" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>AI-Driven Campaign Optimization</h3>
@@ -1188,9 +503,7 @@
 
                 <article class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrapper">
-                        <img src="BI_Dashboard.png"
-                            onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'"
-                            alt="Business Intelligence Dashboard" class="project-img">
+                        <img src="BI_Dashboard.png" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'" alt="Business Intelligence Dashboard" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Business Intelligence Dashboard</h3>
@@ -1220,8 +533,7 @@
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="mailto:sslim1684@gmail.com" class="btn btn-accent">Contact via Email</a>
                     <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" class="btn"
-                        style="background: var(--bg-color); color: var(--text-heading); border-color: var(--bg-color);">Connect
-                        on
+                        style="background: var(--bg-color); color: var(--text-heading); border-color: var(--bg-color);">Connect on
                         LinkedIn</a>
                 </div>
             </div>
@@ -1237,12 +549,10 @@
         </div>
     </footer>
 
+    <!-- Container for roaming Pokémon -->
     <div id="roaming-pets-container"></div>
 
-    <div id="pet-container">
-        <img id="pet-sprite" src="" alt="Virtual Pet" />
-    </div>
-
+    <!-- Secret Passcode Modal -->
     <div id="passcodeModal" class="admin-modal">
         <div class="admin-overlay" id="closePasscodeOverlay"></div>
         <div
@@ -1263,6 +573,7 @@
         </div>
     </div>
 
+    <!-- Secret Admin Dashboard Modal -->
     <div id="adminModal" class="admin-modal">
         <div class="admin-overlay" id="closeAdminOverlay"></div>
         <div class="admin-card">
@@ -1309,13 +620,14 @@
         </div>
     </div>
 
+    <!-- UI Logic & Features -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
+            
             /* --- 1. DARK MODE TOGGLE --- */
             const themeToggleBtn = document.getElementById('themeToggle');
             const icon = themeToggleBtn.querySelector('i');
-
+            
             const savedTheme = localStorage.getItem('portfolio_theme');
             if (savedTheme === 'light') {
                 document.documentElement.removeAttribute('data-theme');
@@ -1397,7 +709,7 @@
 
                         if (distance < 120) {
                             ctx.beginPath();
-                            ctx.strokeStyle = `rgba(${lineColor}, ${0.1 - distance / 1200})`;
+                            ctx.strokeStyle = `rgba(${lineColor}, ${0.1 - distance/1200})`;
                             ctx.lineWidth = 1;
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
@@ -1411,7 +723,7 @@
                         const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
                         if (distMouse < mouse.radius) {
                             ctx.beginPath();
-                            ctx.strokeStyle = `rgba(${accentColor}, ${0.3 - distMouse / (mouse.radius * 3)})`;
+                            ctx.strokeStyle = `rgba(${accentColor}, ${0.3 - distMouse/(mouse.radius*3)})`;
                             ctx.lineWidth = 1.5;
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(mouse.x, mouse.y);
@@ -1423,9 +735,7 @@
             }
             animateParticles();
 
-            /* --- 3. DIGITAL VPET (FRIEREN & ROAMING POKEMON) --- */
-
-            // Spawn Roaming Pokemon
+            /* --- 3. ROAMING POKEMON --- */
             const roamingContainer = document.getElementById('roaming-pets-container');
             const pokemonGifs = [
                 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif', // Pikachu
@@ -1434,8 +744,7 @@
                 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif', // Squirtle
                 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif'  // Bulbasaur
             ];
-
-            // Map specific phrases to each Pokemon based on their index
+            
             const pokemonPhrases = [
                 ['Pika!', 'Pikachu!', '⚡'],           // Pikachu (Index 0)
                 ['Eev!', 'Eevee!', '🐾', '*sniff*'], // Eevee (Index 1)
@@ -1443,7 +752,7 @@
                 ['Squirtle!', 'Squir!', '💧'],       // Squirtle (Index 3)
                 ['Saur!', 'Bulba!', '🍃', '✨']       // Bulbasaur (Index 4)
             ];
-
+            
             const roamers = [];
 
             for (let i = 0; i < pokemonGifs.length; i++) {
@@ -1452,24 +761,23 @@
                 petDiv.style.position = 'fixed';
                 petDiv.style.bottom = '20px';
                 petDiv.style.zIndex = '9998';
-
+                
                 petDiv.innerHTML = `
                     <img src="${pokemonGifs[i]}" style="height: 50px; width: auto;" alt="Roaming Pokemon" />
                     <div class="pet-bubble"></div>
                 `;
                 roamingContainer.appendChild(petDiv);
-
+                
                 const bubble = petDiv.querySelector('.pet-bubble');
 
-                // Advanced state machine for natural roaming
                 roamers.push({
                     el: petDiv,
                     bubble: bubble,
                     x: Math.random() * 80 + 10,
                     dir: Math.random() > 0.5 ? 1 : -1,
                     speed: 0.02 + Math.random() * 0.03,
-                    bounds: [Math.random() * 15, 75 + Math.random() * 20], // Defines their patrol area
-                    state: 'walk', // 'walk' or 'idle'
+                    bounds: [Math.random() * 15, 75 + Math.random() * 20], 
+                    state: 'walk', 
                     timer: Math.floor(Math.random() * 200),
                     bubbleTimer: 0,
                     isHovered: false
@@ -1483,52 +791,12 @@
                     c.bubble.classList.add('show');
                     c.bubbleTimer = 180;
                 });
-
+                
                 petDiv.addEventListener('mouseenter', () => roamers[i].isHovered = true);
                 petDiv.addEventListener('mouseleave', () => roamers[i].isHovered = false);
             }
 
-            // ========================================================
-            // 🧝‍♀️ FRIEREN ANIMATIONS (Pixel Art Roaming)
-            // ========================================================
-            const VPET_WALK_IMG = 'https://media.tenor.com/tYtA9V-9B_4AAAAi/frieren-pixel.gif';
-            const VPET_IDLE_IMG = 'https://media.tenor.com/6Z3h-wN_pT4AAAAi/frieren-pixel-idle.gif';
-            // ========================================================
-            const petContainer = document.getElementById('pet-container');
-            const petSprite = document.getElementById('pet-sprite');
-
-            // Initialize image
-            petSprite.src = VPET_WALK_IMG;
-
-            let frierenX = 20;
-            let frierenDir = 1;
-            let isFrierenHovered = false;
-
-            // Pause and idle when hovered
-            petContainer.addEventListener('mouseenter', () => {
-                isFrierenHovered = true;
-                petSprite.src = VPET_IDLE_IMG;
-            });
-
-            // Resume walking when mouse leaves
-            petContainer.addEventListener('mouseleave', () => {
-                isFrierenHovered = false;
-                petSprite.src = VPET_WALK_IMG;
-            });
-
-            function movePet() {
-                // Move Frieren if not being hovered
-                if (!isFrierenHovered) {
-                    frierenX += frierenDir * 0.04;
-                    if (frierenX > 85) frierenDir = -1; // Turn around at right edge
-                    if (frierenX < 5) frierenDir = 1;  // Turn around at left edge
-
-                    petContainer.style.left = `${frierenX}%`;
-                    if (frierenDir === -1) petContainer.classList.add('walking-left');
-                    else petContainer.classList.remove('walking-left');
-                }
-
-                // Move Roaming Pokemon 
+            function animateRoamers() {
                 roamers.forEach((c, index) => {
                     if (!c.isHovered) {
                         if (c.state === 'walk') {
@@ -1537,7 +805,7 @@
                             if (c.dir === -1) c.el.classList.add('walking-left');
                             else c.el.classList.remove('walking-left');
 
-                            // Check boundaries to stop and turn around
+                            // Boundary Check
                             if (c.x > c.bounds[1]) {
                                 c.dir = -1;
                                 c.state = 'idle';
@@ -1547,7 +815,7 @@
                                 c.state = 'idle';
                                 c.timer = 60 + Math.random() * 100;
                             } else if (Math.random() < 0.002) {
-                                // Randomly stop to sniff or look around mid-walk
+                                // Randomly stop
                                 c.state = 'idle';
                                 c.timer = 40 + Math.random() * 60;
                             }
@@ -1555,16 +823,16 @@
                             c.timer--;
                             if (c.timer <= 0) {
                                 c.state = 'walk';
-                                if (Math.random() < 0.1) c.dir *= -1;
+                                if (Math.random() < 0.1) c.dir *= -1; 
                             }
                         }
                     }
 
-                    // Handle Pokemon Speech Bubbles
+                    // Random Bubbles
                     if (c.bubbleTimer > 0) {
                         c.bubbleTimer--;
                         if (c.bubbleTimer === 0) c.bubble.classList.remove('show');
-                    } else if (Math.random() < 0.001) {
+                    } else if (Math.random() < 0.001) { 
                         const phrases = pokemonPhrases[index];
                         c.bubble.textContent = phrases[Math.floor(Math.random() * phrases.length)];
                         c.bubble.classList.add('show');
@@ -1572,11 +840,9 @@
                     }
                 });
 
-                requestAnimationFrame(movePet);
+                requestAnimationFrame(animateRoamers);
             }
-            // Start animation loop
-            movePet();
-
+            animateRoamers();
 
             /* --- 4. SCROLL ANIMATIONS & GLOBE --- */
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
@@ -1601,14 +867,14 @@
                 let currentAngle = 0;
                 let speed = 0.25;
                 const targetSpeed = 0.25;
-                let isHovered = false;
+                let isGlobeHovered = false;
                 let hasSpun = false;
 
-                globe.addEventListener('mouseenter', () => isHovered = true);
-                globe.addEventListener('mouseleave', () => isHovered = false);
+                globe.addEventListener('mouseenter', () => isGlobeHovered = true);
+                globe.addEventListener('mouseleave', () => isGlobeHovered = false);
 
                 function animateGlobe() {
-                    if (!isHovered) {
+                    if (!isGlobeHovered) {
                         speed = speed + (targetSpeed - speed) * 0.03;
                         currentAngle += speed;
                         globe.style.transform = `rotateX(-5deg) rotateY(${currentAngle}deg)`;
@@ -1669,6 +935,273 @@
             document.getElementById('cancelPasscodeBtn').addEventListener('click', closePasscode);
             document.getElementById('closePasscodeOverlay').addEventListener('click', closePasscode);
         });
+    </script>
+
+    <!-- Firebase Analytics Tracker -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';
+        import { getAuth, signInAnonymously, signInWithCustomToken } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';
+        import { getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
+
+        const activeConfig = window.myFirebaseConfig || (typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null);
+        const activePasscode = window.ADMIN_PASSCODE || (typeof __firebase_config !== 'undefined' ? "1234" : null);
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'my-portfolio-analytics';
+
+        const adminModal = document.getElementById('adminModal');
+        const passcodeModal = document.getElementById('passcodeModal');
+        const passcodeInput = document.getElementById('passcodeInput');
+        const passcodeError = document.getElementById('passcodeError');
+
+        let unsubscribeSnapshot = null;
+        let app, auth, db;
+
+        const handlePasscodeSubmit = () => {
+            if (passcodeInput.value === activePasscode) {
+                passcodeModal.classList.remove('show');
+                openDashboard();
+            } else {
+                passcodeError.style.display = 'block';
+                passcodeInput.value = '';
+                passcodeInput.focus();
+            }
+        };
+
+        document.getElementById('submitPasscodeBtn').addEventListener('click', handlePasscodeSubmit);
+        passcodeInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handlePasscodeSubmit(); });
+
+        const closeDashboard = () => {
+            adminModal.classList.remove('show');
+            if (unsubscribeSnapshot) unsubscribeSnapshot();
+        };
+
+        document.getElementById('closeAdminBtn').addEventListener('click', closeDashboard);
+        document.getElementById('closeAdminOverlay').addEventListener('click', closeDashboard);
+
+        const initAuth = async () => {
+            if (!auth) return;
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+        };
+
+        if (activeConfig && activeConfig.apiKey) {
+            app = initializeApp(activeConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+
+            const trackVisitor = async () => {
+                try {
+                    await initAuth();
+                    const user = auth.currentUser;
+                    if (!user) return;
+
+                    const isOwner = typeof __initial_auth_token !== 'undefined' && !!__initial_auth_token;
+
+                    if (!isOwner && !sessionStorage.getItem('visit_logged')) {
+                        
+                        let ipAddress = "Unknown IP";
+                        let locationStr = "Unknown Location";
+                        let ispStr = "Unknown ISP";
+
+                        try {
+                            const ipResponse = await fetch('https://ipapi.co/json/');
+                            const ipData = await ipResponse.json();
+                            if(ipData.ip) {
+                                ipAddress = ipData.ip;
+                                locationStr = `${ipData.city || 'Unknown City'}, ${ipData.country_name || 'Unknown Country'}`;
+                                ispStr = ipData.org || 'Unknown ISP';
+                            }
+                        } catch (e) {
+                            console.warn("Failed to fetch detailed IP address info.");
+                        }
+
+                        const ua = navigator.userAgent;
+                        let browser = "Unknown Browser";
+                        if (ua.includes("Firefox")) browser = "Firefox";
+                        else if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
+                        else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+                        else if (ua.includes("Edg")) browser = "Edge";
+
+                        let os = "Unknown OS";
+                        if (ua.includes("Win")) os = "Windows";
+                        else if (ua.includes("Mac")) os = "MacOS";
+                        else if (ua.includes("Linux")) os = "Linux";
+                        else if (ua.includes("Android")) os = "Android";
+                        else if (ua.includes("like Mac")) os = "iOS";
+
+                        let language = navigator.language || "Unknown";
+                        let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+                        let referrer = document.referrer || "Direct";
+
+                        await addDoc(visitsRef, {
+                            uid: user.uid,
+                            ip: ipAddress,
+                            location: locationStr,
+                            isp: ispStr,
+                            browser: browser,
+                            os: os,
+                            isMobile: /Mobi|Android/i.test(ua),
+                            screen: `${window.screen.width}x${window.screen.height}`,
+                            language: language,
+                            timezone: timezone,
+                            referrer: referrer,
+                            timestamp: serverTimestamp()
+                        });
+
+                        sessionStorage.setItem('visit_logged', 'true');
+                    }
+                } catch (error) {
+                    console.error("Analytics Setup Error:", error);
+                }
+            };
+            trackVisitor();
+        }
+
+        const openDashboard = async () => {
+            if (!activeConfig || !activeConfig.apiKey) {
+                adminModal.classList.add('show');
+                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center; padding: 2rem;"><strong>Configuration Missing</strong><br>Firebase is not configured.<br><br>The <code>config.js</code> file could not be found or is empty. If you are on GitHub Pages, ensure your GitHub Actions workflow successfully injected the secret.</td></tr>';
+                return;
+            }
+
+            let user = auth.currentUser;
+            if (!user) {
+                await initAuth();
+                user = auth.currentUser;
+            }
+            if (!user) {
+                adminModal.classList.add('show');
+                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center;">Authentication error. Please refresh the page and try again.</td></tr>';
+                return;
+            }
+
+            adminModal.classList.add('show');
+            const visitsRef = collection(db, 'artifacts', appId, 'public', 'data', 'portfolio_visits');
+            const q = query(visitsRef);
+
+            unsubscribeSnapshot = onSnapshot(q, (snapshot) => {
+                const visits = [];
+                snapshot.forEach(doc => visits.push({ id: doc.id, ...doc.data() }));
+
+                // Sort newest first
+                visits.sort((a, b) => (b.timestamp?.toMillis() || 0) - (a.timestamp?.toMillis() || 0));
+
+                const totalViews = visits.length;
+                const uniqueUsers = new Set(visits.map(v => v.uid)).size;
+                const mobileCount = visits.filter(v => v.isMobile).length;
+                const desktopCount = totalViews - mobileCount;
+
+                document.getElementById('statTotalViews').innerText = totalViews;
+                document.getElementById('statUniqueUsers').innerText = uniqueUsers;
+                document.getElementById('statDeviceSplit').innerText = `${desktopCount} Desktop / ${mobileCount} Mobile`;
+
+                // Group visits by IP (or UID) to avoid duplicates
+                const groupedVisitsMap = {};
+                visits.forEach(visit => {
+                    const key = (visit.ip && visit.ip !== 'Unknown IP') ? visit.ip : visit.uid;
+                    if (!groupedVisitsMap[key]) {
+                        groupedVisitsMap[key] = {
+                            ...visit, // Stores the latest visit's data
+                            visitCount: 0,
+                            history: []
+                        };
+                    }
+                    groupedVisitsMap[key].visitCount++;
+                    const visitDate = visit.timestamp ? new Date(visit.timestamp.toDate()).toLocaleString() : 'Just now';
+                    groupedVisitsMap[key].history.push(visitDate);
+                });
+
+                const groupedVisits = Object.values(groupedVisitsMap);
+
+                const tbody = document.getElementById('visitLogBody');
+                tbody.innerHTML = '';
+
+                if (groupedVisits.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No visitors yet.</td></tr>';
+                    return;
+                }
+
+                // Render grouped Table rows
+                groupedVisits.slice(0, 20).forEach(visit => {
+                    const date = visit.history[0]; // The most recent visit
+                    const ip = visit.ip || 'Unknown IP';
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover-row';
+                    tr.style.cursor = 'pointer';
+                    
+                    tr.innerHTML = `
+                        <td>
+                            ${date}<br>
+                            <span style="font-size: 0.8em; color: #666;"><i class="fas fa-map-marker-alt"></i> ${visit.location || 'Unknown'}</span>
+                        </td>
+                        <td>
+                            ${visit.browser || 'Unknown'} / ${visit.os || 'Unknown'}<br>
+                            <span style="font-size: 0.8em; color: #666;">${visit.isMobile ? '📱 Mobile' : '💻 Desktop'} (${visit.screen || 'N/A'})</span>
+                        </td>
+                        <td style="font-family: monospace;">
+                            <span style="color: var(--accent-color);">${ip}</span> 
+                            <span style="background: rgba(0, 208, 132, 0.15); color: var(--accent-color); padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-left: 5px; border: 1px solid rgba(0, 208, 132, 0.4);">
+                                ${visit.visitCount} visit${visit.visitCount > 1 ? 's' : ''}
+                            </span><br>
+                            <span style="font-size: 0.8em; color: #666; font-family: sans-serif;"><i class="fas fa-network-wired"></i> ${visit.isp || 'Unknown'}</span>
+                        </td>
+                        <td>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 0.85em;">Ref: ${visit.referrer || 'Direct'}</span><br>
+                                    <span style="font-size: 0.8em; color: #666;">TZ: ${visit.timezone || 'N/A'} | ${visit.language || 'N/A'}</span>
+                                </div>
+                                <i class="fas fa-chevron-down" style="color: #666; transition: transform 0.3s;"></i>
+                            </div>
+                        </td>
+                    `;
+
+                    // Details History Row (Hidden by default)
+                    const detailsTr = document.createElement('tr');
+                    detailsTr.style.display = 'none';
+                    detailsTr.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+                    
+                    let historyList = visit.history.map((t, i) => 
+                        `<li style="margin-bottom: 6px; padding-left: 10px; border-left: 2px solid var(--accent-color);">
+                            ${t} <span style="color: #666; font-size: 0.85em; margin-left: 8px;">(Visit #${visit.visitCount - i})</span>
+                        </li>`
+                    ).join('');
+                    
+                    detailsTr.innerHTML = `
+                        <td colspan="4" style="padding: 0;">
+                            <div style="padding: 1.5rem 2rem; border-left: 4px solid var(--accent-color);">
+                                <h4 style="color: white; margin-bottom: 0.8rem; font-size: 0.9em; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-history" style="color: var(--accent-color);"></i> Session History
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #A1A1AA; font-size: 0.85em; max-height: 150px; overflow-y: auto;">
+                                    ${historyList}
+                                </ul>
+                            </div>
+                        </td>
+                    `;
+
+                    // Click toggle logic
+                    tr.addEventListener('click', () => {
+                        const isHidden = detailsTr.style.display === 'none';
+                        detailsTr.style.display = isHidden ? 'table-row' : 'none';
+                        tr.style.backgroundColor = isHidden ? 'rgba(255, 255, 255, 0.05)' : 'transparent';
+                        const icon = tr.querySelector('.fa-chevron-down');
+                        if(icon) {
+                            icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                        }
+                    });
+
+                    tbody.appendChild(tr);
+                    tbody.appendChild(detailsTr);
+                });
+            }, (error) => {
+                console.error("Dashboard Error:", error);
+                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center;">Error fetching data. Ensure database is connected and security rules are configured.</td></tr>';
+            });
+        };
     </script>
 </body>
 
