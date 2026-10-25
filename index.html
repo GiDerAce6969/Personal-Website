@@ -1,1208 +1,314 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lim Sean Shen - Data Science Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lim Sean Shen | Data Science, Analytics & AI</title>
+<meta name="description" content="Lim Sean Shen: data scientist, IEEE author, writing about data, analytics and AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:wght@400;600&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#bfe0f7;--ink:#14181f;--mute:#2b3846;--panel:#c6c6c6;--pt:#222;--pa:#1f5410;--acc:#4f8f3a;--hf:"Press Start 2P",monospace;--bf:VT323,monospace;--bs:1.35rem;--lh:1.4;--hw:400;--h1:clamp(1.3rem,3.8vw,2.3rem);--h2:clamp(1rem,2.6vw,1.5rem);--h3:.78rem;--mcs:.6rem;--bev:#fff #373737 #373737 #fff;--ol:0 0 0 3px #000;--rad:0;--bw:3px;--ts:3px 3px 0 rgba(0,0,0,.22)}
+[data-theme=dark]{--bg:#2a1e15;--ink:#f2f2f2;--mute:#d3c8b6}
+[data-skin=genshin]{--bg:#ece5d8;--ink:#3b4255;--mute:#5f6578;--panel:#f6f0e1;--pt:#3b4255;--pa:#7a5c20;--acc:#d3bc8e;--hf:Cinzel,serif;--bf:Lora,Georgia,serif;--bs:1.05rem;--lh:1.75;--hw:700;--h1:clamp(2.4rem,6vw,4rem);--h2:clamp(1.8rem,4vw,2.5rem);--h3:1.2rem;--mcs:.85rem;--bev:var(--acc);--ol:0 0 0 3px var(--panel),0 0 0 4px var(--acc);--rad:10px;--bw:1px;--ts:none}
+[data-skin=genshin][data-theme=dark]{--bg:#262b3a;--ink:#ece5d8;--mute:#aab0c2;--panel:#343c52;--pt:#ece5d8;--pa:#d3bc8e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 var(--bs)/var(--lh) var(--bf);color:var(--ink);background:repeating-conic-gradient(rgba(0,0,0,.05) 0 25%,transparent 0 50%) 0 0/32px 32px var(--bg);transition:background-color .3s,color .3s}
+[data-skin=genshin] body{background:radial-gradient(circle at 50% 0,rgba(211,188,142,.3),transparent 60%) no-repeat fixed var(--bg)}
+h1,h2,h3{font-family:var(--hf);font-weight:var(--hw);line-height:1.45}
+h1{font-size:var(--h1);margin-bottom:1.2rem;text-shadow:var(--ts)}
+h2{font-size:var(--h2);margin-bottom:.8rem;text-shadow:var(--ts)}
+h3{font-size:var(--h3);margin-bottom:.4rem}
+.p h1,.p h2,.sign h3{text-shadow:none}
+a{color:inherit}
+.wrap{width:min(1040px,90%);margin:0 auto}
+section{padding:5rem 0}
+.lead{color:var(--mute);max-width:56ch;margin-bottom:2.2rem}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.p,.slot,.card,.sign,.icon-btn,.btn,.flip .f,.flip .b{border:var(--bw) solid;border-color:var(--bev);border-radius:var(--rad);box-shadow:var(--ol)}
+.p,.slot,.card,.sign{background:var(--panel);color:var(--pt)}
+nav{position:sticky;top:0;z-index:50;background:var(--panel);color:var(--pt);border-bottom:4px solid #000}
+[data-skin=genshin] nav{border-bottom:1px solid var(--acc)}
+.nav{display:flex;justify-content:space-between;align-items:center;min-height:64px;gap:1rem}
+.logo{font-family:var(--hf);font-weight:var(--hw);font-size:calc(var(--mcs)*1.3);text-decoration:none;cursor:pointer}
+.links{display:flex;gap:1.1rem;align-items:center;font-family:var(--hf);font-size:var(--mcs)}
+.links a{text-decoration:none;opacity:.78}.links a:hover{opacity:1;color:var(--pa)}
+.icon-btn{background:var(--panel);color:var(--pt);width:36px;height:36px;cursor:pointer;font-size:1rem;line-height:1}
+@media(max-width:860px){.links a:not(.keep){display:none}}
+.hero{padding:5rem 0 4rem;display:grid;gap:3rem;grid-template-columns:1.3fr 1fr;align-items:center}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.hero p{color:var(--mute);max-width:46ch;margin-bottom:1.8rem}
+.btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.1rem;background:#6f6f6f;color:#fff;text-decoration:none;font-family:var(--hf);font-size:var(--mcs);line-height:1.5;text-shadow:2px 2px 0 #222;cursor:pointer;transition:transform .12s,filter .12s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.2)}
+.btn.o{background:var(--panel);color:var(--pt);text-shadow:none}
+[data-skin=genshin] .btn{background:var(--ink);color:var(--bg);text-shadow:none;border-radius:99px;padding:.7rem 1.5rem}
+[data-skin=genshin] .btn.o{background:var(--panel);color:var(--pt)}
+.flip{perspective:900px;cursor:pointer;aspect-ratio:4/5;max-width:340px;justify-self:center;width:100%}
+.flip>div{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}
+.flip.on>div{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;overflow:hidden}
+.flip .f{display:grid;place-items:center;text-align:center;padding:1.5rem;background:var(--acc);color:#111;font-family:var(--hf);font-size:calc(var(--mcs)*1.3);line-height:2}
+.flip .b{transform:rotateY(180deg)}.flip img{width:100%;height:100%;object-fit:cover}
+.mc{font-family:var(--hf);font-size:var(--mcs);line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1.2rem;padding:4px}
+.ach{padding:1rem .8rem;text-align:center;cursor:pointer;transition:transform .12s;text-decoration:none;display:block}
+.ach:hover{transform:translateY(-4px)}.gm{cursor:default}
+.ach .ic{font-size:2.2rem;display:block;margin-bottom:.6rem}
+.ach small{display:block;font:var(--bs)/1.15 var(--bf);margin-top:.5rem;opacity:.8}
+.ach.locked{filter:grayscale(1);opacity:.55}
+.hotbar{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.8rem}.hotbar span{padding:.5rem .7rem}
+.tip{position:fixed;z-index:99;pointer-events:none;background:#100010;color:#fff;border:3px solid #2a0a5e;padding:.7rem .9rem;max-width:260px;opacity:0;transition:opacity .1s}
+.tip b{color:#ffff55;display:block;margin-bottom:.3rem}.tip i{color:#aaa;font-style:normal}
+.toast{position:fixed;right:1rem;top:84px;z-index:200;display:flex;gap:.8rem;align-items:center;background:#313131;color:#fff;border:3px solid #000;padding:.8rem 1rem;max-width:calc(100vw - 2rem);transform:translateX(130%);transition:transform .5s}
+.toast.show{transform:none}.toast b{color:#ffff55}.toast .ic{font-size:1.8rem}
+[data-skin=genshin] .tip,[data-skin=genshin] .toast{background:#2b3040;color:#ece5d8;border:1px solid #d3bc8e;border-radius:8px}
+[data-skin=genshin] .tip b,[data-skin=genshin] .toast b{color:#d3bc8e}
+.prog{margin-top:1.6rem;max-width:380px}
+.bar{height:18px;background:#222;border:3px solid #000;margin-top:.5rem;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .4s}
+[data-skin=genshin] .bar{border:1px solid var(--acc);border-radius:99px}
+.tl{border-left:var(--bw) solid var(--ink);padding-left:1.8rem;display:grid;gap:2rem}
+.tl>div{position:relative;padding:1.2rem 1.4rem}
+.tl>div:before{content:"";position:absolute;left:-2.33rem;top:1.3rem;width:14px;height:14px;background:var(--acc);box-shadow:0 0 0 4px var(--bg)}
+.tl small{color:var(--pa);font:var(--bs)/1.2 var(--bf)}
+.tl h4{font:var(--bs)/1.3 var(--bf);color:var(--pa);margin-bottom:.4rem}
+.cards{display:grid;gap:1.6rem;padding:4px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{display:block;padding:1.4rem;text-decoration:none;transition:transform .12s,filter .12s}
+.card:hover{transform:translateY(-3px);filter:brightness(1.07)}.card p{margin-top:.5rem}
+.meta{color:var(--pa);margin-bottom:.5rem}
+.tag{display:inline-block;border:2px solid currentColor;padding:0 .5rem;margin-right:.3rem;line-height:1.3}
+[data-skin=genshin] .tag{border-width:1px;border-radius:99px}
+.sign{max-width:420px;padding:1.6rem 2rem;background:#b8945f;color:#2a1c0a;text-align:center}
+.sign p{font-size:1.6em;margin-top:.4rem}
+[data-skin=genshin] .sign{background:var(--panel);color:var(--pt)}
+.cta{padding:3rem 1.5rem;text-align:center}.cta p{margin:1rem auto 1.6rem;max-width:50ch}
+#post{display:none}.post{max-width:70ch;padding:2rem}.post h1{font-size:calc(var(--h1)*.75);margin:1rem 0}.post p{margin:1rem 0}.post h3{margin-top:1.8rem}
+.back{background:none;border:0;color:var(--ink);font-family:var(--hf);font-size:var(--mcs);cursor:pointer;margin-bottom:1.5rem}.back:hover{color:var(--acc)}
+footer{border-top:var(--bw) solid var(--ink);padding:2rem 0;text-align:center;color:var(--mute)}
+.badge{margin-top:2rem}
 
-    <style>
-        /* * DESIGN SYSTEM */
-        :root {
-            /* Light Mode Defaults */
-            --bg-color: #FAFAFB;
-            --card-bg: rgba(255, 255, 255, 0.4);
-            --card-border: rgba(255, 255, 255, 0.8);
-            --card-hover-bg: rgba(255, 255, 255, 0.7);
-            --text-main: #4B5563;
-            --text-heading: #09090B;
-
-            --accent-color: #00D084;
-            --accent-hover: #00B372;
-            --accent-light: rgba(0, 208, 132, 0.1);
-
-            --border-color: #E4E4E7;
-            --border-hover: #D4D4D8;
-            --nav-bg: rgba(250, 250, 251, 0.8);
-
-            /* Typography */
-            --font-main: 'Plus Jakarta Sans', sans-serif;
-            --weight-regular: 400;
-            --weight-medium: 500;
-            --weight-semibold: 600;
-            --weight-bold: 800;
-
-            /* Spacing & Layout */
-            --spacing-sm: 1rem;
-            --spacing-md: 2.5rem;
-            --spacing-lg: 5rem;
-            --spacing-xl: 8rem;
-            --container-width: 1140px;
-            --border-radius-pill: 100px;
-            --border-radius-card: 16px;
-
-            /* Shadows */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-        }
-
-        /* Dark Mode Overrides */
-        [data-theme="dark"] {
-            --bg-color: #09090B;
-            --card-bg: rgba(24, 24, 27, 0.6);
-            --card-border: rgba(63, 63, 70, 0.5);
-            --card-hover-bg: rgba(39, 39, 42, 0.8);
-            --text-main: #A1A1AA;
-            --text-heading: #FAFAFA;
-
-            --border-color: #27272A;
-            --border-hover: #3F3F46;
-            --nav-bg: rgba(9, 9, 11, 0.8);
-
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        h1, h2, h3, h4 { font-weight: var(--weight-bold); color: var(--text-heading); line-height: 1.1; letter-spacing: -0.03em; transition: color 0.3s ease;}
-        h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); margin-bottom: 1.5rem; }
-        h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
-        h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
-        h4 { font-size: 0.85rem; font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-main); margin-bottom: 0.5rem; }
-        p { font-weight: var(--weight-regular); margin-bottom: 1rem; max-width: 60ch; font-size: 1.125rem; }
-        a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
-
-        .container { width: 90%; max-width: var(--container-width); margin: 0 auto; position: relative; }
-        .section-padding { padding: var(--spacing-xl) 0; }
-
-        .grid { display: grid; gap: 1.5rem; }
-        .grid-2 { grid-template-columns: 1fr; }
-        .grid-3 { grid-template-columns: 1fr; }
-        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-
-        @media (min-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr 1fr; }
-            .grid-3 { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        /* Sleek Navbar */
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 1.25rem 0; background: var(--nav-bg); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid transparent; transition: all 0.3s ease; }
-        .navbar.scrolled { padding: 1rem 0; border-bottom: 1px solid var(--border-color); }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: var(--weight-bold); font-size: 1.25rem; letter-spacing: -0.04em; color: var(--text-heading); display: flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: color 0.3s ease;}
-        .logo::before { content: ''; display: inline-block; width: 8px; height: 8px; background-color: var(--accent-color); border-radius: 50%; }
-        .nav-links { display: none; gap: 2rem; align-items: center; }
-        @media (min-width: 768px) { .nav-links { display: flex; } }
-        .nav-link { font-weight: var(--weight-medium); font-size: 0.95rem; color: var(--text-main); cursor: pointer;}
-        .nav-link:hover { color: var(--text-heading); }
-
-        .theme-toggle { background: transparent; border: none; font-size: 1.2rem; color: var(--text-main); cursor: pointer; transition: color 0.3s ease; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; }
-        .theme-toggle:hover { color: var(--text-heading); background: rgba(128,128,128,0.1); }
-
-        /* SaaS Buttons */
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; background-color: var(--text-heading); color: var(--bg-color); font-size: 1rem; font-weight: var(--weight-semibold); border-radius: var(--border-radius-pill); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid var(--text-heading); cursor: pointer; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5); opacity: 0.9; }
-        .btn-accent { background-color: var(--accent-color); border-color: var(--accent-color); color: #000; }
-        .btn-accent:hover { background-color: var(--accent-hover); border-color: var(--accent-hover); box-shadow: 0 10px 20px -10px rgba(0, 208, 132, 0.5); }
-        .btn-outline { background-color: transparent; color: var(--text-heading); border-color: var(--border-color); }
-        .btn-outline:hover { border-color: var(--text-heading); background-color: var(--text-heading); color: var(--bg-color); }
-
-        /* Modern Cards */
-        .card { background: var(--card-bg); backdrop-filter: blur(16px); border: 1px solid var(--card-border); border-radius: var(--border-radius-card); padding: 2rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); height: 100%; position: relative; overflow: hidden; box-shadow: var(--shadow-sm); z-index: 2; }
-        .card:hover { border-color: var(--accent-color); transform: translateY(-4px); box-shadow: var(--shadow-md); background: var(--card-hover-bg); }
-        .card-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--accent-light); color: var(--accent-color); border-radius: 12px; font-size: 1.5rem; margin-bottom: 1.5rem; }
-
-        /* Hero Section */
-        .hero { min-height: 90vh; display: flex; align-items: center; padding-top: var(--spacing-lg); }
-        .hero-layout { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
-        @media (min-width: 900px) { .hero-layout { grid-template-columns: 1.2fr 1fr; } }
-        .hero-badge { display: inline-block; padding: 0.5rem 1rem; background: var(--accent-light); color: var(--accent-color); font-weight: var(--weight-semibold); font-size: 0.85rem; border-radius: var(--border-radius-pill); margin-bottom: 1.5rem; border: 1px solid rgba(0, 208, 132, 0.2); }
-
-        /* Profile Picture Flip Card CSS */
-        .hero-image-wrapper { position: relative; border-radius: var(--border-radius-card); padding: 1rem; background: var(--card-bg); border: 1px solid var(--card-border); box-shadow: var(--shadow-lg); perspective: 1000px; cursor: pointer; backdrop-filter: blur(10px); }
-        .flipper { transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; position: relative; width: 100%; aspect-ratio: 4/5; }
-        .hero-image-wrapper.flipped .flipper { transform: rotateY(180deg); }
-        .flipper-front, .flipper-back { backface-visibility: hidden; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: calc(var(--border-radius-card) - 0.5rem); overflow: hidden; }
-        
-        .flipper-front { z-index: 2; transform: rotateY(0deg); background: var(--text-heading); color: var(--bg-color); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; border: 2px solid var(--accent-color); }
-        .flipper-front i { font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem; }
-        .flipper-front p { font-size: 1.5rem; font-weight: var(--weight-bold); margin: 0; line-height: 1.2; }
-        
-        .hero-image { width: 100%; height: 100%; display: block; background: #eee; object-fit: cover; }
-        .flipper-back { transform: rotateY(180deg); }
-
-        /* Timeline */
-        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 2rem; }
-        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--border-color); }
-        .timeline-item { padding-bottom: 3rem; position: relative; }
-        .timeline-item:last-child { padding-bottom: 0; }
-        .timeline-item::after { content: ''; position: absolute; left: -33px; top: 0; width: 16px; height: 16px; background: var(--card-bg); border: 4px solid var(--accent-color); border-radius: 50%; z-index: 1; box-shadow: 0 0 0 4px var(--bg-color); transition: background 0.3s, box-shadow 0.3s; }
-        .timeline-date { font-size: 0.9rem; color: var(--accent-color); margin-bottom: 0.25rem; font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: 0.05em; }
-        .timeline-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); padding: 1.5rem; border-radius: var(--border-radius-card); box-shadow: var(--shadow-sm); transition: all 0.3s; }
-        .timeline-card:hover { border-color: var(--accent-color); }
-
-        /* Glassmorphism Background Blobs */
-        .glass-blob { position: absolute; border-radius: 50%; filter: blur(60px); z-index: 0; opacity: 0.5; pointer-events: none; animation: floatBlob 10s ease-in-out infinite alternate; }
-        .blob-1 { top: 5%; left: -5%; width: 300px; height: 300px; background: rgba(0, 208, 132, 0.4); }
-        .blob-2 { bottom: 5%; right: -5%; width: 250px; height: 250px; background: rgba(59, 130, 246, 0.3); }
-        @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(20px, 20px) scale(1.1); } }
-
-        /* 3D Globe Carousel */
-        .globe-container { perspective: 1200px; width: 100%; height: 400px; display: flex; justify-content: center; align-items: center; margin-top: 3rem; }
-        .globe { width: 220px; height: 240px; position: relative; transform-style: preserve-3d; }
-        .globe-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform-style: preserve-3d; }
-        .cert-card { display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: var(--border-radius-card); padding: 2rem; width: 220px; height: 240px; text-align: center; transition: all 0.3s ease; }
-        .cert-card:hover { border-color: var(--accent-color); transform: translateY(-5px); box-shadow: var(--shadow-md); background: var(--card-hover-bg); }
-        .cert-card img { max-height: 60px; margin-bottom: 1.5rem; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease; }
-        .cert-card:hover img { filter: grayscale(0%); opacity: 1; }
-
-        /* Project Cards */
-        .project-card { display: flex; flex-direction: column; border-radius: var(--border-radius-card); border: 1px solid var(--card-border); background: var(--card-bg); backdrop-filter: blur(10px); transition: all 0.3s ease; overflow: hidden; box-shadow: var(--shadow-sm); }
-        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--accent-color); }
-        .project-img-wrapper { width: 100%; height: 280px; overflow: hidden; background: #F3F4F6; border-bottom: 1px solid var(--border-color); }
-        .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .project-card:hover .project-img { transform: scale(1.05); }
-        .project-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .project-link { margin-top: auto; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-heading); font-weight: var(--weight-semibold); font-size: 0.95rem; }
-        .project-link:hover { color: var(--accent-color); }
-
-        /* Scroll Animations */
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-
-        /* Footer */
-        footer { border-top: 1px solid var(--border-color); padding: 3rem 0; margin-top: var(--spacing-xl); background: var(--card-bg); text-align: center; }
-        .footer-content p { font-size: 0.95rem; color: var(--text-main); margin: 0 auto; }
-
-        /* --- Interactive Canvas Background --- */
-        #network-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-
-        /* --- ROAMING POKEMON --- */
-        /* Generic Pet Sprite animations for Roaming Pokemon */
-        .pet-sprite-anim {
-            cursor: pointer;
-            user-select: none;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-            animation: bob 0.6s infinite alternate ease-in-out;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-        .pet-sprite-anim > img { transition: transform 0.2s ease; image-rendering: pixelated; }
-        .pet-sprite-anim:hover { animation-play-state: paused; z-index: 10000 !important; }
-        .pet-sprite-anim:hover > img { transform: scale(1.1); }
-        .walking-left.pet-sprite-anim > img { transform: scaleX(-1); }
-        .walking-left.pet-sprite-anim:hover > img { transform: scaleX(-1) scale(1.1); }
-
-        @keyframes bob {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
-
-        /* Speech Bubble for Roaming Pokemon */
-        .pet-bubble {
-            position: absolute;
-            bottom: 110%;
-            left: 50%;
-            transform: translateX(-50%) scale(0.8);
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            padding: 0.4rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-family: var(--font-main);
-            color: var(--text-heading);
-            font-weight: bold;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            white-space: nowrap;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .pet-bubble::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 6px;
-            border-style: solid;
-            border-color: var(--border-color) transparent transparent transparent;
-        }
-
-        .pet-bubble.show {
-            opacity: 1;
-            transform: translateX(-50%) scale(1);
-        }
-
-        /* Admin Dashboard */
-        .admin-modal { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
-        .admin-modal.show { display: flex; opacity: 1; }
-        .admin-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-        .admin-card { position: relative; width: 90%; max-width: 950px; background: rgba(15, 15, 20, 0.75); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 24px; padding: 2.5rem; color: white; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05); max-height: 85vh; overflow-y: auto; }
-        .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem; }
-        .admin-close { background: rgba(255, 255, 255, 0.1); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; transition: all 0.2s; }
-        .admin-close:hover { background: rgba(255, 50, 50, 0.8); }
-        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        .stat-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 1.5rem; text-align: center; }
-        .stat-card h4 { color: #A1A1AA; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .stat-card .value { font-size: 2.5rem; font-weight: bold; color: var(--accent-color); }
-        .visit-log { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-        .visit-log th { text-align: left; padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: #A1A1AA; }
-        .visit-log td { padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .visit-log tr.hover-row:hover { background-color: rgba(255, 255, 255, 0.03); }
-    </style>
-
-    <!-- Load your separate config file -->
-    <script src="config.js"></script>
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.r{opacity:1;transform:none}}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;place-items:center;z-index:300}.modal.show{display:grid}
+.box{background:#14161c;color:#eee;border-radius:12px;padding:2rem;width:min(92%,760px);max-height:85vh;overflow:auto;font:15px/1.5 system-ui,sans-serif}
+.box input{width:100%;padding:.7rem;margin:1rem 0;text-align:center;background:#000;color:#fff;border:1px solid #444;border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:.85rem}td,th{padding:.6rem;border-bottom:1px solid #2a2d36;text-align:left}
+</style>
+<script src="config.js"></script>
 </head>
-
 <body>
+<div class="toast mc" id="toast" role="status"><span class="ic" id="tIc"></span><div><b id="tH">Advancement Made!</b><br><span id="tTx"></span></div></div>
+<div class="tip mc" id="tip"></div>
 
-    <!-- Particle Network Background -->
-    <canvas id="network-canvas"></canvas>
+<nav><div class="wrap nav">
+  <a class="logo" href="#home" id="logo">Sean Shen</a>
+  <div class="links">
+    <a href="#journey">Journey</a><a href="#achievements">Achievements</a><a href="#work">Work</a><a href="#games">Games</a><a href="#blog">Blog</a>
+    <a href="Lim_Sean_Shen_CV.pdf" target="_blank">Resume</a>
+    <a class="keep" href="#contact">Contact</a>
+    <button class="icon-btn" id="skin" aria-label="Switch design">✨</button>
+    <button class="icon-btn" id="theme" aria-label="Toggle theme">◐</button>
+  </div>
+</div></nav>
 
-    <nav class="navbar" id="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo">SEAN SHEN</a>
-            <div class="nav-links">
-                <a href="#about" class="nav-link">Expertise</a>
-                <a href="#journey" class="nav-link">Journey</a>
-                <a href="#projects" class="nav-link">Work</a>
-                <a href="Lim_Sean_Shen_CV.pdf" target="_blank" class="nav-link"
-                    style="display: flex; align-items: center; gap: 0.4rem;">
-                    <i class="fas fa-file-pdf" style="color: var(--accent-color);"></i> Resume
-                </a>
-                <!-- Dark Mode Toggle Button -->
-                <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <a href="#contact" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <main>
-        <section class="hero container">
-            <div class="hero-layout">
-                <div class="hero-content reveal">
-                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                        <span class="hero-badge" style="margin-bottom: 0;">Data Science</span>
-                        <span class="hero-badge" style="margin-bottom: 0;">Data Warehousing</span>
-                        <span class="hero-badge" style="margin-bottom: 0;">Database Management</span>
-                        <span class="hero-badge" style="margin-bottom: 0;">Data Engineering</span>
-                        <span class="hero-badge" style="margin-bottom: 0;">Business Analytics</span>
-                        <span class="hero-badge" style="margin-bottom: 0;">AI Engineering</span>
-                    </div>
-                    <h1>Intelligent data.<br>Better decisions.</h1>
-                    <p>I am <strong>Lim Sean Shen</strong>, currently pursuing a job opportunity in data science |
-                        business analytics | data analytics.</p>
-
-                    <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
-                        <a href="#projects" class="btn btn-accent">Explore My Work</a>
-                        <a href="Lim_Sean_Shen_CV.pdf" target="_blank" download="Lim_Sean_Shen_CV.pdf"
-                            class="btn btn-outline" style="background: var(--card-bg);">
-                            <i class="fas fa-download"></i> Download CV
-                        </a>
-                        <a href="#contact" class="btn btn-outline"
-                            style="border: none; text-decoration: underline; text-underline-offset: 4px;">Let's
-                            Collaborate</a>
-                    </div>
-                </div>
-
-                <div class="reveal reveal-delay-2">
-                    <div class="hero-image-wrapper" onclick="this.classList.toggle('flipped')" title="Click to flip!">
-                        <div class="flipper">
-                            <div class="flipper-front">
-                                <i class="fas fa-user-secret"></i>
-                                <p>Click to reveal<br>my picture!</p>
-                            </div>
-                            <div class="flipper-back">
-                                <!-- Fallback image if profile.jpg is missing -->
-                                <img src="profile.jpg" alt="Lim Sean Shen" class="hero-image" onerror="this.src='https://ui-avatars.com/api/?name=Sean+Shen&background=00D084&color=fff&size=500'">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="container section-padding" style="position: relative;">
-            <div class="glass-blob blob-1"></div>
-            <div class="glass-blob blob-2"></div>
-
-            <div class="reveal" style="position: relative; z-index: 1;">
-                <h2>Platform capabilities</h2>
-                <p>A powerful blend of academic excellence and practical innovation designed to scale.</p>
-            </div>
-
-            <div class="grid grid-4" style="margin-top: 3rem; position: relative; z-index: 1;">
-                <div class="card reveal reveal-delay-1">
-                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Academics</h3>
-                    <p style="font-size: 1rem;">CGPA 3.7175. Top 5 Capstone Project & Consistent Dean's List.</p>
-                </div>
-                <div class="card reveal reveal-delay-2">
-                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>Innovation</h3>
-                    <p style="font-size: 1rem;">IEEE Published Author (2025). Award winner at Nanning Competition.</p>
-                </div>
-                <div class="card reveal reveal-delay-3">
-                    <div class="card-icon"><i class="fas fa-brain"></i></div>
-                    <h3>AI & ML</h3>
-                    <p style="font-size: 1rem;">Python, TensorFlow, GenAI APIs. Building intelligent systems.</p>
-                </div>
-                <div class="card reveal reveal-delay-1">
-                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
-                    <h3>Analytics</h3>
-                    <p style="font-size: 1rem;">SQL, EDA, Looker Studio. Turning numbers into narratives.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="journey" class="container section-padding" style="position: relative;">
-            <div class="glass-blob blob-2" style="top: -5%; right: 10%;"></div>
-
-            <div class="reveal" style="max-width: 600px; margin-bottom: 4rem; position: relative; z-index: 1;">
-                <h2>My Journey</h2>
-                <p>The roadmap of my professional and academic evolution.</p>
-            </div>
-
-            <div class="timeline" style="position: relative; z-index: 1;">
-                <div class="timeline-item reveal">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Jun 2025 – Dec 2025</div>
-                        <h3>Data Analyst Internship</h3>
-                        <h4 style="color: var(--text-main);">CBIEV, TARUMT</h4>
-                        <p style="margin-bottom: 0; font-size: 1rem;">Developed automation systems for project tracking
-                            and managed sentiment analysis for governmental projects, streamlining decision-making
-                            workflows.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Nov 2022 – Dec 2025</div>
-                        <h3>Bachelor of Data Science</h3>
-                        <h4 style="color: var(--text-main);">TARUMT (CGPA: 3.7175)</h4>
-                        <p style="margin-bottom: 0; font-size: 1rem;">Achieved Top 5 Capstone, secured an IEEE
-                            Publication, and delivered presentations on international stages.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Sep 2021 – Sep 2022</div>
-                        <h3>Foundation in Computing</h3>
-                        <h4 style="color: var(--text-main);">TARUMT (CGPA: 3.7333)</h4>
-                        <p style="margin-bottom: 0; font-size: 1rem;">Built a highly rigorous and solid foundation in
-                            core computing principles, algorithms, and programming.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="container section-padding" style="border-top: 1px solid var(--border-color); overflow: hidden;">
-            <div class="reveal" style="text-align: center;">
-                <h2>Trusted Certifications</h2>
-            </div>
-
-            <div class="globe-container reveal reveal-delay-2" id="globe-container">
-                <div class="globe" id="globe">
-                    <div class="globe-item" style="transform: rotateY(0deg) translateZ(260px);">
-                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
-                            class="cert-card">
-                            <img src="Bursa cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="Bursa">
-                            <h4>Derivatives</h4>
-                            <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
-                        </a>
-                    </div>
-                    <div class="globe-item" style="transform: rotateY(60deg) translateZ(260px);">
-                        <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
-                            <img src="Nanning cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="Nanning">
-                            <h4>Innovation</h4>
-                            <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
-                        </a>
-                    </div>
-                    <div class="globe-item" style="transform: rotateY(120deg) translateZ(260px);">
-                        <a href="[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf"
-                            target="_blank" class="cert-card">
-                            <img src="BINUS cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="BINUS">
-                            <h4>Symposium</h4>
-                            <p style="font-size: 0.85rem; margin:0;">BINUS University</p>
-                        </a>
-                    </div>
-                    <div class="globe-item" style="transform: rotateY(180deg) translateZ(260px);">
-                        <a href="AsiaTech Cert.pdf" target="_blank" class="cert-card">
-                            <img src="AsiaTech cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="AsiaTech">
-                            <h4>Commercialization</h4>
-                            <p style="font-size: 0.85rem; margin:0;">AsiaTech</p>
-                        </a>
-                    </div>
-                    <div class="globe-item" style="transform: rotateY(240deg) translateZ(260px);">
-                        <a href="Derivatives eCourse From Fundamentals to Mastery.pdf" target="_blank"
-                            class="cert-card">
-                            <img src="Bursa cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="Bursa">
-                            <h4>Derivatives</h4>
-                            <p style="font-size: 0.85rem; margin:0;">Bursa Malaysia</p>
-                        </a>
-                    </div>
-                    <div class="globe-item" style="transform: rotateY(300deg) translateZ(260px);">
-                        <a href="Nanning Competition.pdf" target="_blank" class="cert-card">
-                            <img src="Nanning cert.png" onerror="this.src='https://via.placeholder.com/150/f3f4f6/4b5563?text=Cert'" alt="Nanning">
-                            <h4>Innovation</h4>
-                            <p style="font-size: 0.85rem; margin:0;">TAR UMT & CBIEV</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="container section-padding">
-            <div class="reveal">
-                <h2>Featured Integrations & Work</h2>
-                <p>Real-world applications of data engineering, visualization, and AI.</p>
-            </div>
-
-            <div class="grid grid-2" style="margin-top: 3rem;">
-                <article class="project-card reveal">
-                    <div class="project-img-wrapper">
-                        <img src="AI_Campaign Pic.png" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'" alt="AI Campaign" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3>AI-Driven Campaign Optimization</h3>
-                        <p style="font-size: 1rem;">Built with Generative AI & Streamlit. Optimizing marketing campaigns
-                            with intelligent, data-backed insights.</p>
-                        <a href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank"
-                            class="project-link">
-                            View Repository <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="project-card reveal reveal-delay-2">
-                    <div class="project-img-wrapper">
-                        <img src="BI_Dashboard.png" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'" alt="Business Intelligence Dashboard" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3>Business Intelligence Dashboard</h3>
-                        <p style="font-size: 1rem;">A high-fidelity BI platform emphasizing modern UI/UX. Engineered to
-                            seamlessly connect and aggregate data from multiple databases for intuitive, real-time
-                            analytics.</p>
-                        <a href="#" target="_blank" class="project-link">
-                            View Repository <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="contact" class="container section-padding reveal">
-            <div
-                style="text-align: center; max-width: 900px; margin: 0 auto; background: var(--text-heading); color: var(--bg-color); padding: 5rem 2rem; border-radius: 24px; position: relative; overflow: hidden;">
-                <div
-                    style="position: absolute; top: -50%; left: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(0,208,132,0.15) 0%, transparent 70%); pointer-events: none;">
-                </div>
-
-                <h2 style="color: var(--bg-color);">Ready to scale your data strategy?</h2>
-                <p style="color: rgba(255,255,255,0.7); margin: 1.5rem auto 2.5rem; font-size: 1.2rem;">
-                    Currently exploring Master's Degree programs in data science or business analysis, full-time
-                    engineering roles, and exciting industry collaborations.
-                </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:sslim1684@gmail.com" class="btn btn-accent">Contact via Email</a>
-                    <a href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" class="btn"
-                        style="background: var(--bg-color); color: var(--text-heading); border-color: var(--bg-color);">Connect on
-                        LinkedIn</a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container footer-content">
-            <a href="#" class="logo" style="justify-content: center; margin-bottom: 1rem; font-size: 1.1rem;">SEAN
-                SHEN</a>
-            <p>&copy; 2026 Lim Sean Shen. Designed with precision.</p>
-        </div>
-    </footer>
-
-    <!-- Container for roaming Pokémon -->
-    <div id="roaming-pets-container"></div>
-
-    <!-- Secret Passcode Modal -->
-    <div id="passcodeModal" class="admin-modal">
-        <div class="admin-overlay" id="closePasscodeOverlay"></div>
-        <div
-            style="position: relative; z-index: 10000; background: rgba(15,15,20,0.95); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); width: 90%; max-width: 350px; text-align: center; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-            <i class="fas fa-lock" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
-            <h3 style="margin-bottom: 0.5rem; color: white;">Admin Access</h3>
-            <p style="font-size: 0.9rem; color: #A1A1AA; margin-bottom: 1.5rem;">Enter passcode to access dashboard.</p>
-            <input type="password" id="passcodeInput"
-                style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: white; text-align: center; font-size: 1.5rem; letter-spacing: 0.3em; margin-bottom: 0.5rem;"
-                placeholder="••••" />
-            <p id="passcodeError" style="color: #ef4444; font-size: 0.85rem; display: none; margin-bottom: 1rem;">
-                Incorrect passcode.</p>
-            <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem;">
-                <button id="cancelPasscodeBtn" class="btn"
-                    style="padding: 0.6rem 1.2rem; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white;">Cancel</button>
-                <button id="submitPasscodeBtn" class="btn btn-accent" style="padding: 0.6rem 1.2rem;">Unlock</button>
-            </div>
-        </div>
+<main id="main">
+<div class="wrap" id="home">
+  <div class="hero">
+    <div class="r">
+      <h1>Welcome to my website</h1>
+      <p>I'm <strong>Lim Sean Shen</strong>, a data science graduate looking for roles in data science, business analytics and data analytics.</p>
+      <p>I am looking for opportunities to pursue a master degree in overseas.</p>
+      <div class="btns">
+        <a class="btn" href="#work">See my work</a>
+        <a class="btn o" href="Lim_Sean_Shen_CV.pdf" download>Download CV</a>
+        <a class="btn o" href="#blog">Read the blog</a>
+      </div>
+      <div class="hotbar mc" aria-label="Skills">
+        <span class="slot">Python</span><span class="slot">SQL</span><span class="slot">Machine Learning</span><span class="slot">GenAI</span><span class="slot">Data Visualization</span>
+      </div>
     </div>
-
-    <!-- Secret Admin Dashboard Modal -->
-    <div id="adminModal" class="admin-modal">
-        <div class="admin-overlay" id="closeAdminOverlay"></div>
-        <div class="admin-card">
-            <div class="admin-header">
-                <h2 style="color: white; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-satellite-dish" style="color: var(--accent-color);"></i> Analytics Command Center
-                </h2>
-                <button class="admin-close" id="closeAdminBtn"><i class="fas fa-times"></i></button>
-            </div>
-
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <h4>Total Page Views</h4>
-                    <div class="value" id="statTotalViews">--</div>
-                </div>
-                <div class="stat-card">
-                    <h4>Unique Visitors</h4>
-                    <div class="value" id="statUniqueUsers">--</div>
-                </div>
-                <div class="stat-card">
-                    <h4>Desktop / Mobile</h4>
-                    <div class="value" id="statDeviceSplit" style="font-size: 1.5rem; margin-top: 0.5rem;">--</div>
-                </div>
-            </div>
-
-            <h3 style="color: white; margin-bottom: 1rem;">Recent Visitors</h3>
-            <div style="background: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden;">
-                <table class="visit-log">
-                    <thead>
-                        <tr>
-                            <th>Time & Location</th>
-                            <th>Device & OS</th>
-                            <th>Network & ISP</th>
-                            <th>Referrer & Meta</th>
-                        </tr>
-                    </thead>
-                    <tbody id="visitLogBody">
-                        <tr>
-                            <td colspan="4" style="text-align: center; color: #A1A1AA;">Loading data...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- UI Logic & Features -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            /* --- 1. DARK MODE TOGGLE --- */
-            const themeToggleBtn = document.getElementById('themeToggle');
-            const icon = themeToggleBtn.querySelector('i');
-            
-            const savedTheme = localStorage.getItem('portfolio_theme');
-            if (savedTheme === 'light') {
-                document.documentElement.removeAttribute('data-theme');
-                icon.className = 'fas fa-moon';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                icon.className = 'fas fa-sun';
-            }
-
-            themeToggleBtn.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                if (currentTheme === 'dark') {
-                    document.documentElement.removeAttribute('data-theme');
-                    localStorage.setItem('portfolio_theme', 'light');
-                    icon.className = 'fas fa-moon';
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('portfolio_theme', 'dark');
-                    icon.className = 'fas fa-sun';
-                }
-            });
-
-            /* --- 2. LIVE DATA NETWORK BACKGROUND --- */
-            const canvas = document.getElementById('network-canvas');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            const particleCount = window.innerWidth < 768 ? 40 : 80;
-
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
-
-            let mouse = { x: null, y: null, radius: 150 };
-            window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
-            window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.vx = (Math.random() - 0.5) * 0.5;
-                    this.vy = (Math.random() - 0.5) * 0.5;
-                    this.size = Math.random() * 2 + 1;
-                }
-                update() {
-                    if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
-                    if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
-                    this.x += this.vx;
-                    this.y += this.vy;
-                }
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                    ctx.fillStyle = isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
-                    ctx.fill();
-                }
-            }
-
-            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                const lineColor = isDark ? '255,255,255' : '0,0,0';
-                const accentColor = '0, 208, 132';
-
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-
-                    for (let j = i; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < 120) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(${lineColor}, ${0.1 - distance/1200})`;
-                            ctx.lineWidth = 1;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-
-                    if (mouse.x != null) {
-                        const dxMouse = particles[i].x - mouse.x;
-                        const dyMouse = particles[i].y - mouse.y;
-                        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-                        if (distMouse < mouse.radius) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(${accentColor}, ${0.3 - distMouse/(mouse.radius*3)})`;
-                            ctx.lineWidth = 1.5;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(mouse.x, mouse.y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-                requestAnimationFrame(animateParticles);
-            }
-            animateParticles();
-
-            /* --- 3. ROAMING POKEMON --- */
-            const roamingContainer = document.getElementById('roaming-pets-container');
-            const pokemonGifs = [
-                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif', // Pikachu
-                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/133.gif', // Eevee
-                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif', // Charmander
-                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif', // Squirtle
-                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif'  // Bulbasaur
-            ];
-            
-            const pokemonPhrases = [
-                ['Pika!', 'Pikachu!', '⚡'],           // Pikachu (Index 0)
-                ['Eev!', 'Eevee!', '🐾', '*sniff*'], // Eevee (Index 1)
-                ['Char!', 'Charmander!', '🔥'],      // Charmander (Index 2)
-                ['Squirtle!', 'Squir!', '💧'],       // Squirtle (Index 3)
-                ['Saur!', 'Bulba!', '🍃', '✨']       // Bulbasaur (Index 4)
-            ];
-            
-            const roamers = [];
-
-            for (let i = 0; i < pokemonGifs.length; i++) {
-                const petDiv = document.createElement('div');
-                petDiv.className = 'pet-sprite-anim';
-                petDiv.style.position = 'fixed';
-                petDiv.style.bottom = '20px';
-                petDiv.style.zIndex = '9998';
-                
-                petDiv.innerHTML = `
-                    <img src="${pokemonGifs[i]}" style="height: 50px; width: auto;" alt="Roaming Pokemon" />
-                    <div class="pet-bubble"></div>
-                `;
-                roamingContainer.appendChild(petDiv);
-                
-                const bubble = petDiv.querySelector('.pet-bubble');
-
-                roamers.push({
-                    el: petDiv,
-                    bubble: bubble,
-                    x: Math.random() * 80 + 10,
-                    dir: Math.random() > 0.5 ? 1 : -1,
-                    speed: 0.02 + Math.random() * 0.03,
-                    bounds: [Math.random() * 15, 75 + Math.random() * 20], 
-                    state: 'walk', 
-                    timer: Math.floor(Math.random() * 200),
-                    bubbleTimer: 0,
-                    isHovered: false
-                });
-
-                petDiv.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const c = roamers[i];
-                    const phrases = pokemonPhrases[i];
-                    c.bubble.textContent = phrases[Math.floor(Math.random() * phrases.length)];
-                    c.bubble.classList.add('show');
-                    c.bubbleTimer = 180;
-                });
-                
-                petDiv.addEventListener('mouseenter', () => roamers[i].isHovered = true);
-                petDiv.addEventListener('mouseleave', () => roamers[i].isHovered = false);
-            }
-
-            function animateRoamers() {
-                roamers.forEach((c, index) => {
-                    if (!c.isHovered) {
-                        if (c.state === 'walk') {
-                            c.x += c.dir * c.speed;
-                            c.el.style.left = `${c.x}%`;
-                            if (c.dir === -1) c.el.classList.add('walking-left');
-                            else c.el.classList.remove('walking-left');
-
-                            // Boundary Check
-                            if (c.x > c.bounds[1]) {
-                                c.dir = -1;
-                                c.state = 'idle';
-                                c.timer = 60 + Math.random() * 100;
-                            } else if (c.x < c.bounds[0]) {
-                                c.dir = 1;
-                                c.state = 'idle';
-                                c.timer = 60 + Math.random() * 100;
-                            } else if (Math.random() < 0.002) {
-                                // Randomly stop
-                                c.state = 'idle';
-                                c.timer = 40 + Math.random() * 60;
-                            }
-                        } else if (c.state === 'idle') {
-                            c.timer--;
-                            if (c.timer <= 0) {
-                                c.state = 'walk';
-                                if (Math.random() < 0.1) c.dir *= -1; 
-                            }
-                        }
-                    }
-
-                    // Random Bubbles
-                    if (c.bubbleTimer > 0) {
-                        c.bubbleTimer--;
-                        if (c.bubbleTimer === 0) c.bubble.classList.remove('show');
-                    } else if (Math.random() < 0.001) { 
-                        const phrases = pokemonPhrases[index];
-                        c.bubble.textContent = phrases[Math.floor(Math.random() * phrases.length)];
-                        c.bubble.classList.add('show');
-                        c.bubbleTimer = 150;
-                    }
-                });
-
-                requestAnimationFrame(animateRoamers);
-            }
-            animateRoamers();
-
-            /* --- 4. SCROLL ANIMATIONS & GLOBE --- */
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('active');
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) navbar.classList.add('scrolled');
-                else navbar.classList.remove('scrolled');
-            });
-
-            const globe = document.getElementById('globe');
-            const globeContainer = document.getElementById('globe-container');
-
-            if (globe && globeContainer) {
-                let currentAngle = 0;
-                let speed = 0.25;
-                const targetSpeed = 0.25;
-                let isGlobeHovered = false;
-                let hasSpun = false;
-
-                globe.addEventListener('mouseenter', () => isGlobeHovered = true);
-                globe.addEventListener('mouseleave', () => isGlobeHovered = false);
-
-                function animateGlobe() {
-                    if (!isGlobeHovered) {
-                        speed = speed + (targetSpeed - speed) * 0.03;
-                        currentAngle += speed;
-                        globe.style.transform = `rotateX(-5deg) rotateY(${currentAngle}deg)`;
-                    }
-                    requestAnimationFrame(animateGlobe);
-                }
-                animateGlobe();
-
-                const globeObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && !hasSpun) {
-                            speed = 35;
-                            hasSpun = true;
-                        }
-                    });
-                }, { threshold: 0.2 });
-                globeObserver.observe(globeContainer);
-            }
-
-            /* --- 5. ADMIN MODAL TRIGGERS --- */
-            const passcodeModal = document.getElementById('passcodeModal');
-            const passcodeInput = document.getElementById('passcodeInput');
-            const passcodeError = document.getElementById('passcodeError');
-
-            let clickCount = 0;
-            let clickTimer;
-
-            const triggerAdminPrompt = () => {
-                passcodeInput.value = '';
-                passcodeError.style.display = 'none';
-                passcodeModal.classList.add('show');
-                setTimeout(() => passcodeInput.focus(), 100);
-                clickCount = 0;
-            };
-
-            const logos = document.querySelectorAll('.logo');
-            logos.forEach(logo => {
-                logo.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    clickCount++;
-                    clearTimeout(clickTimer);
-                    if (clickCount >= 5) {
-                        triggerAdminPrompt();
-                    } else {
-                        clickTimer = setTimeout(() => { clickCount = 0; }, 1500);
-                    }
-                });
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if ((e.ctrlKey || e.metaKey) && e.altKey && e.key.toLowerCase() === 'd') {
-                    e.preventDefault();
-                    triggerAdminPrompt();
-                }
-            });
-
-            const closePasscode = () => passcodeModal.classList.remove('show');
-            document.getElementById('cancelPasscodeBtn').addEventListener('click', closePasscode);
-            document.getElementById('closePasscodeOverlay').addEventListener('click', closePasscode);
-        });
-    </script>
-
-    <!-- Firebase Analytics Tracker -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';
-        import { getAuth, signInAnonymously, signInWithCustomToken } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';
-        import { getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
-
-        const activeConfig = window.myFirebaseConfig || (typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null);
-        const activePasscode = window.ADMIN_PASSCODE || (typeof __firebase_config !== 'undefined' ? "1234" : null);
-
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'my-portfolio-analytics';
-
-        const adminModal = document.getElementById('adminModal');
-        const passcodeModal = document.getElementById('passcodeModal');
-        const passcodeInput = document.getElementById('passcodeInput');
-        const passcodeError = document.getElementById('passcodeError');
-
-        let unsubscribeSnapshot = null;
-        let app, auth, db;
-
-        const handlePasscodeSubmit = () => {
-            if (passcodeInput.value === activePasscode) {
-                passcodeModal.classList.remove('show');
-                openDashboard();
-            } else {
-                passcodeError.style.display = 'block';
-                passcodeInput.value = '';
-                passcodeInput.focus();
-            }
-        };
-
-        document.getElementById('submitPasscodeBtn').addEventListener('click', handlePasscodeSubmit);
-        passcodeInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handlePasscodeSubmit(); });
-
-        const closeDashboard = () => {
-            adminModal.classList.remove('show');
-            if (unsubscribeSnapshot) unsubscribeSnapshot();
-        };
-
-        document.getElementById('closeAdminBtn').addEventListener('click', closeDashboard);
-        document.getElementById('closeAdminOverlay').addEventListener('click', closeDashboard);
-
-        const initAuth = async () => {
-            if (!auth) return;
-            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                await signInWithCustomToken(auth, __initial_auth_token);
-            } else {
-                await signInAnonymously(auth);
-            }
-        };
-
-        if (activeConfig && activeConfig.apiKey) {
-            app = initializeApp(activeConfig);
-            auth = getAuth(app);
-            db = getFirestore(app);
-
-            const trackVisitor = async () => {
-                try {
-                    await initAuth();
-                    const user = auth.currentUser;
-                    if (!user) return;
-
-                    const isOwner = typeof __initial_auth_token !== 'undefined' && !!__initial_auth_token;
-
-                    if (!isOwner && !sessionStorage.getItem('visit_logged')) {
-                        
-                        let ipAddress = "Unknown IP";
-                        let locationStr = "Unknown Location";
-                        let ispStr = "Unknown ISP";
-
-                        try {
-                            const ipResponse = await fetch('https://ipapi.co/json/');
-                            const ipData = await ipResponse.json();
-                            if(ipData.ip) {
-                                ipAddress = ipData.ip;
-                                locationStr = `${ipData.city || 'Unknown City'}, ${ipData.country_name || 'Unknown Country'}`;
-                                ispStr = ipData.org || 'Unknown ISP';
-                            }
-                        } catch (e) {
-                            console.warn("Failed to fetch detailed IP address info.");
-                        }
-
-                        const ua = navigator.userAgent;
-                        let browser = "Unknown Browser";
-                        if (ua.includes("Firefox")) browser = "Firefox";
-                        else if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
-                        else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
-                        else if (ua.includes("Edg")) browser = "Edge";
-
-                        let os = "Unknown OS";
-                        if (ua.includes("Win")) os = "Windows";
-                        else if (ua.includes("Mac")) os = "MacOS";
-                        else if (ua.includes("Linux")) os = "Linux";
-                        else if (ua.includes("Android")) os = "Android";
-                        else if (ua.includes("like Mac")) os = "iOS";
-
-                        let language = navigator.language || "Unknown";
-                        let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
-                        let referrer = document.referrer || "Direct";
-
-                        await addDoc(visitsRef, {
-                            uid: user.uid,
-                            ip: ipAddress,
-                            location: locationStr,
-                            isp: ispStr,
-                            browser: browser,
-                            os: os,
-                            isMobile: /Mobi|Android/i.test(ua),
-                            screen: `${window.screen.width}x${window.screen.height}`,
-                            language: language,
-                            timezone: timezone,
-                            referrer: referrer,
-                            timestamp: serverTimestamp()
-                        });
-
-                        sessionStorage.setItem('visit_logged', 'true');
-                    }
-                } catch (error) {
-                    console.error("Analytics Setup Error:", error);
-                }
-            };
-            trackVisitor();
-        }
-
-        const openDashboard = async () => {
-            if (!activeConfig || !activeConfig.apiKey) {
-                adminModal.classList.add('show');
-                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center; padding: 2rem;"><strong>Configuration Missing</strong><br>Firebase is not configured.<br><br>The <code>config.js</code> file could not be found or is empty. If you are on GitHub Pages, ensure your GitHub Actions workflow successfully injected the secret.</td></tr>';
-                return;
-            }
-
-            let user = auth.currentUser;
-            if (!user) {
-                await initAuth();
-                user = auth.currentUser;
-            }
-            if (!user) {
-                adminModal.classList.add('show');
-                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center;">Authentication error. Please refresh the page and try again.</td></tr>';
-                return;
-            }
-
-            adminModal.classList.add('show');
-            const visitsRef = collection(db, 'artifacts', appId, 'public', 'data', 'portfolio_visits');
-            const q = query(visitsRef);
-
-            unsubscribeSnapshot = onSnapshot(q, (snapshot) => {
-                const visits = [];
-                snapshot.forEach(doc => visits.push({ id: doc.id, ...doc.data() }));
-
-                // Sort newest first
-                visits.sort((a, b) => (b.timestamp?.toMillis() || 0) - (a.timestamp?.toMillis() || 0));
-
-                const totalViews = visits.length;
-                const uniqueUsers = new Set(visits.map(v => v.uid)).size;
-                const mobileCount = visits.filter(v => v.isMobile).length;
-                const desktopCount = totalViews - mobileCount;
-
-                document.getElementById('statTotalViews').innerText = totalViews;
-                document.getElementById('statUniqueUsers').innerText = uniqueUsers;
-                document.getElementById('statDeviceSplit').innerText = `${desktopCount} Desktop / ${mobileCount} Mobile`;
-
-                // Group visits by IP (or UID) to avoid duplicates
-                const groupedVisitsMap = {};
-                visits.forEach(visit => {
-                    const key = (visit.ip && visit.ip !== 'Unknown IP') ? visit.ip : visit.uid;
-                    if (!groupedVisitsMap[key]) {
-                        groupedVisitsMap[key] = {
-                            ...visit, // Stores the latest visit's data
-                            visitCount: 0,
-                            history: []
-                        };
-                    }
-                    groupedVisitsMap[key].visitCount++;
-                    const visitDate = visit.timestamp ? new Date(visit.timestamp.toDate()).toLocaleString() : 'Just now';
-                    groupedVisitsMap[key].history.push(visitDate);
-                });
-
-                const groupedVisits = Object.values(groupedVisitsMap);
-
-                const tbody = document.getElementById('visitLogBody');
-                tbody.innerHTML = '';
-
-                if (groupedVisits.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No visitors yet.</td></tr>';
-                    return;
-                }
-
-                // Render grouped Table rows
-                groupedVisits.slice(0, 20).forEach(visit => {
-                    const date = visit.history[0]; // The most recent visit
-                    const ip = visit.ip || 'Unknown IP';
-                    const tr = document.createElement('tr');
-                    tr.className = 'hover-row';
-                    tr.style.cursor = 'pointer';
-                    
-                    tr.innerHTML = `
-                        <td>
-                            ${date}<br>
-                            <span style="font-size: 0.8em; color: #666;"><i class="fas fa-map-marker-alt"></i> ${visit.location || 'Unknown'}</span>
-                        </td>
-                        <td>
-                            ${visit.browser || 'Unknown'} / ${visit.os || 'Unknown'}<br>
-                            <span style="font-size: 0.8em; color: #666;">${visit.isMobile ? '📱 Mobile' : '💻 Desktop'} (${visit.screen || 'N/A'})</span>
-                        </td>
-                        <td style="font-family: monospace;">
-                            <span style="color: var(--accent-color);">${ip}</span> 
-                            <span style="background: rgba(0, 208, 132, 0.15); color: var(--accent-color); padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-left: 5px; border: 1px solid rgba(0, 208, 132, 0.4);">
-                                ${visit.visitCount} visit${visit.visitCount > 1 ? 's' : ''}
-                            </span><br>
-                            <span style="font-size: 0.8em; color: #666; font-family: sans-serif;"><i class="fas fa-network-wired"></i> ${visit.isp || 'Unknown'}</span>
-                        </td>
-                        <td>
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
-                                    <span style="font-size: 0.85em;">Ref: ${visit.referrer || 'Direct'}</span><br>
-                                    <span style="font-size: 0.8em; color: #666;">TZ: ${visit.timezone || 'N/A'} | ${visit.language || 'N/A'}</span>
-                                </div>
-                                <i class="fas fa-chevron-down" style="color: #666; transition: transform 0.3s;"></i>
-                            </div>
-                        </td>
-                    `;
-
-                    // Details History Row (Hidden by default)
-                    const detailsTr = document.createElement('tr');
-                    detailsTr.style.display = 'none';
-                    detailsTr.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
-                    
-                    let historyList = visit.history.map((t, i) => 
-                        `<li style="margin-bottom: 6px; padding-left: 10px; border-left: 2px solid var(--accent-color);">
-                            ${t} <span style="color: #666; font-size: 0.85em; margin-left: 8px;">(Visit #${visit.visitCount - i})</span>
-                        </li>`
-                    ).join('');
-                    
-                    detailsTr.innerHTML = `
-                        <td colspan="4" style="padding: 0;">
-                            <div style="padding: 1.5rem 2rem; border-left: 4px solid var(--accent-color);">
-                                <h4 style="color: white; margin-bottom: 0.8rem; font-size: 0.9em; display: flex; align-items: center; gap: 0.5rem;">
-                                    <i class="fas fa-history" style="color: var(--accent-color);"></i> Session History
-                                </h4>
-                                <ul style="list-style: none; padding: 0; margin: 0; color: #A1A1AA; font-size: 0.85em; max-height: 150px; overflow-y: auto;">
-                                    ${historyList}
-                                </ul>
-                            </div>
-                        </td>
-                    `;
-
-                    // Click toggle logic
-                    tr.addEventListener('click', () => {
-                        const isHidden = detailsTr.style.display === 'none';
-                        detailsTr.style.display = isHidden ? 'table-row' : 'none';
-                        tr.style.backgroundColor = isHidden ? 'rgba(255, 255, 255, 0.05)' : 'transparent';
-                        const icon = tr.querySelector('.fa-chevron-down');
-                        if(icon) {
-                            icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
-                        }
-                    });
-
-                    tbody.appendChild(tr);
-                    tbody.appendChild(detailsTr);
-                });
-            }, (error) => {
-                console.error("Dashboard Error:", error);
-                document.getElementById('visitLogBody').innerHTML = '<tr><td colspan="4" style="color:#ef4444; text-align:center;">Error fetching data. Ensure database is connected and security rules are configured.</td></tr>';
-            });
-        };
-    </script>
+    <div class="flip r" id="flip" tabindex="0" role="button" aria-label="Flip to reveal photo"><div>
+      <div class="f">CLICK TO<br>REVEAL<br>MY FACE</div>
+      <div class="b"><img src="profile.jpg" alt="Lim Sean Shen" onerror="this.src='https://ui-avatars.com/api/?name=Sean+Shen&background=4f8f3a&color=fff&size=500'"></div>
+    </div></div>
+  </div>
+</div>
+
+<section id="journey"><div class="wrap">
+  <h2>My Journey</h2><p class="lead">The roadmap of my professional and academic evolution.</p>
+  <div class="tl">
+    <div class="r p"><small>Current</small><h3>TBD</h3><h4>Penang, Malaysia</h4><p>Currently working, trying to pursue a master degree in oversea......</p></div>
+    <div class="r p"><small>Jun 2025 – Dec 2025</small><h3>Data Analyst Internship</h3><h4>CBIEV, TARUMT</h4><p>Developed automation systems for project tracking and managed sentiment analysis for governmental projects, streamlining decision-making workflows.</p></div>
+    <div class="r p"><small>Nov 2022 – Dec 2025</small><h3>Bachelor of Data Science</h3><h4>TARUMT (CGPA: 3.7175)</h4><p>Achieved Top 5 Capstone, secured an IEEE Publication, and delivered presentations on international stages.</p></div>
+    <div class="r p"><small>Sep 2021 – Sep 2022</small><h3>Foundation in Computing</h3><h4>TARUMT (CGPA: 3.7333)</h4><p>Built a highly rigorous and solid foundation in core computing principles, algorithms, and programming.</p></div>
+  </div>
+</div></section>
+
+<section id="achievements"><div class="wrap">
+  <h2>Achievements</h2>
+  <p class="lead">Hover for details, click a card to open its certificate. Unlock them all.</p>
+  <div class="grid" id="achGrid"></div>
+  <div class="prog mc"><span id="progTx">0 / 0 unlocked</span><div class="bar"><i id="progBar"></i></div></div>
+  <div class="badge">
+    <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="15031ea5-a450-4cc4-bead-74be1dd7f1a3" data-share-badge-host="https://www.credly.com"></div><script async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <h2>Selected work</h2><p class="lead">Data engineering, visualisation and AI in practice.</p>
+  <div class="cards">
+    <a class="card r" href="https://github.com/GiDerAce6969/FYP-Campaign-Optimization" target="_blank" rel="noopener">
+      <div class="meta"><span class="tag">GenAI</span><span class="tag">Streamlit</span></div>
+      <h3>AI-Driven Campaign Optimization</h3><p>Generative AI and Streamlit turn campaign data into clear, data-backed marketing decisions. View the repository.</p></a>
+    <a class="card r" href="#blog">
+      <div class="meta"><span class="tag">BI</span><span class="tag">UI/UX</span></div>
+      <h3>Business Intelligence Dashboard</h3><p>A BI platform that aggregates multiple databases into one real-time, easy-to-read view. Read the write-up.</p></a>
+  </div>
+</div></section>
+
+<section id="games"><div class="wrap">
+  <h2>What I play</h2><p class="lead">When I'm not working you'll find me here.</p>
+  <div class="grid" id="gameGrid"></div>
+</div></section>
+
+<section id="blog"><div class="wrap">
+  <h2>Blog</h2><p class="lead">In Construction...</p>
+  <div class="cards" id="posts"></div>
+</div></section>
+
+<section id="wish"><div class="wrap"><div class="sign r"><h3>What I want to do</h3><p>✈️ Travel</p></div></div></section>
+
+<section id="contact"><div class="wrap"><div class="cta p r">
+  <h2>Ready to scale your data strategy?</h2>
+  <p>Currently exploring Master's Degree programs in data science or business analysis, full-time engineering roles, and exciting industry collaborations.</p>
+  <div class="btns" style="justify-content:center">
+    <a class="btn" href="mailto:sslim1684@gmail.com">Contact via Email</a>
+    <a class="btn o" href="https://www.linkedin.com/in/lim-sean-shen-501b91352/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  </div>
+</div></div></section>
+</main>
+
+<main id="post"><div class="wrap" style="padding:4rem 0"><button class="back" id="back">← All posts</button><article class="post p" id="postBody"></article></div></main>
+
+<footer>© 2026 Lim Sean Shen. Built with care.</footer>
+
+<div class="modal" id="pass"><div class="box" style="max-width:340px;text-align:center"><h3>Admin access</h3><input type="password" id="passIn" placeholder="Passcode"><p id="passErr" style="color:#f87171;display:none">Incorrect passcode.</p><button class="btn" id="passGo">Unlock</button></div></div>
+<div class="modal" id="admin"><div class="box"><div style="display:flex;justify-content:space-between"><h3>Visitors</h3><button class="icon-btn" id="adminX" style="color:#fff">✕</button></div><p id="stats" style="margin:1rem 0">Loading…</p><table><thead><tr><th>Time</th><th>Device</th><th>IP / ISP</th><th>Referrer</th></tr></thead><tbody id="log"></tbody></table></div></div>
+
+<script>
+/* ---- Content: edit these arrays to add achievements and blog posts ---- */
+const ACH=[
+ {i:'📜',t:'Derivatives Mastery',d:'Bursa Malaysia derivatives e-course.',l:'Derivatives eCourse From Fundamentals to Mastery.pdf'},
+ {i:'🏆',t:'Nanning Comp',d:'Participated in the Nanning innovation competition (TAR UMT & CBIEV).',l:'Nanning Competition.pdf'},
+ {i:'🎤',t:'Symposium Speaker',d:'International Joint Student Research Symposium, BINUS University.',l:'[E-Certificate] Lim Sean Shen -International Joint Student Reseach Symposium.pdf'},
+ {i:'🚀',t:'Commercialiser',d:'AsiaTech commercialization certificate.',l:'AsiaTech Cert.pdf'},
+ {i:'📚',t:'IEEE Author',d:'Published research paper, 2025.'},
+ {i:'🎓',t:"Dean's List",d:'CGPA 3.7175 with consistent Dean’s List results.'},
+ {i:'🥇',t:'Top 5 Capstone',d:'Ranked in the top 5 of the Capstone Project.'},
+ {i:'🔒',t:'Next: Master’s',d:'Unlocks when the next chapter begins.',x:1}
+];
+const POSTS=[
+ {id:'welcome',t:'Welcome: why I started writing',d:'2026-01-10',g:['Personal'],s:'What this blog is for and what to expect.',b:['I have spent years turning raw numbers into decisions. This blog is where I share what worked, what broke, and what I learned.','### What you will find','Project write-ups, short tutorials in SQL and Python, and honest notes from my internship and research.','Replace this text with your own writing, since each post is just an entry in the POSTS array.']},
+ {id:'bi-dashboard',t:'Building a BI dashboard across multiple databases',d:'2026-02-03',g:['BI','SQL'],s:'How I aggregated several sources into one live view.',b:['The goal was simple: one dashboard, many databases, no manual exports.','### Approach','Normalise each source first, define shared metrics once, then connect the visual layer. Clean UI matters as much as clean data.','Add your screenshots, queries and lessons here.']},
+ {id:'ieee',t:'From capstone to IEEE paper',d:'2026-03-15',g:['Research'],s:'What it took to turn a student project into a publication.',b:['Publishing taught me more about clear thinking than any lecture.','### Lessons','Start the write-up early, keep experiments reproducible, and ask for feedback often.','Add your own story and link the paper here.']}
+];
+/* ---- Helpers ---- */
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* theme */
+const root=document.documentElement;root.dataset.theme=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+$('#theme').onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}};
+/* skin */
+const sk=$('#skin'),setSk=k=>{root.dataset.skin=k;sk.textContent=k==='genshin'?'⛏️':'✨';sk.title=k==='genshin'?'Switch to Minecraft look':'Switch to Genshin look';try{localStorage.setItem('skin',k)}catch(e){}};
+setSk(localStorage.getItem('skin')==='genshin'?'genshin':'minecraft');
+sk.onclick=()=>setSk(root.dataset.skin==='genshin'?'minecraft':'genshin');
+/* flip */
+const fl=$('#flip');fl.onclick=()=>fl.classList.toggle('on');fl.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fl.click()}};
+/* achievements */
+let seen=new Set(JSON.parse(localStorage.getItem('ach')||'[]'));
+const grid=$('#achGrid'),tip=$('#tip');
+ACH.forEach((a,n)=>{
+ const el=document.createElement(a.l?'a':'div');el.className='ach slot mc'+(a.x&&!seen.has(n)?' locked':'');
+ if(a.l){el.href=encodeURI(a.l);el.target='_blank';el.rel='noopener'}
+ el.innerHTML=`<span class="ic">${a.i}</span>${esc(a.t)}`;
+ el.onmousemove=e=>{tip.innerHTML=`<b>${esc(a.t)}</b>${esc(a.d)}<br><i>${a.x?'Locked':'Unlocked'}</i>`;tip.style.opacity=1;tip.style.left=Math.min(e.clientX+14,innerWidth-280)+'px';tip.style.top=e.clientY+14+'px'};
+ el.onmouseleave=()=>tip.style.opacity=0;
+ el.onclick=()=>{if(!a.x)unlock(n,a)};
+ grid.appendChild(el);
+});
+function prog(){const total=ACH.filter(a=>!a.x).length,got=[...seen].filter(n=>!ACH[n].x).length;$('#progTx').textContent=`${got} / ${total} unlocked`;$('#progBar').style.width=(total?got/total*100:0)+'%'}
+function toast(ic,tx){$('#tH').textContent=root.dataset.skin==='genshin'?'Achievement Unlocked!':'Advancement Made!';$('#tIc').textContent=ic;$('#tTx').textContent=tx;const t=$('#toast');t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3200)}
+function unlock(n,a){if(seen.has(n))return;seen.add(n);try{localStorage.setItem('ach',JSON.stringify([...seen]))}catch(e){}prog();toast(a.i,a.t)}
+prog();
+/* unlock by exploring: scroll to sections */
+const sec={journey:[0,'📜','Time Traveller'],work:[1,'⛏️','Miner of Projects']};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');const s=sec[e.target.id];if(s&&!seen.has('s'+s[0])){seen.add('s'+s[0]);toast(s[1],s[2])}}}),{threshold:.15});
+document.querySelectorAll('.r,section').forEach(e=>io.observe(e));
+/* games */
+function tipOn(el,t,d,st){el.onmousemove=e=>{tip.innerHTML=`<b>${esc(t)}</b>${esc(d)}<br><i>${esc(st)}</i>`;tip.style.opacity=1;tip.style.left=Math.min(e.clientX+14,innerWidth-280)+'px';tip.style.top=e.clientY+14+'px'};el.onmouseleave=()=>tip.style.opacity=0}
+const GAMES=[['🌬️','Genshin Impact','Open-world action RPG'],['🚂','Honkai: Star Rail','Turn-based space fantasy RPG'],['⛏️','Minecraft','Sandbox building and survival'],['⚔️','League of Legends','5v5 team strategy MOBA'],['🌧️','Risk of Rain 2','Co-op roguelike shooter']];
+GAMES.forEach(([i,t,d])=>{const el=document.createElement('div');el.className='ach gm slot mc';el.innerHTML=`<span class="ic">${i}</span>${esc(t)}<small>${esc(d)}</small>`;tipOn(el,t,d,'I play this');$('#gameGrid').appendChild(el)});
+/* blog */
+const posts=$('#posts');
+POSTS.forEach(p=>{const a=document.createElement('a');a.className='card r';a.href='#post/'+p.id;
+ a.innerHTML=`<div class="meta">${new Date(p.d).toLocaleDateString('en',{year:'numeric',month:'short',day:'numeric'})} ${p.g.map(g=>`<span class="tag">${esc(g)}</span>`).join('')}</div><h3>${esc(p.t)}</h3><p>${esc(p.s)}</p>`;posts.appendChild(a)});
+function route(){
+ const m=location.hash.match(/^#post\/(.+)$/),p=m&&POSTS.find(x=>x.id===m[1]);
+ $('#main').style.display=p?'none':'';$('#post').style.display=p?'block':'none';
+ if(p){$('#postBody').innerHTML=`<div class="meta">${p.d} ${p.g.map(g=>`<span class="tag">${esc(g)}</span>`).join('')}</div><h1>${esc(p.t)}</h1>`+p.b.map(x=>x.startsWith('### ')?`<h3>${esc(x.slice(4))}</h3>`:`<p>${esc(x)}</p>`).join('');document.title=p.t+' | Sean Shen';scrollTo(0,0);toast('📖','Bookworm')}
+}
+addEventListener('hashchange',route);route();
+$('#back').onclick=()=>{location.hash='#blog'};
+/* admin triggers (5 clicks on logo or Ctrl/Cmd+Alt+D) */
+let clicks=0,ct;const askPass=()=>{$('#passIn').value='';$('#passErr').style.display='none';$('#pass').classList.add('show');setTimeout(()=>$('#passIn').focus(),80);clicks=0};
+$('#logo').addEventListener('click',()=>{clicks++;clearTimeout(ct);if(clicks>=5)askPass();else ct=setTimeout(()=>clicks=0,1500)});
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.altKey&&e.key.toLowerCase()==='d'){e.preventDefault();askPass()}if(e.key==='Escape')document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'))});
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show')}));
+$('#adminX').onclick=()=>$('#admin').classList.remove('show');
+</script>
+
+<script type="module">
+import{initializeApp}from'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';
+import{getAuth,signInAnonymously,signInWithCustomToken}from'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';
+import{getFirestore,collection,addDoc,serverTimestamp,onSnapshot,query}from'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
+const cfg=window.myFirebaseConfig||(typeof __firebase_config!=='undefined'?JSON.parse(__firebase_config):null);
+const code=window.ADMIN_PASSCODE||(typeof __firebase_config!=='undefined'?'1234':null);
+const appId=typeof __app_id!=='undefined'?__app_id:'my-portfolio-analytics';
+let auth,db,visits,unsub;
+const signIn=async()=>{typeof __initial_auth_token!=='undefined'&&__initial_auth_token?await signInWithCustomToken(auth,__initial_auth_token):await signInAnonymously(auth)};
+if(cfg&&cfg.apiKey){
+ const app=initializeApp(cfg);auth=getAuth(app);db=getFirestore(app);
+ visits=collection(db,'artifacts',appId,'public','data','portfolio_visits');
+ (async()=>{try{
+  await signIn();const u=auth.currentUser;
+  const owner=typeof __initial_auth_token!=='undefined'&&!!__initial_auth_token;
+  if(!u||owner||sessionStorage.getItem('visit_logged'))return;
+  let ip='Unknown IP',loc='Unknown',isp='Unknown';
+  try{const d=await(await fetch('https://ipapi.co/json/')).json();if(d.ip){ip=d.ip;loc=`${d.city||'?'}, ${d.country_name||'?'}`;isp=d.org||isp}}catch(e){}
+  const ua=navigator.userAgent;
+  const browser=/Firefox/.test(ua)?'Firefox':/Edg/.test(ua)?'Edge':/Chrome/.test(ua)?'Chrome':/Safari/.test(ua)?'Safari':'Other';
+  const os=/Android/.test(ua)?'Android':/iPhone|iPad/.test(ua)?'iOS':/Win/.test(ua)?'Windows':/Mac/.test(ua)?'MacOS':/Linux/.test(ua)?'Linux':'Other';
+  await addDoc(visits,{uid:u.uid,ip,location:loc,isp,browser,os,isMobile:/Mobi|Android/i.test(ua),screen:`${screen.width}x${screen.height}`,language:navigator.language,timezone:Intl.DateTimeFormat().resolvedOptions().timeZone,referrer:document.referrer||'Direct',timestamp:serverTimestamp()});
+  sessionStorage.setItem('visit_logged','1');
+ }catch(e){console.error('Analytics error',e)}})();
+}
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const open=async()=>{
+ const m=document.getElementById('admin');m.classList.add('show');
+ if(!db){document.getElementById('stats').textContent='Firebase is not configured. Check that config.js exists and is filled in.';return}
+ if(!auth.currentUser)await signIn();
+ unsub&&unsub();
+ unsub=onSnapshot(query(visits),snap=>{
+  const v=[];snap.forEach(d=>v.push(d.data()));
+  v.sort((a,b)=>(b.timestamp?.toMillis()||0)-(a.timestamp?.toMillis()||0));
+  const mob=v.filter(x=>x.isMobile).length;
+  document.getElementById('stats').textContent=`${v.length} views · ${new Set(v.map(x=>x.uid)).size} unique · ${v.length-mob} desktop / ${mob} mobile`;
+  document.getElementById('log').innerHTML=v.slice(0,20).map(x=>`<tr><td>${x.timestamp?esc(x.timestamp.toDate().toLocaleString()):'now'}<br>${esc(x.location)}</td><td>${esc(x.browser)} / ${esc(x.os)}<br>${x.isMobile?'Mobile':'Desktop'}</td><td>${esc(x.ip)}<br>${esc(x.isp)}</td><td>${esc(x.referrer)}</td></tr>`).join('')||'<tr><td colspan="4">No visitors yet.</td></tr>';
+ },err=>{document.getElementById('stats').textContent='Error loading data. Check your Firestore rules.';console.error(err)});
+};
+const go=()=>{const i=document.getElementById('passIn');if(i.value===code){document.getElementById('pass').classList.remove('show');open()}else{document.getElementById('passErr').style.display='block';i.value=''}};
+document.getElementById('passGo').onclick=go;
+document.getElementById('passIn').addEventListener('keydown',e=>{if(e.key==='Enter')go()});
+</script>
 </body>
-
 </html>
