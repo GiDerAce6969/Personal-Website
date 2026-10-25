@@ -7,16 +7,17 @@
 
 ### 👋 About Me
 
-I am a passionate and analytical Data Science graduate, driven to uncover the stories hidden within data. My goal is to leverage my skills in a full-time role where I can tackle meaningful problems and grow as a data professional.
+I am a passionate and analytical Data Science graduate, want to pursue a master degree in Data Science / Data Analytics / Economics, or any Business Intelligence related degree, in overseas.
 
 -   🎓 **Education:** Bachelor's in Data Science (Honours) from TARUMT with a CGPA of **3.7175**, earning both Dean's and President's List awards.
 -   💡 **Core Skills:** My expertise lies in Python, SQL, and AI/Machine Learning, with hands-on experience building end-to-end data products.
 -   🔍 **Problem Solver:** I am a detail-oriented individual, committed to developing practical, data-driven solutions and eager to contribute to a forward-thinking team.
--   🌱 **Career Goal:** Actively seeking **full-time job opportunities** in data science, AI engineering, and data analysis. 
+-   🌱 **Career Goal:** Actively seeking **full-time job opportunities** in data science, AI engineering, and data analysis (In future)
 
-**UPDATE 5/3/2026** 
+**UPDATE 25/10/2026** 
 
-Currently purusing in job enployment
+Currently employed, not related to my degree sad.
+But I sincerely hope I will have a better job that related what I learnt, what I want, and what I am passionate in.
 
 ---
 
